@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import cardStyles from "../styles/Card.module.css";
 
-const Card = ({ link }) => {
-  const { link_src, fig_caption, img_src, img_alt } = link;
+const Card = ({ card }) => {
+  const { link_src, fig_caption, img_src, img_alt } = card;
   return (
     <div className={cardStyles.card}>
       <Link href={link_src}>

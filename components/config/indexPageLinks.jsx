@@ -1,6 +1,6 @@
 import { paths } from "./paths";
 
-export const pageLinks = [
+export const pageCards = [
   {
     link_src: paths.Pricing,
     img_src: `/thumbnails${paths.Pricing}.jpg`,

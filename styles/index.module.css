@@ -1,6 +1,15 @@
 .card_grid_wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(175px, auto));
   grid-gap: 2em;
   padding: 1em 1em;
+}
+
+/* min-width here is arbitrary as long as its above 480ish and below 713 */
+/* as that's when it adjusts to 1x4 or 2x2 itself */
+@media (min-width: 638px) and (max-width: 845px) {
+  .card_grid_wrapper {
+    grid-template-columns: repeat(2, minmax(200px, auto));
+    grid-template-rows: repeat(2, minmax(200px, auto));
+  }
 }
