@@ -5,7 +5,7 @@
   background: linear-gradient(180deg, var(--header-bg-color), 80%, #ccc);
 }
 
-.wrapper {
+.title_wrapper {
   display: flex;
   align-items: center;
 }

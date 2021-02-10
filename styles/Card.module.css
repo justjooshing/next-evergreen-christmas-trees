@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  place-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ddd);
+  cursor: pointer;
+  margin: auto;
+}
+
+.image {
+  width: 100%;
+  max-height: 15vh;
+  object-fit: cover;
+}
+
+.figcaption {
+  display: flex;
+  place-content: center;
+  text-align: center;
+  color: var(--header-text-color);
+  margin-bottom: 10px;
+}
