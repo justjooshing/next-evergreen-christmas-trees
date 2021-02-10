@@ -1,11 +1,9 @@
-import Head from "next/head";
+import CustomHead from "../components/CustomHead";
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Home - Evergreen Christmas Trees</title>
-      </Head>
+      <CustomHead pageName="Home" />
       <h1>Home Page</h1>
     </div>
   );

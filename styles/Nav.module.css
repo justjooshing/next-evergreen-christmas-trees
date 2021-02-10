@@ -1,17 +1,14 @@
-.nav {
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .nav ul {
+  margin: 0em;
   display: flex;
+  list-style: none;
 }
 
 .nav li {
-  list-style: none;
-  padding: 1em;
+  padding: 0px 10px;
+  text-align: center;
+  color: var(--header-text-color);
+  display: flex;
+  place-items: center;
+  font-family: var(--main-text-font);
 }

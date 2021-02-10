@@ -1,12 +1,20 @@
+import Link from "next/link";
+import Nav from "./Nav";
+
 import headerStyles from "../styles/Header.module.css";
 
 const Header = () => {
   return (
-    <div>
+    <header className={headerStyles.main}>
       <h1 className={headerStyles.title}>
-        <span>Test</span>
+        <Link href="/">
+          <a>Evergreen Christmas Trees</a>
+        </Link>
       </h1>
-    </div>
+      <img src="./icons/Tree Logo.png" alt="Christmas Tree" id="header-image" />
+      {/* Evergreen Christmas Trees title and logo */}
+      <Nav />
+    </header>
   );
 };
 
