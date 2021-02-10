@@ -1,5 +1,13 @@
 .main {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ccc);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .title {
