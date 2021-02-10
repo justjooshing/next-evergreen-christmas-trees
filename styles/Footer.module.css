@@ -1,0 +1,7 @@
+.main {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ccc);
+  color: var(--header-text-color);
+  font-size: calc(12px + (16 - 12) * ((100vw - 250px) / (1600 - 250)));
+}
