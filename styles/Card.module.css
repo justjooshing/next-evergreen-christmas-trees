@@ -1,16 +1,18 @@
 .card {
-  display: flex;
-  place-items: center;
-  flex-direction: column;
+  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ddd);
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 3px 3px 5px rgb(0, 0, 0);
-  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ddd);
-  cursor: pointer;
-  margin: auto;
 }
 
 .image {
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+}
+
+/* need to target child img to prevent being overruled by nextJS image component */
+.image img {
   object-fit: cover;
 }
 
