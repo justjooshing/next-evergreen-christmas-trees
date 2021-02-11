@@ -1,11 +1,46 @@
-.nav ul {
+/* Tabbed class names are for tabbed menu instead of hamburger menu */
+
+.tabbed {
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ccc);
+  margin-top: 10em;
+}
+
+.nav ul,
+.tabbed ul {
   display: flex;
   list-style: none;
 }
 
-.nav li {
+.tabbed ul {
+  width: 100vw;
+  place-content: space-evenly;
+  padding: 0;
+}
+
+.nav li,
+.tabbed li {
   font-size: 13px;
   padding: 0px 10px;
   color: var(--header-text-color);
   font-family: var(--main-text-font);
+}
+
+.hamburger {
+  cursor: pointer;
+  background-color: inherit;
+  padding: 0.5em;
+  border-radius: 30%;
+}
+
+.hamburger > span {
+  display: block;
+  width: 27px;
+  height: 4px;
+  margin-bottom: 4px;
+  background-color: transparent;
+  border-radius: 10%/50%;
+  border: solid var(--header-text-color) 1px;
 }
