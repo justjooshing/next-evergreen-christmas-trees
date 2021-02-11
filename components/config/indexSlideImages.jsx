@@ -1,15 +1,16 @@
 export default [
-  {
-    src: "/slideshow_images/index/IMG_0454.jpeg",
-    alt: "Christmas tree image",
-    width: 3024,
-    height: 4032,
-  },
+  // Width and height are here for the nextjs image component
   {
     src: "/slideshow_images/index/IMG_5249.jpg",
     alt: "Evergreen trees fence and sign",
     width: 2457,
     height: 1755,
+  },
+  {
+    src: "/slideshow_images/index/IMG_0454.jpeg",
+    alt: "Christmas tree image",
+    width: 3024,
+    height: 4032,
   },
   {
     src: "/slideshow_images/index/IMG_5253.JPG",

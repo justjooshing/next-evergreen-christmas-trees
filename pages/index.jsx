@@ -17,13 +17,13 @@ export default function Home() {
   );
 
   useEffect(() => {
+    setVisibleSlideImage(slideDetails[counter].alt);
     const interval = setInterval(() => {
       if (counter === slideDetails.length - 1) {
         setCounter(0);
       } else {
         setCounter((counter) => counter + 1);
       }
-      setVisibleSlideImage(slideDetails[counter].alt);
     }, 5000);
     return () => {
       clearInterval(interval);
