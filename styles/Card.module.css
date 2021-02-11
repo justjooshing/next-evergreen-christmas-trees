@@ -1,3 +1,20 @@
+.card_grid_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 2em;
+  padding: 1em 1em;
+  place-content: center;
+}
+
+/* min-width here is arbitrary but needs to be updated to cover the 3x1
+  range so it adjusts to 1x4 or 2x2 itself */
+@media (min-width: 638px) and (max-width: 945px) {
+  .card_grid_wrapper {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, minmax(200px, 1fr));
+  }
+}
+
 .card {
   background: linear-gradient(180deg, var(--header-bg-color), 80%, #ddd);
   border-radius: 30px;
