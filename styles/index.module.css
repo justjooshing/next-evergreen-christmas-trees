@@ -7,8 +7,7 @@
 }
 
 /* min-width here is arbitrary but needs to be updated to cover the 3x1
-  range when the card sizing is sorted */
-/* so it adjusts to 1x4 or 2x2 itself */
+  range so it adjusts to 1x4 or 2x2 itself */
 @media (min-width: 638px) and (max-width: 945px) {
   .card_grid_wrapper {
     grid-template-columns: repeat(2, minmax(200px, 1fr));

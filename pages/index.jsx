@@ -6,7 +6,7 @@ import style from "../styles/index.module.css";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <CustomHead pageName="Home" />
       <h1>Home Page</h1>
       <section className={style.card_grid_wrapper}>
@@ -14,6 +14,6 @@ export default function Home() {
           <Card card={card} key={card.fig_caption} />
         ))}
       </section>
-    </div>
+    </>
   );
 }

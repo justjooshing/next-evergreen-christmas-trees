@@ -6,6 +6,7 @@ import headerStyles from "../styles/Header.module.css";
 
 const Header = () => (
   <header className={headerStyles.main}>
+    {/* Logo and H1 */}
     <div className={headerStyles.title_wrapper}>
       <h1 className={headerStyles.title}>
         <Link href="/">
@@ -23,7 +24,6 @@ const Header = () => (
         />
       </div>
     </div>
-    {/* Evergreen Christmas Trees title and logo */}
     <Nav />
   </header>
 );
