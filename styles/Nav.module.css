@@ -41,6 +41,7 @@
   height: 4px;
   margin-bottom: 4px;
   background-color: transparent;
-  border-radius: 10%/50%;
+  border-radius: 15%/45%;
   border: solid var(--header-text-color) 1px;
+  box-sizing: unset;
 }
