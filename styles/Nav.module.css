@@ -1,27 +1,9 @@
-/* Tabbed class names are for tabbed menu instead of hamburger menu */
-
-.tabbed {
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, var(--header-bg-color), 80%, #ccc);
-  margin-top: 10em;
-}
-
-.nav ul,
-.tabbed ul {
+.nav ul {
   display: flex;
   list-style: none;
 }
 
-.tabbed ul {
-  width: 100vw;
-  place-content: space-evenly;
-  padding: 0;
-}
-
-.nav li,
-.tabbed li {
+.nav li {
   font-size: 13px;
   padding: 0px 10px;
   color: var(--header-text-color);
@@ -29,6 +11,7 @@
 }
 
 .hamburger {
+  display: none;
   cursor: pointer;
   background-color: inherit;
   padding: 0.5em;
@@ -44,4 +27,42 @@
   border-radius: 15%/45%;
   border: solid var(--header-text-color) 1px;
   box-sizing: unset;
+}
+
+/* <805 is when the title h1 wraps to two lines */
+@media (max-width: 805px) {
+  .nav ul {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+.fsMenu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 99%;
+  z-index: 1;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  text-align: center;
+  justify-content: center;
+  line-height: 1em;
+}
+
+.fsMenu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: 100%;
+  padding: 0;
+  place-content: space-evenly;
 }

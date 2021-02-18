@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
 import Nav from "./Nav";
-import Hamburger from "./Hamburger";
 
 import headerStyles from "../styles/Header.module.css";
 
 const Header = () => {
-  const [width, setWidth] = useState();
-
-  useEffect(() => {
-    setWidth(window.innerWidth);
-  });
-
   return (
     <header className={headerStyles.main}>
       {/* Logo and H1 */}
@@ -35,7 +26,8 @@ const Header = () => {
           />
         </div>
       </div>
-      {width >= 700 ? <Nav /> : <Hamburger />}
+      {/* Either nav or hamburger will show depending on screen width */}
+      <Nav />
     </header>
   );
 };
