@@ -1,4 +1,3 @@
-import Image from "next/image";
 import imageStyle from "../styles/Slideshow.module.css";
 
 const SlideImage = ({ image, isVisible }) => {

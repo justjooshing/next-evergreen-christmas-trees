@@ -1,10 +1,24 @@
 import CustomHead from "../components/CustomHead";
 
-const contact = () => (
-  <>
-    <CustomHead pageName="Contact" />
-    <h1>Find us!</h1>
-  </>
-);
+import ContactDetails from "../components/ContactDetails";
+import MapWrapper from "../components/MapWrapper";
+import OpeningHours from "../components/OpeningHours";
+
+import contactStyle from "../styles/Contact.module.css";
+
+const contact = () => {
+  return (
+    <>
+      <CustomHead pageName="Contact" />
+      <section className={contactStyle.main}>
+        <MapWrapper />
+        <div className={contactStyle.allDetails}>
+          <OpeningHours />
+          <ContactDetails />
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default contact;
