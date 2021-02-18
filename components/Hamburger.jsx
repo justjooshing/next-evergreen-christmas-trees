@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
+// import HeaderWrapper from "./HeaderWrapper";
 
 import navStyles from "../styles/Nav.module.css";
 
@@ -11,6 +13,8 @@ const Hamburger = ({ navItems }) => {
 
   return showMenu ? (
     <nav className={navStyles.fsMenu} onClick={handleClick}>
+      {/* Header here in case we want to show it on the menu */}
+      {/* <HeaderWrapper /> */}
       <ul>{navItems}</ul>
     </nav>
   ) : (

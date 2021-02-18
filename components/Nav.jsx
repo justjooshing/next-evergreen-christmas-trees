@@ -12,6 +12,8 @@ const Nav = () => {
 
   return (
     <>
+      {/* Inside here we're either displaying the nav items in the header
+        or displaying the nav items when the hamburger menu is clicked */}
       <nav className={navStyles.nav}>
         <ul>{navItems}</ul>
       </nav>
