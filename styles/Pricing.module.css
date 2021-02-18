@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   place-content: space-evenly;
-  color: white;
   text-align: center;
   padding: 1em;
 }
