@@ -11,24 +11,24 @@ import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 
 export default function Home() {
-  const [counter, setCounter] = useState(0);
+  const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideDetails[0].alt
   );
 
   useEffect(() => {
-    setVisibleSlideImage(slideDetails[counter].alt);
+    setVisibleSlideImage(slideDetails[slideCounter].alt);
     const interval = setInterval(() => {
-      if (counter === slideDetails.length - 1) {
-        setCounter(0);
+      if (slideCounter === slideDetails.length - 1) {
+        setSlideCounter(0);
       } else {
-        setCounter((counter) => counter + 1);
+        setSlideCounter((slideCounter) => slideCounter + 1);
       }
     }, 5000);
     return () => {
       clearInterval(interval);
     };
-  }, [counter]);
+  }, [slideCounter]);
 
   return (
     <>
