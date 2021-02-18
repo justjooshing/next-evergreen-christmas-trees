@@ -6,9 +6,11 @@ import SlideImage from "../components/SlideImage";
 
 import cardDetails from "../components/config/indexPageLinks";
 import slideDetails from "../components/config/indexSlideImages";
+import indexIntro from "../components/config/indexIntro";
 
 import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
+import indexStyles from "../styles/index.module.css";
 
 export default function Home() {
   const [slideCounter, setSlideCounter] = useState(0);
@@ -33,7 +35,11 @@ export default function Home() {
   return (
     <>
       <CustomHead pageName="Home" />
-      <h1>Home Page</h1>
+      <section className={indexStyles.introduction}>
+        {indexIntro.map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}
+      </section>
       <section className={slideStyle.slideshow}>
         {slideDetails.map((image) => (
           <SlideImage
