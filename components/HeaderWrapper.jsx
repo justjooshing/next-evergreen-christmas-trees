@@ -18,7 +18,6 @@ const HeaderWrapper = () => {
           alt="Christmas Tree"
           height={70}
           width={47.5}
-          priority
           layout="fixed"
         />
       </div>
