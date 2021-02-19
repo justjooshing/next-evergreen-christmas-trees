@@ -25,7 +25,7 @@
 .image {
   display: flex;
   flex-direction: column;
-  height: 15vh;
+  max-height: 15vh;
 }
 
 /* need to target child img to prevent being overruled by nextJS image component */

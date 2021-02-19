@@ -1,7 +1,7 @@
 import HeaderWrapper from "./HeaderWrapper";
 import Nav from "./Nav";
 
-import headerStyles from "../styles/Header.module.css";
+import headerStyles from "../../styles/Header.module.css";
 
 const Header = () => {
   return (

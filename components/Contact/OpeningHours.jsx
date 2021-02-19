@@ -1,6 +1,6 @@
-import { lastSaturday, openingHours } from "./config/openingHours";
+import { lastSaturday, openingHours } from "../config/openingHours";
 
-import contactStyle from "../styles/Contact.module.css";
+import contactStyle from "../../styles/Contact.module.css";
 
 const OpeningHours = () => {
   return (

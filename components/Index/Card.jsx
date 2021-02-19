@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import cardStyles from "../styles/Card.module.css";
+import cardStyles from "../../styles/Card.module.css";
 
 const Card = ({ card }) => {
   const { link_src, fig_caption, img_src, img_alt } = card;

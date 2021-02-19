@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import headerStyles from "../styles/Header.module.css";
+import headerStyles from "../../styles/Header.module.css";
 
 const HeaderWrapper = () => {
   return (

@@ -1,0 +1,17 @@
+.main {
+  text-align: center;
+  margin: 0em 2em;
+}
+
+.school_list {
+  padding: 2em 0em;
+}
+
+.school_list ul {
+  padding: 0;
+}
+
+.school_list li {
+  list-style: none;
+  padding-top: 0.5em;
+}

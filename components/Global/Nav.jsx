@@ -1,9 +1,9 @@
 import NavLinks from "./NavLinks";
 import Hamburger from "./Hamburger";
 
-import { paths } from "./config/paths";
+import { paths } from "../config/paths";
 
-import navStyles from "../styles/Nav.module.css";
+import navStyles from "../../styles/Nav.module.css";
 
 const Nav = () => {
   const navItems = Object.entries(paths).map((link) => {

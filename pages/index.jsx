@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import Card from "../components/Card";
-import CustomHead from "../components/CustomHead";
-import SlideImage from "../components/SlideImage";
+import Card from "../components/Index/Card";
+import CustomHead from "../components/Global/CustomHead";
+import SlideImage from "../components/Global/SlideImage";
 
 import cardDetails from "../components/config/indexPageLinks";
 import slideDetails from "../components/config/indexSlideImages";

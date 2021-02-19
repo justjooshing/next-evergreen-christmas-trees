@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import CustomHead from "../components/CustomHead";
+import CustomHead from "../components/Global/CustomHead";
 import prices from "../components/config/treePrices.jsx";
 
 import pricingStyle from "../styles/Pricing.module.css";

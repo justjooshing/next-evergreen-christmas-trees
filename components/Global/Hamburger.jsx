@@ -2,7 +2,7 @@ import { useState } from "react";
 
 // import HeaderWrapper from "./HeaderWrapper";
 
-import navStyles from "../styles/Nav.module.css";
+import navStyles from "../../styles/Nav.module.css";
 
 const Hamburger = ({ navItems }) => {
   const [showMenu, setShowMenu] = useState(false);

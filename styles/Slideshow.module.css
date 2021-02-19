@@ -1,8 +1,10 @@
 .slideshow {
-  position: relative !important;
+  position: relative;
   display: flex;
   height: 55vh;
+  place-content: center;
   place-items: center;
+  text-align: center;
 }
 
 .image {
@@ -14,6 +16,15 @@
   max-height: 95%;
   transition: opacity 2s ease-in-out;
   box-shadow: 2px 2px 5px black;
+}
+
+.caption {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 5px black;
+  position: absolute;
+  padding: 0em 1em;
+  bottom: -1.5em;
+  transition: opacity 2s ease-in-out;
 }
 
 .hidden {
