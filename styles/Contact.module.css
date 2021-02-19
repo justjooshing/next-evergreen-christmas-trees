@@ -53,3 +53,7 @@
   padding: 0em 0.5em;
   transition: transform 0.1s ease-in;
 }
+
+.logo:hover {
+  transform: scale(1.2);
+}
