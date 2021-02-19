@@ -14,7 +14,7 @@ const HeaderWrapper = () => {
       {/* Need to wrap NextJS image component in div */}
       <div className={headerStyles.image}>
         <Image
-          src="/logo.png"
+          src="/logos/logo.png"
           alt="Christmas Tree"
           height={70}
           width={47.5}
