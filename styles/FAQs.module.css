@@ -1,0 +1,17 @@
+.main {
+  text-align: center;
+}
+
+.main details {
+  padding: 1em 0em;
+  max-width: 60%;
+  margin: auto;
+}
+
+.main summary {
+  outline: none;
+}
+
+.main h4 {
+  display: inline;
+}
