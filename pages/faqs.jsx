@@ -1,14 +1,18 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setPage } from "../actions";
 
 import CustomHead from "../components/Global/CustomHead";
 import faqsList from "../components/config/faqsList";
 
 import faqsStyle from "../styles/FAQs.module.css";
 
-const faqs = ({ setWhichPage }) => {
+const faqs = () => {
   const pageName = "FAQs";
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setWhichPage(pageName);
+    dispatch(setPage(pageName));
   }, []);
 
   return (

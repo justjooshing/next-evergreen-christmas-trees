@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setPage } from "../actions";
 
 import Card from "../components/Index/Card";
 import CustomHead from "../components/Global/CustomHead";
@@ -12,16 +14,18 @@ import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 import indexStyles from "../styles/index.module.css";
 
-export default function Home({ setWhichPage }) {
+export default function Home() {
   const pageName = "Home";
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPage(pageName));
+  }, []);
+
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideDetails[0].alt
   );
-
-  useEffect(() => {
-    setWhichPage(pageName);
-  }, []);
 
   useEffect(() => {
     setVisibleSlideImage(slideDetails[slideCounter].alt);

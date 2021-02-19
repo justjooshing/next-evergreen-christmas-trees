@@ -1,15 +1,19 @@
 import Image from "next/image";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setPage } from "../actions";
 
 import CustomHead from "../components/Global/CustomHead";
 import prices from "../components/config/treePrices.jsx";
 
 import pricingStyle from "../styles/Pricing.module.css";
 
-const pricing = ({ setWhichPage }) => {
+const pricing = () => {
   const pageName = "Pricing";
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setWhichPage(pageName);
+    dispatch(setPage(pageName));
   }, []);
 
   return (

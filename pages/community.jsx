@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setPage } from "../actions";
 
 import CustomHead from "../components/Global/CustomHead";
 import SlideImage from "../components/Global/SlideImage";
@@ -7,16 +9,18 @@ import { slideImages, schoolList } from "../components/config/schools";
 import slideStyle from "../styles/Slideshow.module.css";
 import communityStyle from "../styles/Community.module.css";
 
-const community = ({ setWhichPage }) => {
+const community = () => {
   const pageName = "Community";
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setPage(pageName));
+  }, []);
+
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideImages[0].alt
   );
-
-  useEffect(() => {
-    setWhichPage(pageName);
-  }, []);
 
   useEffect(() => {
     setVisibleSlideImage(slideImages[slideCounter].alt);

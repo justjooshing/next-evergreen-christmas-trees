@@ -11,7 +11,7 @@ export default [
     link_src: paths.Contact,
     img_src: `/thumbnails${paths.Contact}.jpg`,
     img_alt: "Screenshot of map",
-    fig_caption: "Get In Touch",
+    fig_caption: "Contact",
   },
   {
     link_src: paths.Community,

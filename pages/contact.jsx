@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 
+import { useDispatch } from "react-redux";
+import { setPage } from "../actions";
+
 import CustomHead from "../components/Global/CustomHead";
 
 import ContactDetails from "../components/Contact/ContactDetails";
@@ -9,10 +12,12 @@ import SocialMediaIcons from "../components/Contact/SocialMediaIcons";
 
 import contactStyle from "../styles/Contact.module.css";
 
-const contact = ({ setWhichPage }) => {
+const contact = () => {
   const pageName = "Contact";
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setWhichPage(pageName);
+    dispatch(setPage(pageName));
   }, []);
 
   return (
