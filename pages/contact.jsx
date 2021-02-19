@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import CustomHead from "../components/Global/CustomHead";
 
 import ContactDetails from "../components/Contact/ContactDetails";
@@ -7,10 +9,15 @@ import SocialMediaIcons from "../components/Contact/SocialMediaIcons";
 
 import contactStyle from "../styles/Contact.module.css";
 
-const contact = () => {
+const contact = ({ setWhichPage }) => {
+  const pageName = "Contact";
+  useEffect(() => {
+    setWhichPage(pageName);
+  }, []);
+
   return (
     <>
-      <CustomHead pageName="Contact" />
+      <CustomHead pageName={pageName} />
       <section className={contactStyle.main}>
         <MapWrapper />
         <div>

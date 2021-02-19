@@ -1,4 +1,6 @@
 .nav ul {
+  padding: 0;
+  margin: 0;
   display: flex;
   list-style: none;
 }
@@ -8,6 +10,21 @@
   padding: 0px 10px;
   color: var(--header-text-color);
   font-family: var(--main-text-font);
+  height: 70px;
+  display: flex;
+  place-items: center;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.nav li:hover {
+  background-color: var(--header-text-color);
+  color: var(--header-bg-color);
+}
+
+.nav .selected {
+  background-color: var(--header-text-color);
+  color: var(--header-bg-color);
 }
 
 .hamburger {
@@ -58,6 +75,11 @@
   height: 100%;
   padding: 0;
   place-content: space-evenly;
+  align-items: center;
+}
+
+.fsMenu li:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 806px) {

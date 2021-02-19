@@ -12,11 +12,16 @@ import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 import indexStyles from "../styles/index.module.css";
 
-export default function Home() {
+export default function Home({ setWhichPage }) {
+  const pageName = "Home";
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideDetails[0].alt
   );
+
+  useEffect(() => {
+    setWhichPage(pageName);
+  }, []);
 
   useEffect(() => {
     setVisibleSlideImage(slideDetails[slideCounter].alt);
@@ -34,7 +39,7 @@ export default function Home() {
 
   return (
     <>
-      <CustomHead pageName="Home" />
+      <CustomHead pageName={pageName} />
       <section className={indexStyles.introduction}>
         {indexIntro.map((line, index) => (
           <p key={index}>{line}</p>

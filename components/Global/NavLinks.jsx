@@ -1,11 +1,14 @@
 import Link from "next/link";
 
-const NavLinks = ({ link }) => {
+import navStyles from "../../styles/Nav.module.css";
+
+const NavLinks = ({ link, whichPage }) => {
   const [key, value] = link;
+  const selectedPage = whichPage === key;
   return (
-    <li>
-      <Link href={value}>{key}</Link>
-    </li>
+    <Link href={value}>
+      <li className={selectedPage ? navStyles.selected : null}>{key}</li>
+    </Link>
   );
 };
 

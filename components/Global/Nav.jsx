@@ -5,9 +5,9 @@ import { paths } from "../config/paths";
 
 import navStyles from "../../styles/Nav.module.css";
 
-const Nav = () => {
+const Nav = ({ whichPage }) => {
   const navItems = Object.entries(paths).map((link) => {
-    return <NavLinks link={link} key={link[0]} />;
+    return <NavLinks link={link} key={link[0]} whichPage={whichPage} />;
   });
 
   return (

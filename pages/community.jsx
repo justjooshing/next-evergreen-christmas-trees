@@ -7,11 +7,16 @@ import { slideImages, schoolList } from "../components/config/schools";
 import slideStyle from "../styles/Slideshow.module.css";
 import communityStyle from "../styles/Community.module.css";
 
-const community = () => {
+const community = ({ setWhichPage }) => {
+  const pageName = "Community";
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideImages[0].alt
   );
+
+  useEffect(() => {
+    setWhichPage(pageName);
+  }, []);
 
   useEffect(() => {
     setVisibleSlideImage(slideImages[slideCounter].alt);
@@ -29,7 +34,7 @@ const community = () => {
 
   return (
     <section className={communityStyle.main}>
-      <CustomHead pageName="Community" />
+      <CustomHead pageName={pageName} />
       <p>
         We love being involved with and supporting our local community. We
         partner with our local schools and community groups to spread joy each

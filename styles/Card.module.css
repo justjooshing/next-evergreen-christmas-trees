@@ -20,6 +20,7 @@
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 3px 3px 5px rgb(0, 0, 0);
+  transition: transform 0.2s ease-in-out;
 }
 
 .image {
@@ -31,6 +32,11 @@
 /* need to target child img to prevent being overruled by nextJS image component */
 .image img {
   object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover img {
+  transform: scale(1.1);
 }
 
 .figcaption {
@@ -38,5 +44,11 @@
   place-content: center;
   text-align: center;
   color: var(--header-text-color);
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover .figcaption {
+  color: var(--header-bg-color);
+  background-color: var(--header-text-color);
 }

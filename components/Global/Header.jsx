@@ -3,12 +3,12 @@ import Nav from "./Nav";
 
 import headerStyles from "../../styles/Header.module.css";
 
-const Header = () => {
+const Header = ({ whichPage }) => {
   return (
     <header className={headerStyles.main}>
       {/* Logo and H1 */}
       <HeaderWrapper />
-      <Nav />
+      <Nav whichPage={whichPage} />
     </header>
   );
 };

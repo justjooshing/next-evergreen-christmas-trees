@@ -3,9 +3,9 @@ import Header from "./Header";
 
 import layoutStyles from "../../styles/Layout.module.css";
 
-const Layout = ({ children }) => (
+const Layout = ({ children, whichPage }) => (
   <>
-    <Header />
+    <Header whichPage={whichPage} />
     {/* Main changes, but background, text fonts and colors stay the same */}
     <main className={layoutStyles.main}>{children}</main>
     {/* Footer stays the same on all pages */}
