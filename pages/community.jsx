@@ -48,7 +48,7 @@ const community = () => {
         <h3>Schools and organisations we support:</h3>
         <ul>
           {schoolList.map((name) => (
-            <li>{name}</li>
+            <li key={name}>{name}</li>
           ))}
         </ul>
       </section>

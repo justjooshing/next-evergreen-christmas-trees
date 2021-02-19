@@ -9,7 +9,7 @@
 
 /* min-width here is arbitrary but needs to be updated to cover the 3x1
   range so it adjusts to 1x4 or 2x2 itself */
-@media (min-width: 638px) and (max-width: 945px) {
+@media (min-width: 638px) and (max-width: 1008px) {
   .card_grid_wrapper {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
   }

@@ -60,7 +60,7 @@
   place-content: space-evenly;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 806px) {
   .fsMenu {
     display: none;
   }
