@@ -10,14 +10,8 @@
   margin-bottom: 0px;
 }
 
-@media (min-width: 800px) {
-  .main {
-    flex-direction: row;
-  }
-
-  .allDetails {
-    padding-left: 5em;
-  }
+.map_wrapper h3 {
+  margin-bottom: revert;
 }
 
 .map {
@@ -37,5 +31,19 @@
 @media (max-width: 650px) {
   .hours {
     flex-direction: column;
+  }
+}
+
+.details p {
+  margin-top: 0;
+}
+
+@media (min-width: 800px) {
+  .main {
+    flex-direction: row;
+  }
+  .map_wrapper {
+    width: 50vw;
+    padding-right: 2em;
   }
 }

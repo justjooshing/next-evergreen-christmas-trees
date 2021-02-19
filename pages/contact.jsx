@@ -12,7 +12,7 @@ const contact = () => {
       <CustomHead pageName="Contact" />
       <section className={contactStyle.main}>
         <MapWrapper />
-        <div className={contactStyle.allDetails}>
+        <div>
           <OpeningHours />
           <ContactDetails />
         </div>
