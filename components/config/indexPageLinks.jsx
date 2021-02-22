@@ -9,13 +9,13 @@ export default [
   },
   {
     link_src: paths.Contact,
-    img_src: `/thumbnails/contact.JPG`,
+    img_src: `/thumbnails/contact.jpg`,
     img_alt: "Screenshot of map",
     fig_caption: "Contact",
   },
   {
     link_src: paths.Community,
-    img_src: `/thumbnails/community.JPG`,
+    img_src: `/thumbnails/community.jpg`,
     img_alt: "Fresh christmas trees",
     fig_caption: "Community",
   },

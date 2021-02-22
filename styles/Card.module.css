@@ -26,15 +26,16 @@
 .image {
   display: flex;
   flex-direction: column;
-  height: 15vh;
-  width: 100%;
+  max-height: 15vh;
+}
+
+/* need to target child img to prevent being overruled by nextJS image component */
+.image img {
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
-/* need to target child img to prevent being overruled by nextJS image component */
-
-.card:hover .image {
+.card:hover img {
   transform: scale(1.1);
 }
 
