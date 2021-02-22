@@ -8,14 +8,7 @@ const Card = ({ card }) => {
     <Link href={link_src}>
       <a>
         <div className={cardStyles.card}>
-          <div>
-            <img
-              src={img_src}
-              alt={img_alt}
-              className={cardStyles.image}
-              // height={300} width={400}
-            />
-          </div>
+          <img src={img_src} alt={img_alt} className={cardStyles.image} />
           <figcaption className={cardStyles.figcaption}>
             {fig_caption}
           </figcaption>
