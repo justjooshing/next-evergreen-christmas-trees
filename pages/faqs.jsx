@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setPage } from "../actions";
+import { setPage } from "../redux/actions";
 
 import CustomHead from "../components/Global/CustomHead";
 import faqsList from "../components/config/faqsList";

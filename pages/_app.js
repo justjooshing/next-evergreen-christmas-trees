@@ -2,7 +2,7 @@ import Layout from "../components/Global/Layout";
 
 import { Provider } from "react-redux";
 
-import store from "../store";
+import store from "../redux/store";
 
 import "../styles/globals.css";
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setPage } from "../actions";
+import { setPage } from "../redux/actions";
 
 import Card from "../components/Index/Card";
 import CustomHead from "../components/Global/CustomHead";

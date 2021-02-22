@@ -3,3 +3,6 @@
 ### The friendliest christmas tree farm in Melbourne's south east
 
 A Next.js rebuilt of the Evergreen Christmas Trees repo
+
+To do
+[] Add getstaticprops
