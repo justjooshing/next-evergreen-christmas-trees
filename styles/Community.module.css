@@ -1,6 +1,13 @@
 .main {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   margin: 0em 2em;
+}
+
+.main > p {
+  align-self: center;
+  max-width: 80%;
 }
 
 .school_list {
