@@ -3,7 +3,6 @@ import metaTags from "../config/metaTags";
 
 const CustomHead = ({ pageName }) => {
   const page = metaTags[pageName];
-  console.log(page);
   return (
     <Head>
       <meta name="robots" content="index, follow" />
