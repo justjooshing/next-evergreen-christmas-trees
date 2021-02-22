@@ -50,5 +50,10 @@
 
 .card:hover .figcaption {
   color: var(--header-bg-color);
-  background-color: var(--header-text-color);
+  background: linear-gradient(
+    180deg,
+    var(--header-text-color),
+    80%,
+    rgb(220, 0, 0)
+  );
 }
