@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import slideStyle from "../../styles/Slideshow.module.css";
 
 const SlideImage = ({ image, isVisible }) => {
+  // useState and useEffect here are to load the not-yet visible
+  // images only once the CSS has loaded (and is hiding them)
   const [hiddenImages, updateHiddenImages] = useState(null);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const SlideImage = ({ image, isVisible }) => {
         </figcaption>
       </>
     );
-  }, [image]);
+  }, []);
 
   return isVisible ? (
     <>
