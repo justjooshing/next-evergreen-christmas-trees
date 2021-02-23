@@ -38,6 +38,7 @@ const pricing = () => {
             alt="christmas tree"
             height={500}
             width={333}
+            className={pricingStyle.image}
           />
         </div>
       </section>
