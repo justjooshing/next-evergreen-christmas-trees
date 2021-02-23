@@ -26,7 +26,7 @@ const pricing = ({ getPrice }) => {
           <h3>Pricing</h3>
           {/* prices list */}
           <ol className={pricingStyle.list}>
-            {setPrices(getPrice).map(({ range, price }) => (
+            {setPrices(getPrice.value).map(({ range, price }) => (
               <li key={price} className={pricingStyle.item}>
                 {range}: ${price}
               </li>
@@ -55,7 +55,7 @@ export async function getServerSideProps() {
   // I know this can be better, returning an array
   // and then taking [0] from that is dumb
   const getPrice = await db.collection("price").find({}).toArray();
-  const parsePrice = JSON.parse(JSON.stringify(getPrice))[0].value;
+  const parsePrice = JSON.parse(JSON.stringify(getPrice))[0];
 
   return {
     props: { getPrice: parsePrice },

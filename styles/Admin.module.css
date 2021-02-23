@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  place-content: space-evenly;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .main {
+    flex-direction: row;
+  }
+}
+
+.deletePostButton {
+  color: white;
+  background-color: red;
+}
