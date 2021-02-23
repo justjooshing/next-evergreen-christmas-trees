@@ -1,17 +1,52 @@
-.main {
+.form {
+  display: flex;
+  place-items: center;
+  place-content: center;
+  margin: 2em;
+}
+
+.form > input {
+  margin: 2em;
+  height: 8em;
+}
+
+.current {
   display: flex;
   flex-direction: column;
   place-content: space-evenly;
   text-align: center;
+  margin: 0 2em;
 }
 
-@media (min-width: 800px) {
-  .main {
+@media (min-width: 805px) {
+  .current {
     flex-direction: row;
   }
 }
 
+.announcement {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-column-gap: 0.5em;
+  place-items: center;
+}
+
+.announcement > p {
+  grid-column-start: 2;
+  max-width: 300px;
+  cursor: pointer;
+}
+
 .deletePostButton {
+  margin-left: auto;
   color: white;
   background-color: red;
+  border-radius: 10px;
+  height: 2em;
+  width: 2em;
+  cursor: pointer;
+}
+
+.price {
+  cursor: pointer;
 }

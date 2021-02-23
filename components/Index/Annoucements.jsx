@@ -6,8 +6,8 @@ const Annoucements = ({ announcements }) => {
       className={`${indexStyles.introduction} ${indexStyles.dad_announcement}`}
     >
       <h3>Hello everyone!</h3>
-      {announcements.map((announcement, index) => (
-        <p key={`announcement${index}`}>{announcement.value}</p>
+      {announcements.map(({ value, _id }) => (
+        <p key={_id}>{value}</p>
       ))}
     </section>
   );
