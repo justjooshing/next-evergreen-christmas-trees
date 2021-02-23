@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
+import { connectToDatabase } from "../util/mongodb";
+
+import Announcements from "../components/Index/Annoucements";
 import Card from "../components/Index/Card";
 import CustomHead from "../components/Global/CustomHead";
 import SlideImage from "../components/Global/SlideImage";
@@ -14,7 +17,7 @@ import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 import indexStyles from "../styles/index.module.css";
 
-export default function Home() {
+export default function Home({ announcements }) {
   const pageName = "Home";
   const dispatch = useDispatch();
 
@@ -49,6 +52,9 @@ export default function Home() {
           <p key={index}>{line}</p>
         ))}
       </section>
+      {announcements.length > 0 && (
+        <Announcements announcements={announcements} />
+      )}
       <section className={slideStyle.slideshow}>
         {slideDetails.map((image) => (
           <SlideImage
@@ -65,4 +71,14 @@ export default function Home() {
       </section>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+  const getAnnouncements = await db.collection("message").find({}).toArray();
+  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
+
+  return {
+    props: { announcements },
+  };
 }
