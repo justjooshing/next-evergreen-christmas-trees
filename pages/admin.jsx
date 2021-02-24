@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { connectToDatabase } from "../util/mongodb";
 
 import DeletePost from "../components/Admin/DeletePost";
@@ -5,61 +7,76 @@ import CustomHead from "../components/Global/CustomHead";
 
 import adminStyle from "../styles/Admin.module.css";
 
-const admin = ({ announcements, parsePrice }) => {
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+  const getAnnouncements = await db.collection("message").find({}).toArray();
+  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
+
+  const getPrice = await db.collection("price").find({}).toArray();
+  const price = JSON.parse(JSON.stringify(getPrice))[0];
+
+  return {
+    props: { announcements, price },
+  };
+}
+
+const admin = ({ announcements, price }) => {
   const pageName = "admin";
+
+  const [newAnnouncement, setNewAnnonucement] = useState();
+  const [tempPrice, setTempPrice] = useState();
+
+  const handlePriceSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch("api/price", {
+      body: JSON.stringify({
+        value: tempPrice,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    e.target.reset();
+  };
 
   return (
     <>
       <CustomHead pageName={pageName} />
-      <section>
-        {/* <form className={adminStyle.form}>
-          <input
-            type="textarea"
-            name="update"
-            rows="50"
-            cols="30"
-            placeholder="Submit new announcement"
-            spellCheck
-          />
-          <button type="submit">Submit</button>
-        </form> */}
-        <div className={adminStyle.current}>
-          <section>
-            <h3>Annoucements</h3>
-            {announcements.length > 0 ? (
-              announcements.map(({ value, _id }) => (
-                <div key={_id} className={adminStyle.announcement}>
-                  <p>{value}</p>
-                  <DeletePost postId={_id} />
-                </div>
-              ))
-            ) : (
-              <h5>No annoucements currently</h5>
-            )}
-          </section>
-          <section>
-            <h3>Current Price</h3>
-            <p className={adminStyle.price}>${parsePrice.value} per foot</p>
-          </section>
-        </div>
+      <section className={adminStyle.current}>
+        <section>
+          <h2>Annoucements</h2>
+          {announcements.length > 0 ? (
+            announcements.map(({ value, _id }) => (
+              <div key={_id} className={adminStyle.announcement}>
+                <p>{value}</p>
+                <DeletePost postId={_id} />
+              </div>
+            ))
+          ) : (
+            <h3>No annoucements currently</h3>
+          )}
+        </section>
+        <section>
+          <h2>Price</h2>
+          <form onSubmit={handlePriceSubmit}>
+            <label htmlFor="price">
+              <h3>Set new price</h3>
+              <input
+                type="number"
+                id="price"
+                onChange={(e) => setTempPrice(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit">Submit</button>
+          </form>
+          <h3>Current Price</h3>
+          <p className={adminStyle.price}>${price.value} per foot</p>
+        </section>
       </section>
     </>
   );
 };
 
 export default admin;
-
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-  const getAnnouncements = await db.collection("message").find({}).toArray();
-  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
-
-  // I know this can be better, as returning an array
-  // and then taking [0] from that is a bit convoluted
-  const getPrice = await db.collection("price").find({}).toArray();
-  const parsePrice = JSON.parse(JSON.stringify(getPrice))[0];
-
-  return {
-    props: { announcements, parsePrice },
-  };
-}

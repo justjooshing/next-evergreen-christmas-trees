@@ -17,6 +17,16 @@ import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 import indexStyles from "../styles/index.module.css";
 
+export async function getServerSideProps() {
+  const { db } = await connectToDatabase();
+  const getAnnouncements = await db.collection("message").find({}).toArray();
+  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
+
+  return {
+    props: { announcements },
+  };
+}
+
 export default function Home({ announcements }) {
   const pageName = "Home";
   const dispatch = useDispatch();
@@ -71,14 +81,4 @@ export default function Home({ announcements }) {
       </section>
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-  const getAnnouncements = await db.collection("message").find({}).toArray();
-  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
-
-  return {
-    props: { announcements },
-  };
 }
