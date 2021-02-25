@@ -52,6 +52,7 @@ const admin = ({ announcements, price }) => {
   const [currentAnnouncements, setCurrentAnnouncements] = useState([
     ...announcements,
   ]);
+  const [currentPrice, setCurrentPrice] = useState(price);
 
   const [tempAnnouncement, setTempAnnouncement] = useState();
   const [tempPrice, setTempPrice] = useState();
@@ -62,9 +63,10 @@ const admin = ({ announcements, price }) => {
 
   const handlePriceSubmit = async (e) => {
     console.log("submitted");
+    const value = parseInt(tempPrice);
+    setCurrentPrice({ value });
     e.preventDefault();
     e.target.reset();
-    const value = parseInt(tempPrice);
     const response = await fetch("/api/price", {
       method: "POST",
       headers: {
@@ -80,7 +82,6 @@ const admin = ({ announcements, price }) => {
   const handleAnnouncementSubmit = async (e) => {
     console.log("submitted");
     e.preventDefault();
-
     const value = tempAnnouncement;
     const id = nanoid(10);
     setCurrentAnnouncements([...currentAnnouncements, { value, id }]);
@@ -144,7 +145,7 @@ const admin = ({ announcements, price }) => {
             <button type="submit">Submit</button>
           </form>
           <h3>Current Price</h3>
-          <p className={adminStyle.price}>${price.value} per foot</p>
+          <p className={adminStyle.price}>${currentPrice.value} per foot</p>
         </section>
       </section>
     </>
