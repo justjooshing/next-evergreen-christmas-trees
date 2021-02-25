@@ -4,7 +4,7 @@ import { setPage } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
 
-import Announcements from "../components/Index/Annoucements";
+import Announcements from "../components/Index/Announcements";
 import Card from "../components/Index/Card";
 import CustomHead from "../components/Global/CustomHead";
 import SlideImage from "../components/Global/SlideImage";
@@ -31,14 +31,14 @@ export default function Home({ announcements }) {
   const pageName = "Home";
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(setPage(pageName));
-  }, []);
-
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
     slideDetails[0].alt
   );
+
+  useEffect(() => {
+    dispatch(setPage(pageName));
+  }, []);
 
   useEffect(() => {
     setVisibleSlideImage(slideDetails[slideCounter].alt);

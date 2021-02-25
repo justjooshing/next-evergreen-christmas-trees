@@ -12,7 +12,12 @@ import pricingStyle from "../styles/Pricing.module.css";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
-  const getPrice = await db.collection("price").find({}).toArray();
+  const getPrice = await db
+    .collection("price")
+    .find({})
+    .sort({ date: -1 })
+    .limit(1)
+    .toArray();
   const parsePrice = JSON.parse(JSON.stringify(getPrice))[0];
 
   return {
