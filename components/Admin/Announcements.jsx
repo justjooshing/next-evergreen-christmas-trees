@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAnnouncement, deleteAnnouncement } from "../../redux/actions";
+import { addAnnouncement } from "../../redux/actions";
 
 import { nanoid } from "nanoid";
 
@@ -28,17 +28,6 @@ const Announcements = () => {
     });
   };
 
-  const handleDelete = async (id) => {
-    dispatch(deleteAnnouncement(id));
-    await fetch("/api/announcements", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ id }),
-    });
-  };
-
   return (
     <div>
       <section>
@@ -57,11 +46,7 @@ const Announcements = () => {
         </form>
         {announcements.length > 0 ? (
           announcements.map((announcement) => (
-            <Announcement
-              key={announcement.id}
-              announcement={announcement}
-              handleDelete={handleDelete}
-            />
+            <Announcement key={announcement.id} announcement={announcement} />
           ))
         ) : (
           <h3>No announcements currently</h3>
