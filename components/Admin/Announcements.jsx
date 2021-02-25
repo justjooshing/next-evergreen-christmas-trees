@@ -29,30 +29,28 @@ const Announcements = () => {
   };
 
   return (
-    <div>
-      <section>
-        <h2>Announcements</h2>
-        <form onSubmit={handleAnnouncementSubmit}>
-          <label htmlFor="announcements">
-            <h3>Edit Announcements</h3>
-            <input
-              type="text"
-              id="announcement"
-              onChange={(e) => setTempAnnouncement(e.target.value)}
-              required
-            />
-          </label>
-          <button type="submit">Submit</button>
-        </form>
-        {announcements.length > 0 ? (
-          announcements.map((announcement) => (
-            <Announcement key={announcement.id} announcement={announcement} />
-          ))
-        ) : (
-          <h3>No announcements currently</h3>
-        )}
-      </section>
-    </div>
+    <section>
+      <h2>Announcements</h2>
+      <form onSubmit={handleAnnouncementSubmit}>
+        <label htmlFor="announcements">
+          <h3>Edit Announcements</h3>
+          <input
+            type="text"
+            id="announcement"
+            onChange={(e) => setTempAnnouncement(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      {announcements.length > 0 ? (
+        announcements.map((announcement) => (
+          <Announcement key={announcement.id} announcement={announcement} />
+        ))
+      ) : (
+        <h3>No announcements currently</h3>
+      )}
+    </section>
   );
 };
 
