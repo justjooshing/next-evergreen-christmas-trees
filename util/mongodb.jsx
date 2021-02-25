@@ -28,7 +28,7 @@ export async function connectToDatabase() {
     useUnifiedTopology: true,
   });
 
-  const db = await client.db(dbName);
+  const db = client.db(dbName);
 
   cachedClient = client;
   cachedDb = db;
