@@ -28,17 +28,3 @@ const handler = async (req, res) => {
 };
 
 export default handler;
-
-//   const { score, name } = req.body;
-//   const newHighScore = new HighScore({
-//     name,
-//     score,
-//   });
-//   newHighScore.save((err) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       sendHighScores(res);
-//     }
-//   });
-// });

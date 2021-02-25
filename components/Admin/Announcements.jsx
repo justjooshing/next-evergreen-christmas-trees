@@ -3,10 +3,6 @@ import { nanoid } from "nanoid";
 
 import Announcement from "./Announcement";
 
-// DELETE announcement
-// onClick, send delete request to db
-// deleting matching id from announcements collection
-
 const Announcements = ({ announcements }) => {
   const [currentAnnouncements, setCurrentAnnouncements] = useState(
     announcements

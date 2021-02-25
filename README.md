@@ -4,5 +4,7 @@
 
 A Next.js rebuilt of the Evergreen Christmas Trees repo
 
-To do
-[] Add getstaticprops
+To do:
+[ ] Add imported props to redux, to avoid extended prop drilling
+[ ] Add CSSTransitions for React instead of fading with CSS
+[ ] Look at nprogress library
