@@ -1,1 +1,9 @@
 export const SET_PAGE = "SET_PAGE";
+
+export const SET_PRICE = "SET_PRICE";
+
+export const SET_ANNOUNCEMENTS = "SET_ANNOUNCEMENTS";
+
+export const ADD_ANNOUNCEMENT = "ADD_ANNOUNCEMENT";
+
+export const DELETE_ANNOUNCEMENT = "DELETE_ANNOUNCEMENT";

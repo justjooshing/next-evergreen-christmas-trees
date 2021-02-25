@@ -1,45 +1,42 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addAnnouncement, deleteAnnouncement } from "../../redux/actions";
+
 import { nanoid } from "nanoid";
 
 import Announcement from "./Announcement";
 
-const Announcements = ({ announcements }) => {
-  const [currentAnnouncements, setCurrentAnnouncements] = useState(
-    announcements
-  );
+const Announcements = () => {
+  const announcements = useSelector((state) => state.announcements);
+  const dispatch = useDispatch();
+
   const [tempAnnouncement, setTempAnnouncement] = useState();
 
   const handleAnnouncementSubmit = async (e) => {
     e.preventDefault();
     const value = tempAnnouncement;
     const id = nanoid(10);
-    setCurrentAnnouncements([...currentAnnouncements, { value, id }]);
+    dispatch(addAnnouncement({ value, id }));
     e.target.reset();
-    const response = await fetch("/api/announcements", {
+
+    await fetch("/api/announcements", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ value, id }),
     });
-    const body = await response.json();
-    return body;
   };
 
   const handleDelete = async (id) => {
-    const msgsWithoutDeletedMessage = currentAnnouncements.filter(
-      (item) => item.id !== id
-    );
-    setCurrentAnnouncements(msgsWithoutDeletedMessage);
-    const response = await fetch("/api/announcements", {
+    dispatch(deleteAnnouncement(id));
+    await fetch("/api/announcements", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ id }),
     });
-    const body = await response.json();
-    return body;
   };
 
   return (
@@ -58,8 +55,8 @@ const Announcements = ({ announcements }) => {
           </label>
           <button type="submit">Submit</button>
         </form>
-        {currentAnnouncements.length > 0 ? (
-          currentAnnouncements.map((announcement) => (
+        {announcements.length > 0 ? (
+          announcements.map((announcement) => (
             <Announcement
               key={announcement.id}
               announcement={announcement}

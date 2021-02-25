@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setPage } from "../redux/actions";
+import { setAnnouncements, setPage, setPrice } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
 
 import CustomHead from "../components/Global/CustomHead";
-import Annoucements from "../components/Admin/Announcements";
+import Announcements from "../components/Admin/Announcements";
 import Price from "../components/Admin/Price";
 
 import adminStyle from "../styles/Admin.module.css";
@@ -30,19 +30,21 @@ export async function getServerSideProps() {
 
 const admin = ({ announcements, price }) => {
   const pageName = "admin";
-
   const dispatch = useDispatch();
 
+  // Add to redux
   useEffect(() => {
     dispatch(setPage(pageName));
+    dispatch(setPrice(price));
+    dispatch(setAnnouncements(announcements));
   }, []);
 
   return (
     <>
       <CustomHead pageName={pageName} />
       <section className={adminStyle.current}>
-        <Annoucements announcements={announcements} />
-        <Price price={price} />
+        <Announcements />
+        <Price />
       </section>
     </>
   );
