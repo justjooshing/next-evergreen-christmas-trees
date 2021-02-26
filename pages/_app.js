@@ -5,8 +5,9 @@ import NProgress from "nprogress";
 
 import Layout from "../components/Global/Layout";
 
-import "../styles/globals.css";
 import "nprogress/nprogress.css";
+import "../styles/globals.css";
+NProgress.configure({ showSpinner: false });
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
