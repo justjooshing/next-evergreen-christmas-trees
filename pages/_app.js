@@ -1,9 +1,24 @@
+import Router from "next/dist/next-server/lib/router/router";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import NProgress from "nprogress";
 
 import Layout from "../components/Global/Layout";
 
 import "../styles/globals.css";
+import "nprogress/nprogress.css";
+
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+});
+
+Router.events.on("routeChangeComplete", () => {
+  NProgress.done();
+});
+
+Router.events.on("routeChangeError", () => {
+  NProgress.done();
+});
 
 function MyApp({ Component, pageProps }) {
   return (
