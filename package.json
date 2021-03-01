@@ -11,10 +11,14 @@
     "mongoose": "^5.11.17",
     "nanoid": "^3.1.20",
     "next": "10.0.6",
+    "next-auth": "^3.6.0",
     "nprogress": "^0.2.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5"
+  },
+  "peerOptionalDependencies": {
+    "mongodb": "^3.6.0"
   }
 }

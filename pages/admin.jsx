@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { signIn, signOut, useSession } from "next-auth/client";
+
 import { setAnnouncements, setPage, setPrice } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
@@ -29,6 +31,8 @@ export async function getServerSideProps() {
 }
 
 const admin = ({ announcements, price }) => {
+  const [session, loading] = useSession();
+
   const pageName = "admin";
   const dispatch = useDispatch();
 
@@ -39,13 +43,23 @@ const admin = ({ announcements, price }) => {
     dispatch(setAnnouncements(announcements));
   }, []);
 
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
-      <CustomHead pageName={pageName} />
-      <section className={adminStyle.current}>
-        <Announcements />
-        <Price />
-      </section>
+      {!session && <button onClick={signIn}>Sign in</button>}
+      {session && (
+        <>
+          <CustomHead pageName={pageName} />
+          <section className={adminStyle.current}>
+            <Announcements />
+            <Price />
+          </section>
+          <button onClick={signOut}>Sign out</button>
+        </>
+      )}
     </>
   );
 };
