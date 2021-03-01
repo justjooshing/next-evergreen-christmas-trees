@@ -52,3 +52,11 @@
 .price {
   cursor: pointer;
 }
+
+.auth_button {
+  top: 6em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

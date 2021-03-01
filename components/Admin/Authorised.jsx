@@ -10,7 +10,9 @@ const Authorised = () => {
     <section className={adminStyle.current}>
       <Announcements />
       <Price />
-      <button onClick={signOut}>Sign out</button>
+      <button className={adminStyle.auth_button} onClick={signOut}>
+        Sign out
+      </button>
     </section>
   );
 };

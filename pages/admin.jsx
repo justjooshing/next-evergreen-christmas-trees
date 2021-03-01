@@ -10,6 +10,8 @@ import CustomHead from "../components/Global/CustomHead";
 
 import { connectToDatabase } from "../util/mongodb";
 
+import adminStyle from "../styles/Admin.module.css";
+
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   const getAnnouncements = await db.collection("message").find({}).toArray();
@@ -48,7 +50,11 @@ const admin = ({ announcements, price }) => {
   return (
     <>
       <CustomHead pageName={pageName} />
-      {!session && <button onClick={signIn}>Sign in</button>}
+      {!session && (
+        <button className={adminStyle.auth_button} onClick={signIn}>
+          Sign in
+        </button>
+      )}
       {session && <Authorised />}
     </>
   );
