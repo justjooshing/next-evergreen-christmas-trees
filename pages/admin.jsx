@@ -1,22 +1,21 @@
+import { signIn, useSession } from "next-auth/client";
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { signIn, signOut, useSession } from "next-auth/client";
 
 import { setAnnouncements, setPage, setPrice } from "../redux/actions";
 
-import { connectToDatabase } from "../util/mongodb";
-
+const Authorised = dynamic(() => import("../components/Admin/Authorised"));
 import CustomHead from "../components/Global/CustomHead";
-import Announcements from "../components/Admin/Announcements";
-import Price from "../components/Admin/Price";
 
-import adminStyle from "../styles/Admin.module.css";
+import { connectToDatabase } from "../util/mongodb";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   const getAnnouncements = await db.collection("message").find({}).toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
+  // Return most recent price only
   const getPrice = await db
     .collection("price")
     .find({})
@@ -36,7 +35,6 @@ const admin = ({ announcements, price }) => {
   const pageName = "admin";
   const dispatch = useDispatch();
 
-  // Add to redux
   useEffect(() => {
     dispatch(setPage(pageName));
     dispatch(setPrice(price));
@@ -49,17 +47,9 @@ const admin = ({ announcements, price }) => {
 
   return (
     <>
+      <CustomHead pageName={pageName} />
       {!session && <button onClick={signIn}>Sign in</button>}
-      {session && (
-        <>
-          <CustomHead pageName={pageName} />
-          <section className={adminStyle.current}>
-            <Announcements />
-            <Price />
-          </section>
-          <button onClick={signOut}>Sign out</button>
-        </>
-      )}
+      {session && <Authorised />}
     </>
   );
 };

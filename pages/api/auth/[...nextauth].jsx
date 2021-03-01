@@ -25,6 +25,11 @@ const options = {
     jwt: true,
     maxAge: 24 * 60 * 60, // 1 day
   },
+  callbacks: {
+    redirect: async (url, _) => {
+      return Promise.resolve("/admin");
+    },
+  },
 };
 
 export default (req, res) => NextAuth(req, res, options);
