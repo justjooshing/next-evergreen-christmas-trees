@@ -26,7 +26,6 @@ const contact = () => {
       <section className={contactStyle.main}>
         <MapWrapper />
         <div>
-          {/* Still need to put in social media links */}
           <OpeningHours />
           <SocialMediaIcons />
           <ContactDetails />
