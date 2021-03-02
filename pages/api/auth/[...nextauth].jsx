@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+import { connectToDatabase } from "../../../util/mongodb";
+
 const options = {
   site: process.env.NEXTAUTH_URL,
   providers: [
@@ -28,6 +30,21 @@ const options = {
   callbacks: {
     redirect: async (url, _) => {
       return Promise.resolve("/admin");
+    },
+    signIn: async (user) => {
+      const { db } = await connectToDatabase();
+      const getAdmins = await db.collection("admin_access").find({}).toArray();
+      const admins = JSON.parse(JSON.stringify(getAdmins));
+
+      const isAllowedToSignIn = admins.filter(
+        (admin) => admin.email === user.email
+      );
+
+      if (isAllowedToSignIn.length > 0) {
+        return true;
+      } else {
+        return "/";
+      }
     },
   },
 };
