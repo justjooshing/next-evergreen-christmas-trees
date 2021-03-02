@@ -10,20 +10,24 @@ const SlideImage = ({ image, isVisible }) => {
 
   useEffect(() => {
     updateHiddenImages(
-      <div className={` ${slideStyle.image} ${slideStyle.hidden}`}>
-        <Image src={image.src} alt={image.alt} layout="fill" />
+      <>
+        <img
+          src={image.src}
+          alt={image.alt}
+          className={` ${slideStyle.image} ${slideStyle.hidden}`}
+        />
         <figcaption className={`${slideStyle.caption} ${slideStyle.hidden}`}>
           {image.caption}
         </figcaption>
-      </div>
+      </>
     );
   }, []);
 
   return isVisible ? (
-    <div className={` ${slideStyle.image} ${slideStyle.hidden}`}>
-      <Image src={image.src} alt={image.alt} layout="fill" />
+    <>
+      <img src={image.src} alt={image.alt} className={slideStyle.image} />
       <figcaption className={slideStyle.caption}>{image.caption}</figcaption>
-    </div>
+    </>
   ) : (
     hiddenImages
   );
