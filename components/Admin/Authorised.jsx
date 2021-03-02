@@ -7,13 +7,17 @@ import adminStyle from "../../styles/Admin.module.css";
 
 const Authorised = () => {
   return (
-    <section className={adminStyle.current}>
-      <Announcements />
-      <Price />
-      <button className={adminStyle.auth_button} onClick={signOut}>
-        Sign out
-      </button>
-    </section>
+    <>
+      <div className={adminStyle.auth_wrapper}>
+        <button className={adminStyle.auth_button} onClick={signOut}>
+          Sign out{" "}
+        </button>
+      </div>
+      <section className={adminStyle.current}>
+        <Announcements />
+        <Price />
+      </section>
+    </>
   );
 };
 

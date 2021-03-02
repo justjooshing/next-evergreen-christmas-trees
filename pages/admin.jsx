@@ -51,9 +51,11 @@ const admin = ({ announcements, price }) => {
     <>
       <CustomHead pageName={pageName} />
       {!session && (
-        <button className={adminStyle.auth_button} onClick={signIn}>
-          Sign in
-        </button>
+        <div className={adminStyle.auth_wrapper}>
+          <button className={adminStyle.auth_button} onClick={signIn}>
+            Sign in
+          </button>
+        </div>
       )}
       {session && <Authorised />}
     </>

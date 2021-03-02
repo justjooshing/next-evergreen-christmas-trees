@@ -53,10 +53,17 @@
   cursor: pointer;
 }
 
+.auth_wrapper {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
 .auth_button {
-  top: 6em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
+  margin: 2em;
+  padding: 10px;
+  border-radius: 13px;
+  font-family: var(--main-text-font);
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
 }
