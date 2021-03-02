@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 import slideStyle from "../../styles/Slideshow.module.css";
 
@@ -9,24 +10,20 @@ const SlideImage = ({ image, isVisible }) => {
 
   useEffect(() => {
     updateHiddenImages(
-      <>
-        <img
-          src={image.src}
-          alt={image.alt}
-          className={` ${slideStyle.image} ${slideStyle.hidden}`}
-        />
+      <div className={` ${slideStyle.image} ${slideStyle.hidden}`}>
+        <Image src={image.src} alt={image.alt} layout="fill" />
         <figcaption className={`${slideStyle.caption} ${slideStyle.hidden}`}>
           {image.caption}
         </figcaption>
-      </>
+      </div>
     );
   }, []);
 
   return isVisible ? (
-    <>
-      <img src={image.src} alt={image.alt} className={slideStyle.image} />
+    <div className={` ${slideStyle.image} ${slideStyle.hidden}`}>
+      <Image src={image.src} alt={image.alt} layout="fill" />
       <figcaption className={slideStyle.caption}>{image.caption}</figcaption>
-    </>
+    </div>
   ) : (
     hiddenImages
   );
