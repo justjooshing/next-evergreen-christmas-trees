@@ -17,6 +17,9 @@ export async function getServerSideProps() {
   const getAnnouncements = await db.collection("message").find({}).toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
+  const getAdmins = await db.collection("admin_access").find({}).toArray();
+  const admins = JSON.parse(JSON.stringify(getAdmins));
+
   // Return most recent price only
   const getPrice = await db
     .collection("price")
@@ -27,12 +30,15 @@ export async function getServerSideProps() {
   const price = JSON.parse(JSON.stringify(getPrice))[0];
 
   return {
-    props: { announcements, price },
+    props: { announcements, price, admins },
   };
 }
 
-const admin = ({ announcements, price }) => {
+const admin = ({ announcements, price, admins }) => {
   const [session, loading] = useSession();
+
+  const isAdmin =
+    session && admins.filter((admin) => admin.email === session.user.email);
 
   const pageName = "admin";
   const dispatch = useDispatch();
@@ -63,12 +69,14 @@ const admin = ({ announcements, price }) => {
       <CustomHead pageName={pageName} />
       {!session && (
         <div className={adminStyle.auth_wrapper}>
+          <h3>Not currently signed in</h3>
           <button className={adminStyle.auth_button} onClick={signIn}>
             Sign in
           </button>
         </div>
       )}
-      {session && <Authorised />}
+      {isAdmin && <Authorised />}
+      {session && !isAdmin && <h3>Invalid User</h3>}
     </>
   );
 };

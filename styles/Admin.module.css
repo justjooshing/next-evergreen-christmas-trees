@@ -55,6 +55,7 @@
 
 .auth_wrapper {
   display: flex;
+  flex-direction: column;
   place-content: center;
   place-items: center;
 }
