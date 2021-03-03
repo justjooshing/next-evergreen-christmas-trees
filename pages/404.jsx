@@ -12,7 +12,7 @@ export default function custom404() {
       <CustomHead pageName={pageName} />
       <div className={custom404Styles.introduction}>
         <h2>You're lost!</h2>
-        <h4>You've disappeared in the Enchanted Forest</h4>
+        <h4>You've taken a wrong turn in the Enchanted Forest</h4>
         <p>404 - Page not found</p>
         <Image
           src="/404.jpg"
