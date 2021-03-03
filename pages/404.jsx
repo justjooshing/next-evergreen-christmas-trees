@@ -11,7 +11,7 @@ export default function custom404() {
     <>
       <CustomHead pageName={pageName} />
       <div className={custom404Styles.introduction}>
-        <h1>It looks like you've got lost.</h1>
+        <h1>It looks like you're lost</h1>
         <p>404 - Page not found</p>
         <Image
           src="/404.jpg"
