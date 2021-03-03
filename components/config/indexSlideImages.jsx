@@ -89,7 +89,7 @@ export default [
     alt: "Christmas tree sunrise fence",
     width: 3024,
     height: 4032,
-    srcset: [200, 454, 647, 759, 877, 1031, 1144, 1255, 1373, 1400]
+    srcset: [200, 454, 647, 759, 887, 1031, 1144, 1255, 1373, 1400]
       .map(
         (size) =>
           `/slideshow_images/index/IMG_7581/IMG_7581_${size}.jpg ${size}w`
