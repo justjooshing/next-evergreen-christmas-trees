@@ -5,7 +5,7 @@ export default [
     alt: "Evergreen trees fence and sign",
     width: 2457,
     height: 1755,
-    srcset: [200, 444, 622, 776, 914, 1044, 1158, 1284, 1352, 1400]
+    srcset: [200, 444, 622, 766, 914, 1044, 1158, 1284, 1352, 1400]
       .map(
         (size) =>
           `/slideshow_images/index/IMG_5249/IMG_5249_${size}.jpg ${size}w`
