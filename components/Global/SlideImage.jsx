@@ -25,7 +25,12 @@ const SlideImage = ({ image, isVisible }) => {
 
   return isVisible ? (
     <>
-      <img src={image.src} alt={image.alt} className={slideStyle.image} />
+      <img
+        src={image.src}
+        alt={image.alt}
+        className={slideStyle.image}
+        srcSet={image.srcset}
+      />
       <figcaption className={slideStyle.caption}>{image.caption}</figcaption>
     </>
   ) : (
