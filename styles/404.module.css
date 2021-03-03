@@ -6,9 +6,13 @@
 
 .button {
   display: block;
+  font-size: 1.2em;
   left: 0;
   right: 0;
   margin: 1em auto;
   color: white;
   background-color: var(--header-text-color);
+  border-radius: 10px;
+  border-color: white;
+  outline: none;
 }
