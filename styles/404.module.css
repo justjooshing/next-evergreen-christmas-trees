@@ -1,0 +1,14 @@
+.introduction {
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0 4em;
+}
+
+.button {
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 1em auto;
+  color: white;
+  background-color: var(--header-text-color);
+}
