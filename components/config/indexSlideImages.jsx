@@ -1,7 +1,7 @@
 export default [
   // Width and height are here for the nextjs image component
   {
-    src: "/slideshow_images/index/IMG_5249.jpg",
+    src: "/slideshow_images/index/IMG_5249/IMG_5249_200.jpg",
     alt: "Evergreen trees fence and sign",
     width: 2457,
     height: 1755,
@@ -13,13 +13,19 @@ export default [
       .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_0454.jpeg",
+    src: "/slideshow_images/index/IMG_0454/IMG_0454_200.jpg",
     alt: "Christmas tree image",
     width: 3024,
     height: 4032,
+    srcset: [200, 841, 1261, 1616, 1982, 2292, 2391, 2555, 2772, 2800]
+      .map(
+        (size) =>
+          `/slideshow_images/index/IMG_0454/IMG_0454_${size}.jpg ${size}w`
+      )
+      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5253.JPG",
+    src: "/slideshow_images/index/IMG_5253/IMG_5253_200.JPG",
     alt: "Three christmas trees",
     width: 2925,
     height: 4096,
@@ -31,13 +37,19 @@ export default [
       .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5503.JPG",
+    src: "/slideshow_images/index/IMG_5503/IMG_5503_200.JPG",
     alt: "Man with flag next to tree",
     width: 720,
     height: 960,
+    srcset: [200, 399, 545, 670, 720]
+      .map(
+        (size) =>
+          `/slideshow_images/index/IMG_5503/IMG_5503_${size}.jpg ${size}w`
+      )
+      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5592.JPG",
+    src: "/slideshow_images/index/IMG_5592/IMG_5592_200.JPG",
     alt: "Christmas tree in trailer",
     width: 4096,
     height: 2925,
@@ -49,19 +61,31 @@ export default [
       .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7235.JPG",
+    src: "/slideshow_images/index/IMG_7235/IMG_7235_200.JPG",
     alt: "Christmas tree cluster",
     width: 960,
     height: 720,
+    srcset: [200, 387, 535, 657, 781, 890, 960]
+      .map(
+        (size) =>
+          `/slideshow_images/index/IMG_7235/IMG_7235_${size}.jpg ${size}w`
+      )
+      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7241.JPG",
+    src: "/slideshow_images/index/IMG_7241/IMG_7241_200.JPG",
     alt: "Netting christmas tree",
     width: 960,
     height: 720,
+    srcset: [200, 468, 611, 748, 873, 960]
+      .map(
+        (size) =>
+          `/slideshow_images/index/IMG_7241/IMG_7241_${size}.jpg ${size}w`
+      )
+      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7581.jpg",
+    src: "/slideshow_images/index/IMG_7581/IMG_7581_200.jpg",
     alt: "Christmas tree sunrise fence",
     width: 3024,
     height: 4032,
@@ -73,7 +97,7 @@ export default [
       .join(", "),
   },
   {
-    src: "/slideshow_images/index/Rainbow.jpg",
+    src: "/slideshow_images/index/Rainbow/Rainbow_200.jpg",
     alt: "Christmas tree forest",
     width: 1440,
     height: 1298,
