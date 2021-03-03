@@ -5,7 +5,7 @@ const CustomHead = ({ pageName }) => {
   const page = metaTags[pageName];
   return (
     <Head>
-      {pageName === "admin" ? (
+      {pageName === "admin" || pageName === "404 - Not Found" ? (
         <>
           <meta name="robots" content="noindex, nofollow" />
           <title>{pageName}</title>
