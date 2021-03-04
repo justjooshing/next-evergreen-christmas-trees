@@ -2,7 +2,6 @@ import { csrfToken } from "next-auth/client";
 import CustomHead from "../../components/Global/CustomHead";
 
 import adminStyle from "../../styles/Admin.module.css";
-import admin from "../admin";
 
 export default function SignIn({ csrfToken }) {
   const pageName = "admin";

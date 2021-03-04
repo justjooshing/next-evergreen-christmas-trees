@@ -29,6 +29,7 @@ const options = {
   },
   pages: {
     signIn: "/auth/email-signin",
+    verifyRequest: "/auth/verified",
   },
   callbacks: {
     redirect: async (url, _) => {
