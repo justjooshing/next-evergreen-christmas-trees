@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addAnnouncement } from "../../redux/actions";
-
 import { nanoid } from "nanoid";
+import TextareaAutoSize from "react-textarea-autosize";
 
+import { addAnnouncement } from "../../redux/actions";
 import Announcement from "./Announcement";
+
+import adminStyle from "../../styles/Admin.module.css";
 
 const Announcements = () => {
   const announcements = useSelector((state) => state.announcements);
@@ -34,14 +36,16 @@ const Announcements = () => {
       <form onSubmit={handleAnnouncementSubmit}>
         <label htmlFor="announcements">
           <h3>Edit Announcements</h3>
-          <input
-            type="text"
-            id="announcement"
-            onChange={(e) => setTempAnnouncement(e.target.value)}
-            required
-          />
+          <div className={adminStyle.input_wrapper}>
+            <TextareaAutoSize
+              type="text"
+              id="announcement"
+              onChange={(e) => setTempAnnouncement(e.target.value)}
+              required
+            />
+            <button type="submit">Submit</button>
+          </div>
         </label>
-        <button type="submit">Submit</button>
       </form>
       {announcements.length > 0 ? (
         announcements.map((announcement) => (

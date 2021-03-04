@@ -30,14 +30,16 @@ const Price = () => {
       <form onSubmit={handlePriceSubmit}>
         <label htmlFor="price">
           <h3>Set new price</h3>
-          <input
-            type="number"
-            id="price"
-            onChange={(e) => setTempPrice(e.target.value)}
-            required
-          />
+          <div className={adminStyle.input_wrapper}>
+            <input
+              type="number"
+              id="price"
+              onChange={(e) => setTempPrice(e.target.value)}
+              required
+            />
+            <button type="submit">Submit</button>
+          </div>
         </label>
-        <button type="submit">Submit</button>
       </form>
       <h3>Current Price</h3>
       <p className={adminStyle.price}>${price} per foot</p>

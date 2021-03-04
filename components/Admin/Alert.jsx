@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
+import TextareaAutoSize from "react-textarea-autosize";
 
 import { setAlert, deleteAlert } from "../../redux/actions";
-
 import DeleteButton from "./DeleteButton";
 
 import adminStyle from "../../styles/Admin.module.css";
@@ -36,14 +36,16 @@ const Alert = () => {
       <form onSubmit={handleAlertSubmit}>
         <label htmlFor="alert">
           <h3>Update Alert</h3>
-          <input
-            type="text"
-            id="alert"
-            onChange={(e) => setTempAlert(e.target.value)}
-            required
-          />
+          <div className={adminStyle.input_wrapper}>
+            <TextareaAutoSize
+              type="text"
+              id="alert"
+              onChange={(e) => setTempAlert(e.target.value)}
+              required
+            />
+            <button type="submit">Submit</button>
+          </div>
         </label>
-        <button type="submit">Submit</button>
       </form>
       {alert?.value ? (
         <div className={adminStyle.announcement}>

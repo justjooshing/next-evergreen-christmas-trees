@@ -10,6 +10,11 @@
   height: 8em;
 }
 
+.input_wrapper {
+  display: flex;
+  place-content: center;
+}
+
 .current {
   display: flex;
   flex-direction: column;
