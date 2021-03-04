@@ -41,7 +41,7 @@ const options = {
       const admins = JSON.parse(JSON.stringify(getAdmins));
 
       const isAllowedToSignIn = admins.filter(
-        (admin) => admin.email === user.email.trim()
+        (admin) => admin.email === user.email.trim().toLowerCase()
       );
 
       if (isAllowedToSignIn.length > 0) {
