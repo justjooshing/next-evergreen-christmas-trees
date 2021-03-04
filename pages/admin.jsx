@@ -69,17 +69,14 @@ const admin = ({ alert, announcements, price }) => {
     );
   }
 
+  if (!session) {
+    // calling signIn() redirects you to auth/email-signin
+    signIn();
+  }
+
   return (
     <>
       <CustomHead pageName={pageName} />
-      {!session && (
-        <div className={adminStyle.auth_wrapper}>
-          <h3>Not currently signed in</h3>
-          <button className={adminStyle.auth_button} onClick={signIn}>
-            Sign in
-          </button>
-        </div>
-      )}
       {session && <Authorised />}
     </>
   );

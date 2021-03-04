@@ -65,10 +65,7 @@
 }
 
 .auth_wrapper {
-  display: flex;
-  flex-direction: column;
-  place-content: center;
-  place-items: center;
+  text-align: center;
 }
 
 .auth_button {
@@ -78,4 +75,14 @@
   font-family: var(--main-text-font);
   background-color: var(--header-bg-color);
   color: var(--header-text-color);
+}
+
+.login_page {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.login_page * {
+  margin: 0.5em;
 }

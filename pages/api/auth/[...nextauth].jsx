@@ -27,6 +27,9 @@ const options = {
     jwt: true,
     maxAge: 24 * 60 * 60, // 1 day
   },
+  pages: {
+    signIn: "/auth/email-signin",
+  },
   callbacks: {
     redirect: async (url, _) => {
       return Promise.resolve("/admin");
