@@ -22,12 +22,17 @@ export async function getServerSideProps() {
   const getAnnouncements = await db.collection("message").find({}).toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
+  let alert = null;
+  const getAlert = await db.collection("alert").find({}).toArray();
+  if (getAlert.length > 0) {
+    alert = JSON.parse(JSON.stringify(getAlert))[0];
+  }
   return {
-    props: { announcements },
+    props: { announcements, alert },
   };
 }
 
-export default function Home({ announcements }) {
+export default function Home({ announcements, alert }) {
   const pageName = "Home";
   const dispatch = useDispatch();
 
@@ -57,6 +62,7 @@ export default function Home({ announcements }) {
   return (
     <>
       <CustomHead pageName={pageName} />
+      {alert && <div className={indexStyles.alert}>{alert.value}</div>}
       <section className={indexStyles.introduction}>
         {indexIntro.map((line, index) => (
           <p key={index}>{line}</p>

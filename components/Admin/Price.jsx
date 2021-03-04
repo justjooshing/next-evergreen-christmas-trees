@@ -12,8 +12,6 @@ const Price = () => {
   const handlePriceSubmit = async (e) => {
     e.preventDefault();
     const value = parseInt(tempPrice);
-    // Does it matter if I set the price here now
-    // or only once fetch is returned?
     dispatch(setPrice({ value }));
     e.target.reset();
 

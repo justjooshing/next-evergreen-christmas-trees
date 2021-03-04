@@ -4,6 +4,8 @@ import {
   SET_ANNOUNCEMENTS,
   ADD_ANNOUNCEMENT,
   DELETE_ANNOUNCEMENT,
+  SET_ALERT,
+  DELETE_ALERT,
 } from "../constants/action-types";
 
 export const setPage = (value) => ({
@@ -28,5 +30,15 @@ export const addAnnouncement = (obj) => ({
 
 export const deleteAnnouncement = (id) => ({
   type: DELETE_ANNOUNCEMENT,
+  payload: id,
+});
+
+export const setAlert = (obj) => ({
+  type: SET_ALERT,
+  payload: obj,
+});
+
+export const deleteAlert = (id) => ({
+  type: SET_ALERT,
   payload: id,
 });

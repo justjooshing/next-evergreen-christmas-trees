@@ -1,14 +1,13 @@
-import { deleteAnnouncement } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
 import adminStyle from "../../styles/Admin.module.css";
 
-const deleteButton = ({ id }) => {
+const deleteButton = ({ id, deleteFromState, route }) => {
   const dispatch = useDispatch();
 
   const handleDelete = async () => {
-    dispatch(deleteAnnouncement(id));
-    await fetch("/api/announcements", {
+    dispatch(deleteFromState(id));
+    await fetch(`/api/${route}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

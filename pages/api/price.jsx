@@ -6,24 +6,24 @@ const handler = async (req, res) => {
   switch (req.method) {
     case "POST": {
       await db.collection("price").insertOne({ value, date: new Date() });
-      const announcements = await db
+      const price = await db
         .collection("price")
         .find({})
         .sort({ date: -1 })
         .limit(1)
         .toArray();
-      res.status(200).send(announcements);
+      res.status(200).send(price);
       break;
     }
     default: {
-      const getAnnouncements = await db
+      const getPrice = await db
         .collection("price")
         .find({})
         .sort({ date: -1 })
         .limit(1)
         .toArray();
-      const announcements = JSON.parse(JSON.stringify(getAnnouncements));
-      res.json(announcements);
+      const price = JSON.parse(JSON.stringify(getPrice));
+      res.json(price);
     }
   }
 };
