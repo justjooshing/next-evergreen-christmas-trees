@@ -6,10 +6,4 @@ export default [
     height: 1180 / 2,
     message: "And look how big my turkey leg is!",
   },
-  // {
-  //   src: "/verifiedImages/sleeping.jpg",
-  //   width: 1768 / 2,
-  //   height: 1392 / 2,
-  //   message: "This is probably me right now",
-  // },
 ];

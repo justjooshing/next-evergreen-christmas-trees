@@ -55,18 +55,7 @@ const admin = ({ alert, announcements, price }) => {
   }, []);
 
   if (loading) {
-    return (
-      <div className={adminStyle.auth_wrapper}>
-        <button
-          className={adminStyle.auth_button}
-          onClick={() => {
-            alert("Hold your horses");
-          }}
-        >
-          Loading...
-        </button>
-      </div>
-    );
+    return <div className={adminStyle.auth_wrapper}>Loading...</div>;
   }
 
   if (!session) {
