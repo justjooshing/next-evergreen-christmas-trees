@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "mongoose": "^5.11.17",
     "nanoid": "^3.1.20",
     "next": "10.0.6",

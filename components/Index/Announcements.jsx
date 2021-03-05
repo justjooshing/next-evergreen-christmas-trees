@@ -6,9 +6,11 @@ const Announcements = ({ announcements }) => {
       className={`${indexStyles.introduction} ${indexStyles.dad_announcement}`}
     >
       <h3>Hello everyone!</h3>
-      {announcements.map(({ value, id }) => (
-        <p key={id}>{value}</p>
-      ))}
+      {announcements
+        .filter((announcement) => announcement.visibility === true)
+        .map(({ value, id }) => (
+          <p key={id}>{value}</p>
+        ))}
     </section>
   );
 };

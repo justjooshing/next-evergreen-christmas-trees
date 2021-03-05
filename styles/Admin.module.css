@@ -37,7 +37,7 @@
 
 .announcement {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   grid-column-gap: 1em;
   margin: 1.5em;
   place-items: center;
@@ -45,9 +45,23 @@
 
 .announcement > p {
   margin: 0;
-  grid-column-start: 2;
+  grid-column-start: 1;
   max-width: 300px;
+  cursor: default;
+}
+
+.visibility {
+  padding: 10px;
   cursor: pointer;
+  justify-self: right;
+}
+
+.visibility_on {
+  background-color: green;
+}
+
+.visibility_off {
+  background-color: red;
 }
 
 .deletePostButton {

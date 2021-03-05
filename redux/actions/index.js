@@ -3,6 +3,7 @@ import {
   SET_PRICE,
   SET_ANNOUNCEMENTS,
   ADD_ANNOUNCEMENT,
+  TOGGLE_ANNOUNCEMENT,
   DELETE_ANNOUNCEMENT,
   SET_ALERT,
   DELETE_ALERT,
@@ -28,6 +29,11 @@ export const addAnnouncement = (obj) => ({
   payload: obj,
 });
 
+export const toggleAnnouncement = (id) => ({
+  type: TOGGLE_ANNOUNCEMENT,
+  payload: id,
+});
+
 export const deleteAnnouncement = (id) => ({
   type: DELETE_ANNOUNCEMENT,
   payload: id,
@@ -39,6 +45,6 @@ export const setAlert = (obj) => ({
 });
 
 export const deleteAlert = (id) => ({
-  type: SET_ALERT,
+  type: DELETE_ALERT,
   payload: id,
 });

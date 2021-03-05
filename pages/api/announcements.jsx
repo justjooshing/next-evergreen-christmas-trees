@@ -11,7 +11,18 @@ const handler = async (req, res) => {
       break;
     }
     case "POST": {
-      await db.collection("message").insertOne({ value, id, date: new Date() });
+      await db
+        .collection("message")
+        .insertOne({ value, id, visibility: true, date: new Date() });
+      const announcements = await db.collection("message").find({}).toArray();
+      res.status(200).send(announcements);
+      break;
+    }
+    case "PUT": {
+      const val = await db.collection("message").findOne({ id });
+      await db
+        .collection("message")
+        .updateOne({ id }, { $set: { visibility: !val.visibility } });
       const announcements = await db.collection("message").find({}).toArray();
       res.status(200).send(announcements);
       break;
