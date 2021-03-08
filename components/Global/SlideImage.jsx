@@ -11,7 +11,7 @@ const SlideImage = ({ image, isVisible }) => {
     updateHiddenImages(
       <>
         <img
-          sizes="70w"
+          sizes="60w"
           srcSet={image.srcset}
           src={image.src}
           alt={image.alt}
@@ -27,7 +27,7 @@ const SlideImage = ({ image, isVisible }) => {
   return isVisible ? (
     <>
       <img
-        sizes="70w"
+        sizes="60w"
         alt={image.alt}
         className={slideStyle.image}
         srcSet={image.srcset}
