@@ -50,20 +50,6 @@
   cursor: default;
 }
 
-.visibility {
-  padding: 10px;
-  cursor: pointer;
-  justify-self: right;
-}
-
-.visibility_on {
-  background-color: green;
-}
-
-.visibility_off {
-  background-color: red;
-}
-
 .deletePostButton {
   margin-left: auto;
   color: white;

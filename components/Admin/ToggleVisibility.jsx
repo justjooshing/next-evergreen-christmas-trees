@@ -1,12 +1,9 @@
 import { useDispatch } from "react-redux";
-
-import adminStyle from "../../styles/Admin.module.css";
+import Switch from "react-switch";
 
 const ToggleVisibility = ({ messageToBeToggled, toggleState, route }) => {
   const { visibility, id } = messageToBeToggled;
   const dispatch = useDispatch();
-
-  const className = visibility ? "visibility_on" : "visibility_off";
 
   const handleToggle = async () => {
     dispatch(toggleState(id));
@@ -19,10 +16,13 @@ const ToggleVisibility = ({ messageToBeToggled, toggleState, route }) => {
     });
   };
   return (
-    <div
-      className={`${adminStyle.visibility} ${adminStyle[className]}`}
-      onClick={handleToggle}
-    ></div>
+    <Switch
+      checkedIcon={false}
+      uncheckedIcon={false}
+      onChange={handleToggle}
+      checked={visibility}
+      aria-label={`toggle switch for ${route}`}
+    />
   );
 };
 
