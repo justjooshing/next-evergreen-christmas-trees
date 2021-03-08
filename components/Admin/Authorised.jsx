@@ -1,6 +1,6 @@
 import { signOut } from "next-auth/client";
 
-import Alert from "./Alert";
+import Alerts from "./Alerts";
 import Announcements from "./Announcements";
 import Price from "./Price";
 
@@ -15,7 +15,7 @@ const Authorised = () => {
         </button>
       </div>
       <section className={adminStyle.current}>
-        <Alert />
+        <Alerts />
         <Announcements />
         <Price />
       </section>

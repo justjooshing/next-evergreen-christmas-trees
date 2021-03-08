@@ -1,18 +1,16 @@
 import { useDispatch } from "react-redux";
 
-import { toggleAnnouncement } from "../../redux/actions";
-
 import adminStyle from "../../styles/Admin.module.css";
 
-const ToggleVisibility = ({ announcement }) => {
-  const { visibility, id } = announcement;
+const ToggleVisibility = ({ messageToBeToggled, toggleState, route }) => {
+  const { visibility, id } = messageToBeToggled;
   const dispatch = useDispatch();
 
   const className = visibility ? "visibility_on" : "visibility_off";
 
   const handleToggle = async () => {
-    dispatch(toggleAnnouncement(id));
-    await fetch(`/api/announcements`, {
+    dispatch(toggleState(id));
+    await fetch(`/api/${route}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

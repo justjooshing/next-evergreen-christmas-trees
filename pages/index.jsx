@@ -16,23 +16,22 @@ import indexIntro from "../components/config/indexIntro";
 import cardStyle from "../styles/Card.module.css";
 import slideStyle from "../styles/Slideshow.module.css";
 import indexStyles from "../styles/index.module.css";
+import Alerts from "../components/Index/Alerts";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   const getAnnouncements = await db.collection("message").find({}).toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
-  let alert = null;
   const getAlert = await db.collection("alert").find({}).toArray();
-  if (getAlert.length > 0) {
-    alert = JSON.parse(JSON.stringify(getAlert))[0];
-  }
+  const alerts = JSON.parse(JSON.stringify(getAlert));
+
   return {
-    props: { announcements, alert },
+    props: { announcements, alerts },
   };
 }
 
-export default function Home({ announcements, alert }) {
+export default function Home({ announcements, alerts }) {
   const pageName = "Home";
   const dispatch = useDispatch();
 
@@ -62,13 +61,13 @@ export default function Home({ announcements, alert }) {
   return (
     <>
       <CustomHead pageName={pageName} />
-      {alert && <div className={indexStyles.alert}>{alert.value}</div>}
+      {alerts.length > 0 && <Alerts alerts={alerts} />}
       <section className={indexStyles.introduction}>
         {indexIntro.map((line, index) => (
           <p key={index}>{line}</p>
         ))}
       </section>
-      {announcements.length > 0 && (
+      {announcements.some((announcement) => announcement.visibility) && (
         <Announcements announcements={announcements} />
       )}
       <section className={slideStyle.slideshow}>

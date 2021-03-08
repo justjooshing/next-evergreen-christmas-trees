@@ -2,7 +2,7 @@ import { connectToDatabase } from "../../util/mongodb";
 
 const handler = async (req, res) => {
   const { db } = await connectToDatabase();
-  const { id, value } = req.body;
+  const { value, id } = req.body;
   switch (req.method) {
     case "DELETE": {
       await db.collection("message").deleteOne({ id });

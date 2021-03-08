@@ -5,7 +5,9 @@ import {
   ADD_ANNOUNCEMENT,
   TOGGLE_ANNOUNCEMENT,
   DELETE_ANNOUNCEMENT,
-  SET_ALERT,
+  SET_ALERTS,
+  ADD_ALERT,
+  TOGGLE_ALERT,
   DELETE_ALERT,
 } from "../constants/action-types";
 
@@ -39,9 +41,19 @@ export const deleteAnnouncement = (id) => ({
   payload: id,
 });
 
-export const setAlert = (obj) => ({
-  type: SET_ALERT,
+export const setAlerts = (obj) => ({
+  type: SET_ALERTS,
   payload: obj,
+});
+
+export const addAlert = (obj) => ({
+  type: ADD_ALERT,
+  payload: obj,
+});
+
+export const toggleAlert = (id) => ({
+  type: TOGGLE_ALERT,
+  payload: id,
 });
 
 export const deleteAlert = (id) => ({

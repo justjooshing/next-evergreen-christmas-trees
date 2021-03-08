@@ -1,6 +1,7 @@
 import DeleteButton from "./DeleteButton";
 import ToggleVisibility from "./ToggleVisibility";
-import { deleteAnnouncement } from "../../redux/actions";
+
+import { toggleAnnouncement, deleteAnnouncement } from "../../redux/actions";
 
 import adminStyle from "../../styles/Admin.module.css";
 
@@ -9,7 +10,11 @@ const Announcement = ({ announcement }) => {
   return (
     <div className={adminStyle.announcement}>
       <p>{value}</p>
-      <ToggleVisibility announcement={announcement} />
+      <ToggleVisibility
+        route="announcements"
+        messageToBeToggled={announcement}
+        toggleState={toggleAnnouncement}
+      />
       <DeleteButton
         id={id}
         deleteFromState={deleteAnnouncement}

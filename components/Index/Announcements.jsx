@@ -7,7 +7,7 @@ const Announcements = ({ announcements }) => {
     >
       <h3>Hello everyone!</h3>
       {announcements
-        .filter((announcement) => announcement.visibility === true)
+        .filter((announcement) => announcement.visibility)
         .map(({ value, id }) => (
           <p key={id}>{value}</p>
         ))}

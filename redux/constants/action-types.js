@@ -3,13 +3,11 @@ export const SET_PAGE = "SET_PAGE";
 export const SET_PRICE = "SET_PRICE";
 
 export const SET_ANNOUNCEMENTS = "SET_ANNOUNCEMENTS";
-
 export const ADD_ANNOUNCEMENT = "ADD_ANNOUNCEMENT";
-
 export const TOGGLE_ANNOUNCEMENT = "TOGGLE_ANNOUNCEMENT";
-
 export const DELETE_ANNOUNCEMENT = "DELETE_ANNOUNCEMENT";
 
-export const SET_ALERT = "SET_ALERT";
-
+export const SET_ALERTS = "SET_ALERTS";
+export const ADD_ALERT = "ADD_ALERT";
+export const TOGGLE_ALERT = "TOGGLE_ALERT";
 export const DELETE_ALERT = "DELETE_ALERT";

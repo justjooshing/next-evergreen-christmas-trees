@@ -4,24 +4,33 @@ const handler = async (req, res) => {
   const { db } = await connectToDatabase();
   const { value, id } = req.body;
   switch (req.method) {
-    case "PUT": {
-      await db
-        .collection("alert")
-        .replaceOne({ id }, { value, id, date: new Date() }, { upsert: true });
-      const alert = await db.collection("alert").find({}).toArray();
-      res.status(200).send(alert);
-      break;
-    }
     case "DELETE": {
       await db.collection("alert").deleteOne({ id });
-      const alert = await db.collection("alert").find({}).toArray();
-      res.status(200).send(alert);
+      const alerts = await db.collection("alert").find({}).toArray();
+      res.status(200).send(alerts);
+      break;
+    }
+    case "POST": {
+      await db
+        .collection("alert")
+        .insertOne({ value, id, visibility: true, date: new Date() });
+      const alerts = await db.collection("alert").find({}).toArray();
+      res.status(200).send(alerts);
+      break;
+    }
+    case "PUT": {
+      const val = await db.collection("alert").findOne({ id });
+      await db
+        .collection("alert")
+        .updateOne({ id }, { $set: { visibility: !val.visibility } });
+      const alerts = await db.collection("alert").find({}).toArray();
+      res.status(200).send(alerts);
       break;
     }
     default: {
-      const getAlert = await db.collection("alert").find({}).toArray();
-      const alert = JSON.parse(JSON.stringify(getAlert));
-      res.json(alert);
+      const getAlerts = await db.collection("alert").find({}).toArray();
+      const alerts = JSON.parse(JSON.stringify(getAlerts));
+      res.json(alerts);
     }
   }
 };

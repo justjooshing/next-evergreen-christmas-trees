@@ -7,7 +7,7 @@ import {
   setAnnouncements,
   setPage,
   setPrice,
-  setAlert,
+  setAlerts,
 } from "../redux/actions";
 
 const Authorised = dynamic(() => import("../components/Admin/Authorised"));
@@ -22,11 +22,9 @@ export async function getServerSideProps() {
   const getAnnouncements = await db.collection("message").find({}).toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
-  let alert = null;
-  const getAlert = await db.collection("alert").find({}).toArray();
-  if (getAlert.length > 0) {
-    alert = JSON.parse(JSON.stringify(getAlert))[0];
-  }
+  const getAlerts = await db.collection("alert").find({}).toArray();
+  const alerts = JSON.parse(JSON.stringify(getAlerts));
+
   // Return most recent price only
   const getPrice = await db
     .collection("price")
@@ -37,11 +35,11 @@ export async function getServerSideProps() {
   const price = JSON.parse(JSON.stringify(getPrice))[0];
 
   return {
-    props: { alert, announcements, price },
+    props: { alerts, announcements, price },
   };
 }
 
-const admin = ({ alert, announcements, price }) => {
+const admin = ({ alerts, announcements, price }) => {
   const [session, loading] = useSession();
 
   const pageName = "admin";
@@ -51,7 +49,7 @@ const admin = ({ alert, announcements, price }) => {
     dispatch(setPage(pageName));
     dispatch(setPrice(price));
     dispatch(setAnnouncements(announcements));
-    dispatch(setAlert(alert));
+    dispatch(setAlerts(alerts));
   }, []);
 
   if (loading) {
