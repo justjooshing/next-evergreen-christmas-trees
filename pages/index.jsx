@@ -42,7 +42,7 @@ export default function Home({ announcements, alerts }) {
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setVisibleSlideImage(slideDetails[slideCounter].alt);

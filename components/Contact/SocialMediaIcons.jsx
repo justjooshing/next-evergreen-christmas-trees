@@ -6,6 +6,7 @@ const SocialMediaIcons = () => {
       <a
         href="https://www.instagram.com/evergreen_christmas_trees/"
         target="_blank"
+        rel="noreferrer"
       >
         <img
           src="/logos/instalogo.png"
@@ -16,6 +17,7 @@ const SocialMediaIcons = () => {
       <a
         href="https://www.messenger.com/t/evergreenchrissytrees"
         target="_blank"
+        rel="noreferrer"
       >
         <img
           src="/logos/messengerLogo.png"
@@ -23,7 +25,11 @@ const SocialMediaIcons = () => {
           className={contactStyle.logo}
         />
       </a>
-      <a href="https://www.facebook.com/evergreenchrissytrees/" target="_blank">
+      <a
+        href="https://www.facebook.com/evergreenchrissytrees/"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           src="/logos/fbLogo.png"
           alt="facebook logo"

@@ -8,7 +8,7 @@ const NavLinks = ({ link }) => {
   const [key, value] = link;
   const selectedPage = page === key;
   return (
-    <Link href={value}>
+    <Link passHref href={value}>
       <li className={selectedPage ? navStyles.selected : null}>{key}</li>
     </Link>
   );

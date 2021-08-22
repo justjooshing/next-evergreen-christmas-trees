@@ -9,13 +9,13 @@ import { slideImages, schoolList } from "../components/config/schools";
 import slideStyle from "../styles/Slideshow.module.css";
 import communityStyle from "../styles/Community.module.css";
 
-const community = () => {
+const Community = () => {
   const pageName = "Community";
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, []);
+  }, [dispatch]);
 
   const [slideCounter, setSlideCounter] = useState(0);
   const [visibleSlideImage, setVisibleSlideImage] = useState(
@@ -65,4 +65,4 @@ const community = () => {
   );
 };
 
-export default community;
+export default Community;

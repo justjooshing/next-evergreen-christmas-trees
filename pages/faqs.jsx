@@ -7,13 +7,13 @@ import faqsList from "../components/config/faqsList";
 
 import faqsStyle from "../styles/FAQs.module.css";
 
-const faqs = () => {
+const Faqs = () => {
   const pageName = "FAQs";
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={faqsStyle.main}>
@@ -31,4 +31,4 @@ const faqs = () => {
   );
 };
 
-export default faqs;
+export default Faqs;

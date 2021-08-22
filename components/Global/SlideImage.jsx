@@ -22,7 +22,7 @@ const SlideImage = ({ image, isVisible }) => {
         </figcaption>
       </>
     );
-  }, []);
+  }, [image]);
 
   return isVisible ? (
     <>

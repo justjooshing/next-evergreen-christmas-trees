@@ -25,13 +25,13 @@ export async function getServerSideProps() {
   };
 }
 
-const pricing = ({ getPrice }) => {
+const Pricing = ({ getPrice }) => {
   const pageName = "Pricing";
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -63,4 +63,4 @@ const pricing = ({ getPrice }) => {
   );
 };
 
-export default pricing;
+export default Pricing;

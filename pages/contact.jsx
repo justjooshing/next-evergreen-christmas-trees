@@ -12,13 +12,13 @@ import SocialMediaIcons from "../components/Contact/SocialMediaIcons";
 
 import contactStyle from "../styles/Contact.module.css";
 
-const contact = () => {
+const Contact = () => {
   const pageName = "Contact";
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -35,4 +35,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

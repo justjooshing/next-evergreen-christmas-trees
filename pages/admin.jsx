@@ -39,7 +39,7 @@ export async function getServerSideProps() {
   };
 }
 
-const admin = ({ alerts, announcements, price }) => {
+const Admin = ({ alerts, announcements, price }) => {
   const [session, loading] = useSession();
 
   const pageName = "admin";
@@ -50,7 +50,7 @@ const admin = ({ alerts, announcements, price }) => {
     dispatch(setPrice(price));
     dispatch(setAnnouncements(announcements));
     dispatch(setAlerts(alerts));
-  }, []);
+  }, [alerts, price, announcements, dispatch]);
 
   if (loading) {
     return <div className={adminStyle.auth_wrapper}>Loading...</div>;
@@ -69,4 +69,4 @@ const admin = ({ alerts, announcements, price }) => {
   );
 };
 
-export default admin;
+export default Admin;
