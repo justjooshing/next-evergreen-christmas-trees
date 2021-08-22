@@ -1,13 +1,24 @@
-.form {
-  display: flex;
+.post {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 1em;
+  margin: 1.5em;
   place-items: center;
-  place-content: center;
-  margin: 2em;
 }
 
-.form > input {
-  margin: 2em;
-  height: 8em;
+.post > p {
+  margin: 0;
+  grid-column-start: 1;
+  max-width: 300px;
+  cursor: default;
+}
+
+.post_actions {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  flex-direction: column;
+  place-items: center;
 }
 
 .input_wrapper {
@@ -23,47 +34,6 @@
   margin: 0 2em;
 }
 
-@media (min-width: 805px) {
-  .current {
-    flex-direction: row;
-  }
-}
-
-.alert_container {
-  border: 3px red solid;
-  padding: 0em 1em;
-  margin: 0em 0.5em;
-}
-
-.announcement {
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
-  grid-column-gap: 1em;
-  margin: 1.5em;
-  place-items: center;
-}
-
-.announcement > p {
-  margin: 0;
-  grid-column-start: 1;
-  max-width: 300px;
-  cursor: default;
-}
-
-.deletePostButton {
-  margin-left: auto;
-  color: white;
-  background-color: red;
-  border-radius: 10px;
-  height: 2em;
-  width: 2em;
-  cursor: pointer;
-}
-
-.price {
-  cursor: pointer;
-}
-
 .auth_wrapper {
   text-align: center;
 }
@@ -75,6 +45,15 @@
   font-family: var(--main-text-font);
   background-color: var(--header-bg-color);
   color: var(--header-text-color);
+  cursor: pointer;
+}
+
+.deletePostButton {
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  height: 2em;
+  width: 2em;
   cursor: pointer;
 }
 
