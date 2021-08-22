@@ -2,9 +2,10 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
 import { connectToDatabase } from "../../../util/mongodb";
+const dev = process.env.NODE_ENV !== "production";
 
 const options = {
-  site: process.env.NEXTAUTH_URL,
+  site: dev ? process.env.NEXTAUTH_URL_DEV : process.env.NEXTAUTH_URL,
   providers: [
     Providers.Email({
       server: {
@@ -53,4 +54,5 @@ const options = {
   },
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (req, res) => NextAuth(req, res, options);

@@ -1,4 +1,4 @@
-import Router from "next/dist/next-server/lib/router/router";
+import Router from 'next/router';
 import { Provider as AuthProvider } from "next-auth/client";
 import { Provider } from "react-redux";
 import store from "../redux/store";
