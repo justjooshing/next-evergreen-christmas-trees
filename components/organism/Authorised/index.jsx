@@ -14,12 +14,12 @@ import {
   setAnnouncements,
   toggleAlert,
   toggleAnnouncement,
-} from "../../redux/actions";
+} from "../../../redux/actions";
 
-import ToggleVisibility from "./ToggleVisibility";
-import DeleteButton from "./DeleteButton";
+import ToggleVisibility from "../../atom/Toggle";
+import DeleteButton from "../../atom/DeleteButton";
 
-import adminStyle from "../../styles/Admin.module.css";
+import style from "./Authorised.module.scss";
 
 const actions = {
   alerts: {
@@ -42,9 +42,9 @@ const actions = {
 const SinglePost = ({ type, post }) => {
   const { value, id } = post;
   return (
-    <div className={adminStyle.post}>
+    <div className={style.post}>
       <p>{value}</p>
-      <div className={adminStyle.post_actions}>
+      <div className={style.post_actions}>
         <ToggleVisibility
           route={type}
           messageToBeToggled={post}
@@ -62,6 +62,7 @@ const SinglePost = ({ type, post }) => {
 
 const AdminComponent = ({ type }) => {
   const currentState = useSelector((state) => state[type]);
+
   const dispatch = useDispatch();
 
   const [tempValue, setTempValue] = useState();
@@ -118,15 +119,15 @@ const AdminComponent = ({ type }) => {
       [type]: {
         value: tempValue,
         id: nanoid(10),
-        updateState: actions[type].add({ value, id }),
+        updateState: () => actions[type].add({ value, id }),
       },
       price: {
         value: parseInt(tempValue),
-        updateState: actions.price.set({ value }),
+        updateState: () => actions.price.set({ value }),
       },
     }[type];
 
-    dispatch(updateState);
+    dispatch(updateState());
     e.target.reset();
 
     await fetch(`/api/${type}`, {
@@ -144,22 +145,24 @@ const AdminComponent = ({ type }) => {
 
   return (
     <>
-      <div>
-        <h2>{capitalisedWord(type)}</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor={type}>
-            <h3>{action}</h3>
-            <div className={adminStyle.input_wrapper}>
-              {inputField}
-              <button type="submit">{submitText}</button>
-            </div>
-          </label>
-        </form>
-      </div>
-      <div>
-        <h3>{currentStateHeader}</h3>
-        {currentStateMap()}
-      </div>
+      <h2>{capitalisedWord(type)}</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor={type}>
+          <h3>{action}</h3>
+          <div className={style.input_wrapper}>
+            {inputField}
+            <button type="submit">{submitText}</button>
+          </div>
+        </label>
+      </form>
+      {/* Only show Alerts/Annoucements header if they are some
+      !currentState.isArray is to show price regardless */}
+      {(currentState.length > 0 || !Array.isArray(currentState)) && (
+        <div className={style.posts}>
+          <h3>{currentStateHeader}</h3>
+          {currentStateMap()}
+        </div>
+      )}
     </>
   );
 };
@@ -168,12 +171,12 @@ const Authorised = () => {
   const signOutText = "Sign Out";
   return (
     <>
-      <div className={adminStyle.auth_wrapper}>
-        <button className={adminStyle.auth_button} onClick={signOut}>
+      <div className={style.auth_wrapper}>
+        <button className={style.auth_button} onClick={signOut}>
           {signOutText}
         </button>
       </div>
-      <section className={adminStyle.current}>
+      <section className={style.current}>
         {["alerts", "announcements", "price"].map((type) => (
           <AdminComponent key={type} type={type} />
         ))}

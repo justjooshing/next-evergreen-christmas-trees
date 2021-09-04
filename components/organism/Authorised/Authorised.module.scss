@@ -1,0 +1,40 @@
+.posts {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.post {
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: auto 60px;
+  width: 100%;
+  max-width: 600px;
+  grid-column-gap: 1em;
+  place-items: center;
+}
+
+.post > p {
+  grid-column-start: 1;
+  max-width: 300px;
+}
+
+.post_actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+}
+
+.input_wrapper {
+  display: flex;
+  place-content: center;
+}
+
+.current {
+  display: flex;
+  flex-direction: column;
+  place-content: space-evenly;
+  text-align: center;
+  margin: 0 2em;
+}
