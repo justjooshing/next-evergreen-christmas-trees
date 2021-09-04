@@ -59,15 +59,13 @@ const AdminPage = ({ alerts, announcements, price }) => {
     return <Loading />;
   }
 
-  // if (!session) {
-  //   // calling signIn() redirects you to auth/email-signin
-  //   signIn();
-  // }
+  if (!session) {
+    // calling signIn() redirects you to auth/email-signin
+    signIn();
+  }
 
   return (
-    <PageWrapper pageName={pageName}>
-      {/*session &&*/ <Authorised />}
-    </PageWrapper>
+    <PageWrapper pageName={pageName}>{session && <Authorised />}</PageWrapper>
   );
 };
 
