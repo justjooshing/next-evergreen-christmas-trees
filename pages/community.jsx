@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
-import PageWrapper from "../components/atom/PageWrapper";
+import PageWrapper from "../components/utils/PageWrapper";
 import Community from "../components/pages/Community";
 
 const CommunityPage = () => {

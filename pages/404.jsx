@@ -1,4 +1,4 @@
-import PageWrapper from "../components/atom/PageWrapper";
+import PageWrapper from "../components/utils/PageWrapper";
 import NotFound from "../components/pages/NotFound";
 
 export default function custom404() {

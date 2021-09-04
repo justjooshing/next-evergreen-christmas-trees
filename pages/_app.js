@@ -4,10 +4,10 @@ import { Provider } from "react-redux";
 import store from "../redux/store";
 import NProgress from "nprogress";
 
-import Layout from "../components/Global/Layout";
+import Layout from "../components/utils/Layout";
 
 import "nprogress/nprogress.css";
-import "../styles/globals.css";
+import "../styles/globals.scss";
 NProgress.configure({ showSpinner: false });
 
 Router.events.on("routeChangeStart", () => {

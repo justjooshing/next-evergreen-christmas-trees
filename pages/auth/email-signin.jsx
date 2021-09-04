@@ -1,13 +1,12 @@
 import { csrfToken } from "next-auth/client";
-import CustomHead from "../../components/Global/CustomHead";
+import PageWrapper from "../../components/utils/PageWrapper";
 
-import adminStyle from "../../styles/Admin.module.css";
+import adminStyle from "../../styles/Admin.module.scss";
 
 export default function SignIn({ csrfToken }) {
   const pageName = "admin";
   return (
-    <>
-      <CustomHead pageName={pageName} />
+    <PageWrapper pageName={pageName}>
       <div className={adminStyle.auth_wrapper}>
         <h3>Not currently signed in</h3>
         <form
@@ -25,7 +24,7 @@ export default function SignIn({ csrfToken }) {
           </button>
         </form>
       </div>
-    </>
+    </PageWrapper>
   );
 }
 

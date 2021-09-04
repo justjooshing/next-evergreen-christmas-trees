@@ -4,8 +4,7 @@ import { setPage } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
 
-import PageWrapper from "../components/atom/PageWrapper";
-import Pricing from "../components/pages/Prices";
+import PageWrapper from "../components/utils/PageWrapper";
 import Prices from "../components/pages/Prices";
 
 export async function getServerSideProps() {

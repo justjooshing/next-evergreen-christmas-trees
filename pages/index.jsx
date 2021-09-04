@@ -5,15 +5,18 @@ import { setPage } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
 
-import PageWrapper from "../components/atom/PageWrapper";
+import PageWrapper from "../components/utils/PageWrapper";
 import Home from "../components/pages/Home";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
-  const getAnnouncements = await db.collection("message").find({}).toArray();
+  const getAnnouncements = await db
+    .collection("announcements")
+    .find({})
+    .toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
-  const getAlert = await db.collection("alert").find({}).toArray();
+  const getAlert = await db.collection("alerts").find({}).toArray();
   const alerts = JSON.parse(JSON.stringify(getAlert));
 
   return {

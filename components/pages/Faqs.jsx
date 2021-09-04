@@ -1,11 +1,11 @@
-import faqsList from "../config/faqsList";
+import { faqList } from "../../constants";
 
-import style from "./FAQs.module.scss";
+import style from "./Faqs.module.scss";
 
 const Faqs = () => (
   <div className={style.main}>
     <h3>Frequenly Asked Questions</h3>
-    {faqsList.map((faq) => (
+    {faqList.map((faq) => (
       <details key={faq.question}>
         <summary>
           <h4>{faq.question}</h4>

@@ -11,7 +11,7 @@ import {
 } from "../redux/actions";
 
 const Authorised = dynamic(() => import("../components/organism/Authorised/"));
-import PageWrapper from "../components/atom/PageWrapper";
+import PageWrapper from "../components/utils/PageWrapper";
 
 import { connectToDatabase } from "../util/mongodb";
 
@@ -19,10 +19,13 @@ import Loading from "../components/atom/Loading";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
-  const getAnnouncements = await db.collection("message").find({}).toArray();
+  const getAnnouncements = await db
+    .collection("announcements")
+    .find({})
+    .toArray();
   const announcements = JSON.parse(JSON.stringify(getAnnouncements));
 
-  const getAlerts = await db.collection("alert").find({}).toArray();
+  const getAlerts = await db.collection("alerts").find({}).toArray();
   const alerts = JSON.parse(JSON.stringify(getAlerts));
 
   // Return most recent price only

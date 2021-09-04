@@ -1,4 +1,4 @@
-import { schoolList } from "../../config/schools";
+import { schoolList } from "../../../constants";
 
 import style from "./SchoolsList.module.scss";
 

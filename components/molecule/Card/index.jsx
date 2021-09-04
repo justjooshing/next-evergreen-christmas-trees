@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import cardDetails from "../../config/indexPageLinks";
+import { pageLinks } from "../../../constants";
 
 import styles from "./Card.module.scss";
 
@@ -23,7 +23,7 @@ const Card = ({ card }) => {
 
 const Cards = () => (
   <section className={styles.card_grid_wrapper}>
-    {cardDetails.map((card) => (
+    {pageLinks.map((card) => (
       <Card card={card} key={card.fig_caption} />
     ))}
   </section>
