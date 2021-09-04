@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
-import CustomHead from "../components/Global/CustomHead";
-import faqsList from "../components/config/faqsList";
+import PageWrapper from "../components/atom/PageWrapper";
+import Faqs from "../components/pages/Faqs";
 
-import faqsStyle from "../styles/FAQs.module.css";
-
-const Faqs = () => {
+const FaqPage = () => {
   const pageName = "FAQs";
   const dispatch = useDispatch();
 
@@ -16,19 +14,10 @@ const Faqs = () => {
   }, [dispatch]);
 
   return (
-    <div className={faqsStyle.main}>
-      <CustomHead pageName={pageName} />
-      <h3>Frequenly Asked Questions</h3>
-      {faqsList.map((faq) => (
-        <details key={faq.question}>
-          <summary>
-            <h4>{faq.question}</h4>
-          </summary>
-          {faq.answer}
-        </details>
-      ))}
-    </div>
+    <PageWrapper pageName={pageName}>
+      <Faqs />
+    </PageWrapper>
   );
 };
 
-export default Faqs;
+export default FaqPage;

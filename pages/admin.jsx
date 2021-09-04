@@ -10,12 +10,12 @@ import {
   setAlerts,
 } from "../redux/actions";
 
-const Authorised = dynamic(() => import("../components/Admin/Authorised"));
-import CustomHead from "../components/Global/CustomHead";
+const Authorised = dynamic(() => import("../components/organism/Authorised/"));
+import PageWrapper from "../components/atom/PageWrapper";
 
 import { connectToDatabase } from "../util/mongodb";
 
-import adminStyle from "../styles/Admin.module.css";
+import Loading from "../components/atom/Loading";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
@@ -39,7 +39,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Admin = ({ alerts, announcements, price }) => {
+const AdminPage = ({ alerts, announcements, price }) => {
   const [session, loading] = useSession();
 
   const pageName = "admin";
@@ -53,20 +53,19 @@ const Admin = ({ alerts, announcements, price }) => {
   }, [alerts, price, announcements, dispatch]);
 
   if (loading) {
-    return <div className={adminStyle.auth_wrapper}>Loading...</div>;
+    return <Loading />;
   }
 
-  if (!session) {
-    // calling signIn() redirects you to auth/email-signin
-    signIn();
-  }
+  // if (!session) {
+  //   // calling signIn() redirects you to auth/email-signin
+  //   signIn();
+  // }
 
   return (
-    <>
-      <CustomHead pageName={pageName} />
-      {session && <Authorised />}
-    </>
+    <PageWrapper pageName={pageName}>
+      {/*session &&*/ <Authorised />}
+    </PageWrapper>
   );
 };
 
-export default Admin;
+export default AdminPage;

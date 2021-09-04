@@ -1,18 +1,11 @@
 import { useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
-import CustomHead from "../components/Global/CustomHead";
+import PageWrapper from "../components/atom/PageWrapper";
+import Contact from "../components/pages/Contact";
 
-import ContactDetails from "../components/Contact/ContactDetails";
-import MapWrapper from "../components/Contact/MapWrapper";
-import OpeningHours from "../components/Contact/OpeningHours";
-import SocialMediaIcons from "../components/Contact/SocialMediaIcons";
-
-import contactStyle from "../styles/Contact.module.css";
-
-const Contact = () => {
+const ContactPage = () => {
   const pageName = "Contact";
   const dispatch = useDispatch();
 
@@ -21,18 +14,10 @@ const Contact = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <CustomHead pageName={pageName} />
-      <section className={contactStyle.main}>
-        <MapWrapper />
-        <div>
-          <OpeningHours />
-          <SocialMediaIcons />
-          <ContactDetails />
-        </div>
-      </section>
-    </>
+    <PageWrapper pageName={pageName}>
+      <Contact />
+    </PageWrapper>
   );
 };
 
-export default Contact;
+export default ContactPage;

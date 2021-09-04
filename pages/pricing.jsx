@@ -1,14 +1,12 @@
-import Image from "next/image";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
 import { connectToDatabase } from "../util/mongodb";
 
-import CustomHead from "../components/Global/CustomHead";
-import setPrices from "../components/config/treePrices.jsx";
-
-import pricingStyle from "../styles/Pricing.module.css";
+import PageWrapper from "../components/atom/PageWrapper";
+import Pricing from "../components/pages/Prices";
+import Prices from "../components/pages/Prices";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
@@ -25,7 +23,7 @@ export async function getServerSideProps() {
   };
 }
 
-const Pricing = ({ getPrice }) => {
+const PricingPage = ({ getPrice }) => {
   const pageName = "Pricing";
   const dispatch = useDispatch();
 
@@ -34,33 +32,10 @@ const Pricing = ({ getPrice }) => {
   }, [dispatch]);
 
   return (
-    <>
-      <CustomHead pageName={pageName} />
-      <section className={pricingStyle.main}>
-        <div>
-          <h3>Pricing</h3>
-          {/* prices list */}
-          <ol className={pricingStyle.list}>
-            {setPrices(getPrice.value).map(({ range, price }) => (
-              <li key={price} className={pricingStyle.item}>
-                {range}: ${price}
-              </li>
-            ))}
-          </ol>
-          <p>Prices subject to change</p>
-        </div>
-        <div>
-          <Image
-            src="/pricing_tree.jpg"
-            alt="christmas tree"
-            height={500}
-            width={333}
-            className={pricingStyle.image}
-          />
-        </div>
-      </section>
-    </>
+    <PageWrapper pageName={pageName}>
+      <Prices pricePerFoot={getPrice} />
+    </PageWrapper>
   );
 };
 
-export default Pricing;
+export default PricingPage;
