@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import headerStyles from "../../styles/Header.module.css";
+import Nav from "../Nav";
+
+import headerStyles from "./Header.module.scss";
 
 const HeaderWrapper = () => {
   return (
@@ -25,4 +27,14 @@ const HeaderWrapper = () => {
   );
 };
 
-export default HeaderWrapper;
+const Header = () => {
+  return (
+    <header className={headerStyles.main}>
+      {/* Logo and H1 */}
+      <HeaderWrapper />
+      <Nav />
+    </header>
+  );
+};
+
+export default Header;

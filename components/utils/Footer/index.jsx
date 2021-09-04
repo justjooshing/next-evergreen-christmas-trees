@@ -1,4 +1,4 @@
-import footerStyles from "../../styles/Footer.module.css";
+import footerStyles from "./Footer.module.scss";
 
 const Footer = () => {
   const christmasFooter = () => {

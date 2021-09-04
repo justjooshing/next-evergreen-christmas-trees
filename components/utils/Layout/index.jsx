@@ -1,7 +1,7 @@
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "../Footer";
+import Header from "../Header";
 
-import layoutStyles from "../../styles/Layout.module.css";
+import layoutStyles from "./Layout.module.scss";
 
 const Layout = ({ children }) => (
   <>
