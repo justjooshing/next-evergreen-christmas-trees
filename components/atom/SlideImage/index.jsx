@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import slideStyle from "../../styles/Slideshow.module.css";
+import style from "./SlideImage.module.scss";
 
 const SlideImage = ({ image, isVisible }) => {
   // useState and useEffect here are to load the not-yet visible
@@ -15,9 +15,9 @@ const SlideImage = ({ image, isVisible }) => {
           srcSet={image.srcset}
           src={image.src}
           alt={image.alt}
-          className={` ${slideStyle.image} ${slideStyle.hidden}`}
+          className={` ${style.image} ${style.hidden}`}
         />
-        <figcaption className={`${slideStyle.caption} ${slideStyle.hidden}`}>
+        <figcaption className={`${style.caption} ${style.hidden}`}>
           {image.caption}
         </figcaption>
       </>
@@ -29,11 +29,11 @@ const SlideImage = ({ image, isVisible }) => {
       <img
         sizes="70w"
         alt={image.alt}
-        className={slideStyle.image}
+        className={style.image}
         srcSet={image.srcset}
         src={image.src}
       />
-      <figcaption className={slideStyle.caption}>{image.caption}</figcaption>
+      <figcaption className={style.caption}>{image.caption}</figcaption>
     </>
   ) : (
     hiddenImages
