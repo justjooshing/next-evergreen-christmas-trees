@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-import adminStyle from "../../styles/Admin.module.css";
+import style from "./DeleteButton.module.scss";
 
 const DeleteButton = ({ id, deleteFromState, route }) => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const DeleteButton = ({ id, deleteFromState, route }) => {
   };
 
   return (
-    <button className={adminStyle.deletePostButton} onClick={handleDelete}>
+    <button className={style.deletePostButton} onClick={handleDelete}>
       X
     </button>
   );
