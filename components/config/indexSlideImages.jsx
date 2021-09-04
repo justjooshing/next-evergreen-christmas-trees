@@ -1,4 +1,4 @@
-export default [
+const indexImages = [
   // Width and height are here for the nextjs image component
   {
     src: "/slideshow_images/index/IMG_5249/IMG_5249_200.jpg",
@@ -108,3 +108,5 @@ export default [
       .join(", "),
   },
 ];
+
+export default indexImages;

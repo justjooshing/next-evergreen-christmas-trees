@@ -1,4 +1,4 @@
-export default [
+export const faqList = [
   {
     question: "Do you deliver?",
     answer:
@@ -56,3 +56,5 @@ export default [
       "The best way to stand up your Christmas tree is with a Christmas tree stand. We do sell a selection on site.",
   },
 ];
+
+export default faqList;
