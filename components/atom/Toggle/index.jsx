@@ -1,18 +1,18 @@
 import { useDispatch } from "react-redux";
 import Switch from "react-switch";
 
-const ToggleVisibility = ({ messageToBeToggled, toggleState, route }) => {
+const ToggleVisibility = ({ messageToBeToggled, toggleState, type }) => {
   const { visibility, id } = messageToBeToggled;
   const dispatch = useDispatch();
 
   const handleToggle = async () => {
     dispatch(toggleState(id));
-    await fetch(`/api/${route}`, {
+    await fetch(`/api/requests`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id }),
+      body: JSON.stringify({ id, type }),
     });
   };
   return (
@@ -21,7 +21,7 @@ const ToggleVisibility = ({ messageToBeToggled, toggleState, route }) => {
       uncheckedIcon={false}
       onChange={handleToggle}
       checked={visibility}
-      aria-label={`toggle switch for ${route}`}
+      aria-label={`toggle switch for ${type}`}
     />
   );
 };

@@ -46,12 +46,12 @@ const SinglePost = ({ type, post }) => {
       <p>{value}</p>
       <div className={style.post_actions}>
         <ToggleVisibility
-          route={type}
+          type={type}
           messageToBeToggled={post}
           toggleState={actions[type].toggle}
         />
         <DeleteButton
-          route={type}
+          type={type}
           id={id}
           deleteFromState={actions[type].delete}
         />
@@ -130,12 +130,12 @@ const AdminComponent = ({ type }) => {
     dispatch(updateState());
     e.target.reset();
 
-    await fetch(`/api/${type}`, {
+    await fetch(`/api/requests`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ value, id }),
+      body: JSON.stringify({ value, id, type }),
     });
   };
 
@@ -171,8 +171,8 @@ const Authorised = () => {
   const signOutText = "Sign Out";
   return (
     <>
-      <div className={style.auth_wrapper}>
-        <button className={style.auth_button} onClick={signOut}>
+      <div className={style.auth}>
+        <button className={style.auth__button} onClick={signOut}>
           {signOutText}
         </button>
       </div>
