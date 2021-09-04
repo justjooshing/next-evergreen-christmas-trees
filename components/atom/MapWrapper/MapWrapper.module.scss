@@ -1,0 +1,17 @@
+.map_wrapper {
+  h3 {
+    margin-bottom: revert;
+  }
+}
+
+.map {
+  width: 100%;
+  border-radius: 15px;
+}
+
+@media (min-width: 800px) {
+  .map_wrapper {
+    width: 50vw;
+    padding-right: 2em;
+  }
+}

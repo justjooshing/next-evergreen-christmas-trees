@@ -1,6 +1,7 @@
-import { lastSaturday, openingHours } from "../config/openingHours";
+import { openingHours } from "../../../constants";
+import { lastSaturday } from "../../../helpers";
 
-import contactStyle from "../../styles/Contact.module.css";
+import style from "./OpeningHours.module.scss";
 
 const OpeningHours = () => {
   return (
@@ -10,7 +11,7 @@ const OpeningHours = () => {
       </p>
       <h3>Opening Hours</h3>
       {openingHours.map((dayRange) => (
-        <div key={dayRange.days} className={contactStyle.hours}>
+        <div key={dayRange.days} className={style.hours}>
           <p>{dayRange.days}:</p>
           <p>{dayRange.hours}</p>
         </div>

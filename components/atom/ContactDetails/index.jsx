@@ -1,8 +1,8 @@
-import contactStyle from "../../styles/Contact.module.css";
+import style from "./ContactDetails.module.scss";
 
 const ContactDetails = () => {
   return (
-    <div className={contactStyle.details}>
+    <div className={style.details}>
       <h3>Address</h3>
       <p>Corner of Riverend road and Thames promenade, Bangholme</p>
       <h3>Telephone</h3>

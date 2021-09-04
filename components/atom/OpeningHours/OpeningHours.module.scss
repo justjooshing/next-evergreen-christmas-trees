@@ -1,0 +1,14 @@
+.hours {
+  display: flex;
+  justify-content: center;
+  p {
+    padding-right: 0.5em;
+    margin: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .hours {
+    flex-direction: column;
+  }
+}
