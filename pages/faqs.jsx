@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { setPage } from "../redux/actions";
 
 import PageWrapper from "../components/utils/PageWrapper";
-import Faqs from "../components/pages/Faqs";
+import Faqs from "../components/pages/faqs";
 
 const FaqPage = () => {
   const pageName = "FAQs";
