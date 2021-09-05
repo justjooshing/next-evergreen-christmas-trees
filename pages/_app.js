@@ -1,13 +1,16 @@
-import Router from 'next/router';
 import { Provider as AuthProvider } from "next-auth/client";
-import { Provider } from "react-redux";
-import store from "../redux/store";
+import Router from 'next/router';
 import NProgress from "nprogress";
+import { Provider } from "react-redux";
 
 import Layout from "../components/utils/Layout";
+import store from "../redux/store";
 
+/* eslint-disable import/no-unassigned-import */
 import "nprogress/nprogress.css";
 import "../styles/globals.scss";
+/* eslint-enable import/no-unassigned-import */
+
 NProgress.configure({ showSpinner: false });
 
 Router.events.on("routeChangeStart", () => {

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { paths } from "../../../constants";
+
 import navStyles from "./Nav.module.scss";
 
 const Hamburger = ({ navItems }) => {

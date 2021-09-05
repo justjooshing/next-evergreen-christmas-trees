@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { setPrices } from "../../helpers";
 
 import pricingStyle from "./Pricing.module.scss";

@@ -1,6 +1,6 @@
 import { csrfToken } from "next-auth/client";
-import PageWrapper from "../../components/utils/PageWrapper";
 
+import PageWrapper from "../../components/utils/PageWrapper";
 import adminStyle from "../../styles/Admin.module.scss";
 
 export default function SignIn({ csrfToken }) {

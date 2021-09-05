@@ -1,9 +1,8 @@
-import SchoolList from "../atom/SchoolList";
+import { schoolImages } from "../../constants";
 import Slideshow from "../molecule/Slideshow";
+import SchoolList from "../atom/SchoolList";
 
 import style from "./Community.module.scss";
-
-import { schoolImages } from "../../constants";
 
 const Community = () => {
   return (

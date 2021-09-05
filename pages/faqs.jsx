@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
+import Faqs from "../components/pages/Faqs";
+import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
 
-import PageWrapper from "../components/utils/PageWrapper";
-import Faqs from "../components/pages/Faqs";
 
 const FaqPage = () => {
   const pageName = "FAQs";

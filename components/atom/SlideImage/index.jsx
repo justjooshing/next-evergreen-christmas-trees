@@ -29,9 +29,9 @@ const SlideImage = ({ image, isVisible }) => {
       <img
         sizes="70w"
         alt={image.alt}
-        className={style.image}
         srcSet={image.srcset}
         src={image.src}
+        className={style.image}
       />
       <figcaption className={style.caption}>{image.caption}</figcaption>
     </>

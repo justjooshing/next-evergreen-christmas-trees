@@ -1,12 +1,12 @@
+
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import Home from "../components/pages/Home";
+import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
-
 import { connectToDatabase } from "../util/mongodb";
 
-import PageWrapper from "../components/utils/PageWrapper";
-import Home from "../components/pages/Home";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();

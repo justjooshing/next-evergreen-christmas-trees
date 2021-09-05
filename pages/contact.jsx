@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+
+import Contact from "../components/pages/Contact";
+import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
 
-import PageWrapper from "../components/utils/PageWrapper";
-import Contact from "../components/pages/Contact";
 
 const ContactPage = () => {
   const pageName = "Contact";

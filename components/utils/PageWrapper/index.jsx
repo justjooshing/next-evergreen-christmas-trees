@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { metaTags } from "../../../constants";
 
 const CustomHead = ({ pageName }) => {

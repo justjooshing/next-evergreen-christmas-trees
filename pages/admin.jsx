@@ -9,13 +9,11 @@ import {
   setPrice,
   setAlerts,
 } from "../redux/actions";
-
-const Authorised = dynamic(() => import("../components/organism/Authorised/"));
 import PageWrapper from "../components/utils/PageWrapper";
-
 import { connectToDatabase } from "../util/mongodb";
-
 import Loading from "../components/atom/Loading";
+
+const Authorised = dynamic(() => import("../components/organism/Authorised"));
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { verifiedImages } from "../../constants";
 
-import adminStyle from "../../styles/Admin.module.scss";
 import PageWrapper from "../../components/utils/PageWrapper";
+import { verifiedImages } from "../../constants";
+import adminStyle from "../../styles/Admin.module.scss";
 
 export default function SignIn() {
   const pageName = "admin";

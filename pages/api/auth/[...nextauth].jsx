@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
 import { connectToDatabase } from "../../../util/mongodb";
+
 const dev = process.env.NODE_ENV !== "production";
 
 const options = {

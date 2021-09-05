@@ -4,6 +4,10 @@
   "rules": {
     "react/display-name": 0,
     "@next/next/no-img-element": 0,
-    "import/no-unresolved": 2
+    "import/no-unresolved": 2,
+    "import/order": ["error", {"groups": ["builtin", "external", "parent", "sibling", "index"], "newlines-between": "always"} ],
+    "import/newline-after-import": 1,
+    "import/no-useless-path-segments": ["warn", {"noUselessIndex": true}],
+    "import/no-unassigned-import": 2
   }
 }
