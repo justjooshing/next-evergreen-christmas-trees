@@ -4,7 +4,7 @@ import style from "./Faqs.module.scss";
 
 const Faqs = () => (
   <div className={style.main}>
-    <h3>Frequenly Asked Questions</h3>
+    <h3 className={style.main__FaqHeader}>Frequenly Asked Questions</h3>
     {faqList.map((faq) => (
       <details key={faq.question}>
         <summary>
