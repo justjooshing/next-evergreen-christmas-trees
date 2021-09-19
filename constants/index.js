@@ -1,8 +1,8 @@
 export const openingHours = [
-    { days: "Monday to Friday", hours: "2pm - 6pm" },
-    { days: "Saturday and Sunday", hours: "9am - 6pm" },
-  ];
-  
+  { days: "Monday to Friday", hours: "2pm - 6pm" },
+  { days: "Saturday and Sunday", hours: "9am - 6pm" },
+];
+
 export const indexIntro = [
   "We are a family owned and run Christmas tree farm located on the corner of Thames promenade and Riverend road, Bangholme.",
   "Come and take a wander through our trees, taking the time to select your perfect addition for Christmas. Once selected, enjoy our Enchanted Forest and other activities while we cut down your tree and bring it around for pick up.",
@@ -216,10 +216,8 @@ export const treeImages = [
 
 export const schoolImages = [
   {
-    src:
-      "/slideshow_images/community/Cornish_college2020/Cornish_college2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Cornish College, given by Evergreen Christmas Trees",
+    src: "/slideshow_images/community/Cornish_college2020/Cornish_college2020_200.jpg",
+    alt: "Photo of christmas tree at Cornish College, given by Evergreen Christmas Trees",
     caption: "Cornish College - 2020 tree",
     srcset: [200, 313, 408, 567, 624, 630, 769, 830, 850, 864]
       .map(
@@ -230,8 +228,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/Nepean_school2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Nepean School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at Nepean School, given by Evergreen Christmas Trees",
     caption: "Nepean School - 2020 tree",
     srcset: [200, 365, 490, 643, 752, 841, 922, 1021, 1124, 1200]
       .map(
@@ -242,8 +239,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/Patterson_lakes_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Patterson Lakes Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at Patterson Lakes Primary School, given by Evergreen Christmas Trees",
     caption: "Patterson Lakes Primary - 2020 tree",
     srcset: [200, 335, 440, 526, 688, 707]
       .map(
@@ -254,8 +250,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/Chelsea_heights_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Chelsea Heights Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at Chelsea Heights Primary School, given by Evergreen Christmas Trees",
     caption: "Chelsea Heights Primary - 2020 tree",
     srcset: [200, 406, 545, 657, 764, 863, 954, 1038, 1131, 1200]
       .map(
@@ -266,8 +261,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/Aspendale_gardens_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Aspendale Gardens Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at Aspendale Gardens Primary School, given by Evergreen Christmas Trees",
     caption: "Aspendale Gardens Primary - 2020 tree",
     srcset: [200, 321, 426, 503, 568, 759, 765]
       .map(
@@ -278,8 +272,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/Edithvale_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at Edithvale Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at Edithvale Primary School, given by Evergreen Christmas Trees",
     caption: "Edithvale Primary - 2020 tree",
     srcset: [200, 406, 557, 690, 809, 940, 1052, 1176, 1200]
       .map(
@@ -290,8 +283,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/StBrigids_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at St Brigid's Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at St Brigid's Primary School, given by Evergreen Christmas Trees",
     caption: "St Brigid's Primary - 2020 tree",
     srcset: [200, 386, 519, 631, 745, 853, 956, 1061, 1125]
       .map(
@@ -302,8 +294,7 @@ export const schoolImages = [
   },
   {
     src: "/slideshow_images/community/StJosephs_primary2020_200.jpg",
-    alt:
-      "Photo of christmas tree at St Joseph's Primary School, given by Evergreen Christmas Trees",
+    alt: "Photo of christmas tree at St Joseph's Primary School, given by Evergreen Christmas Trees",
     caption: "St Joseph's Primary - 2020 tree",
     srcset: [200, 385, 534, 623, 782, 918, 1001, 1085, 1175, 1200]
       .map(
@@ -328,7 +319,6 @@ export const schoolList = [
   "Pantry 5000",
   "Community Christmas Lunch for the Underprivileged",
 ];
-
 
 export const metaTags = {
   Global: {
@@ -357,7 +347,7 @@ export const metaTags = {
   },
   FAQs: {
     description:
-      "With Christmas fast approaching, you'll want to know how we can help you get the perfect tree this Christmas, and also ensure your tree stays happy and healthy through until early next year. Here you can find our frequently asked question - Let us know if there is anything not covered that you'd like answered!",
+      "With Christmas fast approaching, you'll want to know how we can help you get the perfect tree this Christmas, and also ensure your tree stays happy and healthy through until early next year. Here you can find our frequently asked questions - Let us know if there is anything not covered that you'd like answered!",
     currentURL: "/faqs",
   },
 };

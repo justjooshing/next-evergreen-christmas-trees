@@ -4,6 +4,16 @@
     margin: 0;
     display: flex;
     list-style: none;
+
+    :hover {
+      background: linear-gradient(
+        180deg,
+        rgb(249, 39, 39, 0.75),
+        80%,
+        rgba(194, 0, 0, 0.75)
+      );
+      color: var(--header-bg-color);
+    }
   }
 
   li {
@@ -16,16 +26,6 @@
     place-items: center;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-
-    :hover {
-      background: linear-gradient(
-        180deg,
-        rgb(249, 39, 39, 0.75),
-        80%,
-        rgba(194, 0, 0, 0.75)
-      );
-      color: var(--header-bg-color);
-    }
   }
 
   .selected {
