@@ -4,42 +4,11 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TextareaAutoSize from "react-textarea-autosize";
 
-import {
-  setPrice,
-  addAlert,
-  addAnnouncement,
-  deleteAlert,
-  deleteAnnouncement,
-  setAlerts,
-  setAnnouncements,
-  toggleAlert,
-  toggleAnnouncement,
-} from "../../../redux/actions";
+import { adminActions, capitalisedWord } from "../../../helpers";
 import DeleteButton from "../../atom/DeleteButton";
 import ToggleVisibility from "../../atom/Toggle";
 
 import style from "./Authorised.module.scss";
-
-
-
-
-const actions = {
-  alerts: {
-    set: setAlerts,
-    add: addAlert,
-    toggle: toggleAlert,
-    delete: deleteAlert,
-  },
-  announcements: {
-    set: setAnnouncements,
-    add: addAnnouncement,
-    toggle: toggleAnnouncement,
-    delete: deleteAnnouncement,
-  },
-  price: {
-    set: setPrice,
-  },
-};
 
 const SinglePost = ({ type, post }) => {
   const { value, id } = post;
@@ -50,12 +19,12 @@ const SinglePost = ({ type, post }) => {
         <ToggleVisibility
           type={type}
           messageToBeToggled={post}
-          toggleState={actions[type].toggle}
+          toggleState={adminActions[type].toggle}
         />
         <DeleteButton
           type={type}
           id={id}
-          deleteFromState={actions[type].delete}
+          deleteFromState={adminActions[type].delete}
         />
       </div>
     </div>
@@ -121,11 +90,11 @@ const AdminComponent = ({ type }) => {
       [type]: {
         value: tempValue,
         id: nanoid(10),
-        updateState: () => actions[type].add({ value, id }),
+        updateState: () => adminActions[type].add({ value, id }),
       },
       price: {
         value: parseInt(tempValue),
-        updateState: () => actions.price.set({ value }),
+        updateState: () => adminActions.price.set({ value }),
       },
     }[type];
 
@@ -139,10 +108,6 @@ const AdminComponent = ({ type }) => {
       },
       body: JSON.stringify({ value, id, type }),
     });
-  };
-
-  const capitalisedWord = (string) => {
-    return string[0].toUpperCase() + string.substring(1);
   };
 
   return (
