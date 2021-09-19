@@ -1,4 +1,6 @@
 .main {
+  flex: 1;
+  padding: 0.5em;
   background: linear-gradient(
     180deg,
     rgb(24, 77, 0) 25%,
@@ -6,13 +8,4 @@
     80%,
     rgb(19, 40, 0)
   );
-
-  /* Need to fix this to only be 100 height */
-  min-height: 100vh;
-
-  /* With maybe this */
-  // display: flex;
-  // flex-direction: column;
-
-  // flex: 1;
 }

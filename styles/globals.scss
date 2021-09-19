@@ -11,6 +11,7 @@
 
 html,
 body {
+  height: 100%;
   padding: 0;
   margin: 0;
   font-family: var(--main-text-font), -apple-system, BlinkMacSystemFont,
@@ -26,16 +27,21 @@ body {
   --main-text-color: rgb(255, 255, 255); /*White*/
   --main-text-font: "Lemonada";
   --main-bg-color: rgb(24, 77, 0); /*Green*/
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  & > #__next {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
-* {
-  box-sizing: border-box;
-  // overflow: scroll;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 }
 
 #nprogress .bar {
