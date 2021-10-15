@@ -315,7 +315,7 @@ export const schoolList = [
   "Aspendale Gardens Primary School",
   "St Brigid's Primary School",
   "Cornish College",
-  "Seaford Scouts",
+  "St Louis de Montfort Primary School",
   "Pantry 5000",
   "Community Christmas Lunch for the Underprivileged",
 ];
