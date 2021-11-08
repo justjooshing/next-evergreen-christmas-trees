@@ -67,7 +67,7 @@ const AdminComponent = ({ type }) => {
         )),
     },
     price: {
-      action: "Set Price",
+      action: "Set Price per foot",
       inputField: (
         <input
           type="number"
@@ -77,7 +77,7 @@ const AdminComponent = ({ type }) => {
         />
       ),
       currentStateHeader: "Current Price",
-      currentStateMap: () => <p>{`$${currentState} per foot`}</p>,
+      currentStateMap: () => <p>{`$10, plus $${currentState} per foot`}</p>,
     },
   }[type];
 
