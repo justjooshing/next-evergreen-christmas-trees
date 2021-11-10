@@ -18,7 +18,6 @@ const Authorised = () => {
           return (
             <div key={type} className={style[type]}>
               <InputComponent type={type} />
-              {type === "price" && <p> show price list current and new</p>}
             </div>
           );
         })}

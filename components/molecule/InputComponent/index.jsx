@@ -4,11 +4,36 @@ import TextareaAutoSize from "react-textarea-autosize";
 import { nanoid } from "nanoid";
 
 import SinglePost from "../SinglePost";
-import { capitalisedWord } from "../../../helpers";
+import { capitalisedWord, setPrices, adminActions } from "../../../helpers";
 
 import style from "./InputComponent.module.scss";
 
-const InputComponent = ({ type }) => {
+const PriceLists = ({ currentPrice, inputPrice }) => {
+  const priceMapper = (val) => {
+    const priceList = setPrices(val);
+    return priceList.slice(0, 3).map(({ range, price }) => (
+      <li key={`${price}, ${range}`}>
+        {range}: ${price}
+      </li>
+    ));
+  };
+
+  return (
+    <>
+      <p>{`New: $10, plus $${inputPrice || currentPrice} per foot`}</p>
+      <p>{`Current: $10, plus $${currentPrice} per foot `}</p>
+      <div className={style.price}>
+        <h4>New prices example</h4>
+        <div>{priceMapper(inputPrice)}</div>
+
+        <h4>Current prices example</h4>
+        <div>{priceMapper(currentPrice)}</div>
+      </div>
+    </>
+  );
+};
+
+const InputComponent = ({ type, setInputPrice }) => {
   const currentState = useSelector((state) => state[type]);
   const dispatch = useDispatch();
   const [tempValue, setTempValue] = useState();
@@ -47,12 +72,16 @@ const InputComponent = ({ type }) => {
         <input
           type="number"
           id="price"
-          onChange={(e) => setTempValue(e.target.value)}
+          onChange={(e) => {
+            setTempValue(e.target.value);
+          }}
           required
         />
       ),
-      currentStateHeader: "Current Price",
-      currentStateMap: () => <p>{`$10, plus $${currentState} per foot`}</p>,
+      currentStateHeader: "Current Price vs New Price",
+      currentStateMap: () => (
+        <PriceLists currentPrice={currentState} inputPrice={tempValue} />
+      ),
     },
   }[type];
 
