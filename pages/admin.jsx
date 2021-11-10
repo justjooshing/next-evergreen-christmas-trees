@@ -10,33 +10,25 @@ import {
   setAlerts,
 } from "../redux/actions";
 import PageWrapper from "../components/utils/PageWrapper";
-import { connectToDatabase } from "../util/mongodb";
+import {
+  connectToDatabase,
+  getAlerts,
+  getAnnouncements,
+  getPrice,
+} from "../util/mongodb";
 import Loading from "../components/atom/Loading";
 
 const Authorised = dynamic(() => import("../components/organism/Authorised"));
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
-  const getAnnouncements = await db
-    .collection("announcements")
-    .find({})
-    .toArray();
-  const announcements = JSON.parse(JSON.stringify(getAnnouncements));
-
-  const getAlerts = await db.collection("alerts").find({}).toArray();
-  const alerts = JSON.parse(JSON.stringify(getAlerts));
-
-  // Return most recent price only
-  const getPrice = await db
-    .collection("price")
-    .find({})
-    .sort({ date: -1 })
-    .limit(1)
-    .toArray();
-  const price = JSON.parse(JSON.stringify(getPrice))[0];
 
   return {
-    props: { alerts, announcements, price },
+    props: {
+      alerts: await getAlerts(db),
+      announcements: await getAnnouncements(db),
+      price: await getPrice(db),
+    },
   };
 }
 

@@ -41,3 +41,23 @@ export async function connectToDatabase() {
   cached.conn = await cached.promise;
   return cached.conn;
 }
+
+export const getAnnouncements = async (db) => {
+  const announcements = await db.collection("announcements").find({}).toArray();
+  return JSON.parse(JSON.stringify(announcements));
+};
+
+export const getAlerts = async (db) => {
+  const alerts = await db.collection("alerts").find({}).toArray();
+  return JSON.parse(JSON.stringify(alerts));
+};
+
+export const getPrice = async (db) => {
+  const price = await db
+    .collection("price")
+    .find({})
+    .sort({ date: -1 })
+    .limit(1)
+    .toArray();
+  return JSON.parse(JSON.stringify(price))[0];
+};

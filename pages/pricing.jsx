@@ -4,21 +4,12 @@ import { useDispatch } from "react-redux";
 import Prices from "../components/pages/Prices";
 import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
-import { connectToDatabase } from "../util/mongodb";
-
+import { connectToDatabase, getPrice } from "../util/mongodb";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
-  const getPrice = await db
-    .collection("price")
-    .find({})
-    .sort({ date: -1 })
-    .limit(1)
-    .toArray();
-  const parsePrice = JSON.parse(JSON.stringify(getPrice))[0];
-
   return {
-    props: { getPrice: parsePrice },
+    props: { getPrice: await getPrice(db) },
   };
 }
 
