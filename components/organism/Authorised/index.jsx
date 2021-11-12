@@ -14,9 +14,11 @@ const Authorised = () => {
         </button>
       </div>
       <section className={style.current}>
-        {["alerts", "announcements", "pricePerFoot"].map((type) => (
-          <InputComponent key={type} type={type} />
-        ))}
+        {["alerts", "announcements", "basePrice", "pricePerFoot"].map(
+          (type) => (
+            <InputComponent key={type} type={type} />
+          )
+        )}
       </section>
     </>
   );

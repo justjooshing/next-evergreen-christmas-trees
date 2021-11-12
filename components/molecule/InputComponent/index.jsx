@@ -10,16 +10,19 @@ import { capitalisedWord, adminActions } from "../../../helpers";
 import style from "./InputComponent.module.scss";
 
 const PriceLists = ({ currentPrice, inputPrice }) => {
+  const basePrice = useSelector((state) => state.basePrice);
   return (
     <>
-      <p>{`New: $10, plus $${inputPrice || currentPrice} per foot`}</p>
-      <p>{`Current: $10, plus $${currentPrice} per foot `}</p>
+      <p>{`New: $${basePrice}, plus $${
+        inputPrice || currentPrice
+      } per foot`}</p>
+      <p>{`Current: $${basePrice}, plus $${currentPrice} per foot `}</p>
       <div className={style.price}>
         <h4>New prices example</h4>
         <PriceList val={inputPrice || currentPrice} entryCount={3} />
 
         <h4>Current prices example</h4>
-        <PriceList val={currentPrice} entryCount={3} />
+        <PriceList entryCount={3} />
       </div>
     </>
   );
@@ -75,6 +78,21 @@ const InputComponent = ({ type }) => {
         <PriceLists currentPrice={currentState} inputPrice={tempValue} />
       ),
     },
+    basePrice: {
+      action: "Set base price",
+      inputField: (
+        <input
+          type="number"
+          id="basePrice"
+          onChange={(e) => {
+            setTempValue(e.target.value);
+          }}
+          required
+        />
+      ),
+      currentStateHeader: `Current base price = $${currentState}`,
+      currentStateMap: null,
+    },
   }[type];
 
   const submitText = "Submit";
@@ -90,7 +108,11 @@ const InputComponent = ({ type }) => {
       },
       pricePerFoot: {
         value: parseInt(tempValue),
-        updateState: () => adminActions.pricePerFoot.set({ value }),
+        updateState: () => adminActions[type].set({ value }),
+      },
+      basePrice: {
+        value: parseInt(tempValue),
+        updateState: () => adminActions[type].set({ value }),
       },
     }[type];
 
@@ -108,7 +130,12 @@ const InputComponent = ({ type }) => {
 
   return (
     <div>
-      <h2>{capitalisedWord(type)}</h2>
+      <h2>
+        {/* Split the word based on capitals */}
+        {capitalisedWord(type)
+          .split(/(?=[A-Z])/)
+          .join(" ")}
+      </h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor={type}>
           <h3>{action}</h3>
@@ -123,7 +150,7 @@ const InputComponent = ({ type }) => {
       {(currentState.length > 0 || !Array.isArray(currentState)) && (
         <div className={style.posts}>
           <h3>{currentStateHeader}</h3>
-          {currentStateMap()}
+          {currentStateMap?.()}
         </div>
       )}
     </div>

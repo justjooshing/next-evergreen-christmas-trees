@@ -8,6 +8,7 @@ import {
   setAnnouncements,
   toggleAlert,
   toggleAnnouncement,
+  setBasePrice,
 } from "../redux/actions";
 
 const lastFullWeekend = (year, month) => {
@@ -38,5 +39,8 @@ export const adminActions = {
   },
   pricePerFoot: {
     set: setPricePerFoot,
+  },
+  basePrice: {
+    set: setBasePrice,
   },
 };

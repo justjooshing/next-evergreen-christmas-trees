@@ -52,7 +52,7 @@ export const getAlerts = async (db) => {
   return JSON.parse(JSON.stringify(alerts));
 };
 
-export const getPrice = async (db) => {
+export const getPricePerFoot = async (db) => {
   const pricePerFoot = await db
     .collection("pricePerFoot")
     .find({})
@@ -60,4 +60,14 @@ export const getPrice = async (db) => {
     .limit(1)
     .toArray();
   return JSON.parse(JSON.stringify(pricePerFoot))[0];
+};
+
+export const getBasePrice = async (db) => {
+  const basePrice = await db
+    .collection("basePrice")
+    .find({})
+    .sort({ date: -1 })
+    .limit(1)
+    .toArray();
+  return JSON.parse(JSON.stringify(basePrice))[0];
 };

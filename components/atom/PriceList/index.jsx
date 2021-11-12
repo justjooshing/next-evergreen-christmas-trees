@@ -1,20 +1,25 @@
+import { useSelector } from "react-redux";
+
 import styles from "./PriceList.module.scss";
 
 const PriceList = ({ val, entryCount = undefined }) => {
+  const basePrice = useSelector((state) => state.basePrice);
+  const pricePerFoot = useSelector((state) => state.pricePerFoot);
+
   // starting with 'Up to 3ft in already' because naming convention is different
   const setPrices = (n = 10) => {
-    const prices = [{ range: "Up to 3ft", price: n * 3 + 10 }];
+    const prices = [{ range: "Up to 3ft", price: n * 3 + basePrice }];
 
     for (let i = 4; i <= 10; i++) {
       prices.push({
         range: `${i - 1}ft up to ${i}ft`,
-        price: n * i + 10,
+        price: n * i + basePrice,
       });
     }
     return prices;
   };
 
-  const priceList = setPrices(val);
+  const priceList = setPrices(val || pricePerFoot);
 
   return (
     <ol className={styles.list}>
