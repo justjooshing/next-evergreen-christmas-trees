@@ -1,6 +1,7 @@
 export const SET_PAGE = "SET_PAGE";
 
 export const SET_PRICE_PER_FOOT = "SET_PRICE_PER_FOOT";
+export const SET_BASE_PRICE = "SET_BASE_PRICE";
 
 export const SET_ANNOUNCEMENTS = "SET_ANNOUNCEMENTS";
 export const ADD_ANNOUNCEMENT = "ADD_ANNOUNCEMENT";

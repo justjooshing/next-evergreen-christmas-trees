@@ -1,6 +1,7 @@
 import {
   SET_PAGE,
   SET_PRICE_PER_FOOT,
+  SET_BASE_PRICE,
   SET_ANNOUNCEMENTS,
   ADD_ANNOUNCEMENT,
   TOGGLE_ANNOUNCEMENT,
@@ -18,6 +19,11 @@ export const setPage = (value) => ({
 
 export const setPricePerFoot = (value) => ({
   type: SET_PRICE_PER_FOOT,
+  payload: value,
+});
+
+export const setBasePrice = (value) => ({
+  type: SET_BASE_PRICE,
   payload: value,
 });
 

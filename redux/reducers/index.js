@@ -4,5 +4,12 @@ import page from "./page";
 import announcements from "./announcements";
 import pricePerFoot from "./pricePerFoot";
 import alerts from "./alerts";
+import basePrice from "./basePrice";
 
-export default combineReducers({ page, announcements, pricePerFoot, alerts });
+export default combineReducers({
+  page,
+  announcements,
+  pricePerFoot,
+  alerts,
+  basePrice,
+});
