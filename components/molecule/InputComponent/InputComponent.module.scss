@@ -15,15 +15,14 @@
   column-gap: 12px;
   margin: 12px 0;
 
-  > h4 {
+  h4 {
     margin: 0;
-  }
-
-  > div {
-    text-align: left;
   }
 
   @media (min-width: 800px) {
     grid-template-columns: 1fr 1fr;
+    li {
+      text-align: left;
+    }
   }
 }

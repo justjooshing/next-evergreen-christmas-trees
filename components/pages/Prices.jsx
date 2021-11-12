@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { setPrices } from "../../helpers";
+import PriceList from "../atom/PriceList";
 
 import pricingStyle from "./Pricing.module.scss";
 
@@ -8,13 +8,7 @@ const Prices = ({ pricePerFoot }) => (
   <section className={pricingStyle.main}>
     <div>
       <h3>Pricing</h3>
-      <ol className={pricingStyle.list}>
-        {setPrices(pricePerFoot.value).map(({ range, price }) => (
-          <li key={price} className={pricingStyle.item}>
-            {range}: ${price}
-          </li>
-        ))}
-      </ol>
+      <PriceList val={pricePerFoot.value} entryCount={undefined} />
       <p>Prices subject to change</p>
     </div>
     <div>
