@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import PageWrapper from "../../components/utils/PageWrapper";
 import { verifiedImages } from "../../constants";
-import adminStyle from "../../styles/Admin.module.scss";
 
 export default function SignIn() {
   const pageName = "admin";
@@ -12,17 +11,15 @@ export default function SignIn() {
 
   return (
     <PageWrapper pageName={pageName}>
-      <div className={adminStyle.auth_wrapper}>
-        <h3>Verified!</h3>
-        <p>Check your inbox</p>
-        <p>{image.message}</p>
-        <Image
-          height={image.height}
-          width={image.width}
-          src={image.src}
-          alt="verified image"
-        />
-      </div>
+      <h3>Verified!</h3>
+      <p>Check your inbox</p>
+      <p>{image.message}</p>
+      <Image
+        height={image.height}
+        width={image.width}
+        src={image.src}
+        alt="verified image"
+      />
     </PageWrapper>
   );
 }

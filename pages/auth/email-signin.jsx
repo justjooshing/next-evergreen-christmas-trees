@@ -7,7 +7,7 @@ export default function SignIn({ csrfToken }) {
   const pageName = "admin";
   return (
     <PageWrapper pageName={pageName}>
-      <div className={adminStyle.auth_wrapper}>
+      <div>
         <h3>Not currently signed in</h3>
         <form
           method="post"
@@ -19,9 +19,7 @@ export default function SignIn({ csrfToken }) {
             Email address:
             <input type="text" id="email" name="email" />
           </label>
-          <button type="submit" className={adminStyle.auth_button}>
-            Sign in
-          </button>
+          <button type="submit">Sign in</button>
         </form>
       </div>
     </PageWrapper>
