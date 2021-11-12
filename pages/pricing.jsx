@@ -3,27 +3,36 @@ import { useDispatch } from "react-redux";
 
 import Prices from "../components/pages/Prices";
 import PageWrapper from "../components/utils/PageWrapper";
-import { setPage } from "../redux/actions";
-import { connectToDatabase, getPrice } from "../util/mongodb";
+import { setBasePrice, setPage, setPricePerFoot } from "../redux/actions";
+import {
+  connectToDatabase,
+  getBasePrice,
+  getPricePerFoot,
+} from "../util/mongodb";
 
 export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   return {
-    props: { getPrice: await getPrice(db) },
+    props: {
+      pricePerFoot: await getPricePerFoot(db),
+      basePrice: await getBasePrice(db),
+    },
   };
 }
 
-const PricingPage = ({ getPrice }) => {
+const PricingPage = ({ pricePerFoot, basePrice }) => {
   const pageName = "Pricing";
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setPage(pageName));
-  }, [dispatch]);
+    dispatch(setPricePerFoot(pricePerFoot));
+    dispatch(setBasePrice(basePrice));
+  }, [dispatch, pricePerFoot, basePrice]);
 
   return (
     <PageWrapper pageName={pageName}>
-      <Prices pricePerFoot={getPrice} />
+      <Prices />
     </PageWrapper>
   );
 };

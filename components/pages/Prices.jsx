@@ -4,11 +4,11 @@ import PriceList from "../atom/PriceList";
 
 import pricingStyle from "./Pricing.module.scss";
 
-const Prices = ({ pricePerFoot }) => (
+const Prices = () => (
   <section className={pricingStyle.main}>
     <div>
       <h3>Pricing</h3>
-      <PriceList val={pricePerFoot.value} entryCount={undefined} />
+      <PriceList />
       <p>Prices subject to change</p>
     </div>
     <div>

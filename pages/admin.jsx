@@ -8,13 +8,15 @@ import {
   setPage,
   setPricePerFoot,
   setAlerts,
+  setBasePrice,
 } from "../redux/actions";
 import PageWrapper from "../components/utils/PageWrapper";
 import {
   connectToDatabase,
   getAlerts,
   getAnnouncements,
-  getPrice,
+  getPricePerFoot,
+  getBasePrice,
 } from "../util/mongodb";
 import Loading from "../components/atom/Loading";
 
@@ -27,12 +29,13 @@ export async function getServerSideProps() {
     props: {
       alerts: await getAlerts(db),
       announcements: await getAnnouncements(db),
-      pricePerFoot: await getPrice(db),
+      pricePerFoot: await getPricePerFoot(db),
+      basePrice: await getBasePrice(db),
     },
   };
 }
 
-const AdminPage = ({ alerts, announcements, pricePerFoot }) => {
+const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
   const [session, loading] = useSession();
 
   const pageName = "admin";
@@ -43,7 +46,8 @@ const AdminPage = ({ alerts, announcements, pricePerFoot }) => {
     dispatch(setPricePerFoot(pricePerFoot));
     dispatch(setAnnouncements(announcements));
     dispatch(setAlerts(alerts));
-  }, [alerts, pricePerFoot, announcements, dispatch]);
+    dispatch(setBasePrice(basePrice));
+  }, [alerts, pricePerFoot, announcements, basePrice, dispatch]);
 
   if (loading) {
     return <Loading />;
