@@ -1,5 +1,5 @@
 import {
-  setPrice,
+  setPricePerFoot,
   addAlert,
   addAnnouncement,
   deleteAlert,
@@ -23,19 +23,6 @@ export const capitalisedWord = (string) => {
   return string[0].toUpperCase() + string.substring(1);
 };
 
-// starting with 'Up to 3ft in already' because naming convention is different
-export const setPrices = (n = 10) => {
-  const prices = [{ range: "Up to 3ft", price: n * 3 + 10 }];
-
-  for (let i = 4; i <= 10; i++) {
-    prices.push({
-      range: `${i - 1}ft up to ${i}ft`,
-      price: n * i + 10,
-    });
-  }
-  return prices;
-};
-
 export const adminActions = {
   alerts: {
     set: setAlerts,
@@ -49,7 +36,7 @@ export const adminActions = {
     toggle: toggleAnnouncement,
     delete: deleteAnnouncement,
   },
-  price: {
-    set: setPrice,
+  pricePerFoot: {
+    set: setPricePerFoot,
   },
 };

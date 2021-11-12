@@ -14,13 +14,9 @@ const Authorised = () => {
         </button>
       </div>
       <section className={style.current}>
-        {["alerts", "announcements", "price"].map((type) => {
-          return (
-            <div key={type} className={style[type]}>
-              <InputComponent type={type} />
-            </div>
-          );
-        })}
+        {["alerts", "announcements", "pricePerFoot"].map((type) => (
+          <InputComponent key={type} type={type} />
+        ))}
       </section>
     </>
   );

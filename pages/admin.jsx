@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import {
   setAnnouncements,
   setPage,
-  setPrice,
+  setPricePerFoot,
   setAlerts,
 } from "../redux/actions";
 import PageWrapper from "../components/utils/PageWrapper";
@@ -27,12 +27,12 @@ export async function getServerSideProps() {
     props: {
       alerts: await getAlerts(db),
       announcements: await getAnnouncements(db),
-      price: await getPrice(db),
+      pricePerFoot: await getPrice(db),
     },
   };
 }
 
-const AdminPage = ({ alerts, announcements, price }) => {
+const AdminPage = ({ alerts, announcements, pricePerFoot }) => {
   const [session, loading] = useSession();
 
   const pageName = "admin";
@@ -40,10 +40,10 @@ const AdminPage = ({ alerts, announcements, price }) => {
 
   useEffect(() => {
     dispatch(setPage(pageName));
-    dispatch(setPrice(price));
+    dispatch(setPricePerFoot(pricePerFoot));
     dispatch(setAnnouncements(announcements));
     dispatch(setAlerts(alerts));
-  }, [alerts, price, announcements, dispatch]);
+  }, [alerts, pricePerFoot, announcements, dispatch]);
 
   if (loading) {
     return <Loading />;

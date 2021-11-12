@@ -53,11 +53,11 @@ export const getAlerts = async (db) => {
 };
 
 export const getPrice = async (db) => {
-  const price = await db
-    .collection("price")
+  const pricePerFoot = await db
+    .collection("pricePerFoot")
     .find({})
     .sort({ date: -1 })
     .limit(1)
     .toArray();
-  return JSON.parse(JSON.stringify(price))[0];
+  return JSON.parse(JSON.stringify(pricePerFoot))[0];
 };

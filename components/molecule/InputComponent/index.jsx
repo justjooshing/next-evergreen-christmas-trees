@@ -16,7 +16,7 @@ const PriceLists = ({ currentPrice, inputPrice }) => {
       <p>{`Current: $10, plus $${currentPrice} per foot `}</p>
       <div className={style.price}>
         <h4>New prices example</h4>
-        <PriceList val={inputPrice} entryCount={3} />
+        <PriceList val={inputPrice || currentPrice} entryCount={3} />
 
         <h4>Current prices example</h4>
         <PriceList val={currentPrice} entryCount={3} />
@@ -25,7 +25,7 @@ const PriceLists = ({ currentPrice, inputPrice }) => {
   );
 };
 
-const InputComponent = ({ type, setInputPrice }) => {
+const InputComponent = ({ type }) => {
   const currentState = useSelector((state) => state[type]);
   const dispatch = useDispatch();
   const [tempValue, setTempValue] = useState();
@@ -58,12 +58,12 @@ const InputComponent = ({ type, setInputPrice }) => {
           <SinglePost key={post.id} type={type} post={post} />
         )),
     },
-    price: {
+    pricePerFoot: {
       action: "Set Price per foot",
       inputField: (
         <input
           type="number"
-          id="price"
+          id="pricePerFoot"
           onChange={(e) => {
             setTempValue(e.target.value);
           }}
@@ -88,9 +88,9 @@ const InputComponent = ({ type, setInputPrice }) => {
         id: nanoid(10),
         updateState: () => adminActions[type].add({ value, id }),
       },
-      price: {
+      pricePerFoot: {
         value: parseInt(tempValue),
-        updateState: () => adminActions.price.set({ value }),
+        updateState: () => adminActions.pricePerFoot.set({ value }),
       },
     }[type];
 
