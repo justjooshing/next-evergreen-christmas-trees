@@ -37,9 +37,10 @@ export async function getServerSideProps() {
 
 const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
   const [session, loading] = useSession();
+  const dispatch = useDispatch();
 
   const pageName = "admin";
-  const dispatch = useDispatch();
+  const isDev = process.env.NODE_ENV !== "production";
 
   useEffect(() => {
     dispatch(setPage(pageName));
@@ -53,13 +54,15 @@ const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
     return <Loading />;
   }
 
-  if (!session) {
+  if (!session && !isDev) {
     // calling signIn() redirects you to auth/email-signin
     signIn();
   }
 
   return (
-    <PageWrapper pageName={pageName}>{session && <Authorised />}</PageWrapper>
+    <PageWrapper pageName={pageName}>
+      {(session || isDev) && <Authorised />}
+    </PageWrapper>
   );
 };
 
