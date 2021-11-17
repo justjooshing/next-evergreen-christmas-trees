@@ -7,8 +7,7 @@ const OpeningHours = () => {
   return (
     <>
       <p>
-        This year we are open November {lastSaturday}th - December 23rd or until
-        sold out
+        This year we are open {lastSaturday}th Nov - 23rd Dec or until sold out
       </p>
       <h3>Opening Hours</h3>
       {openingHours.map((dayRange) => (
