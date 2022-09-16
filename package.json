@@ -24,7 +24,7 @@
     "react-textarea-autosize": "^8.3.2",
     "redux": "^4.0.5",
     "sass": "^1.38.0",
-    "sharp": "^0.29.0"
+    "sharp": "^0.31.0"
   },
   "peerOptionalDependencies": {
     "mongodb": "^3.6.0"
