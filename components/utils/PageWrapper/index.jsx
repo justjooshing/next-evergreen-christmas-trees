@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { metaTags } from "../../../constants";
-import headerData from "../../../constants/headerData";
+import headerData from "../../../constants/headerData.json";
 
 const CustomHead = ({ pageName }) => {
   const page = metaTags[pageName];
@@ -45,7 +45,9 @@ const CustomHead = ({ pageName }) => {
           />
           <meta property="og:url" content={page.currentURL} key="ogurl" />
           <meta property="og:locale" content="en_AU" key="oglocale" />
-          <script type="application/json" async src={headerData}></script>
+          <script type="application/ld+json">
+            {JSON.stringify(headerData)}
+          </script>
         </>
       )}
     </Head>
