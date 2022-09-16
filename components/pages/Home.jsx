@@ -8,13 +8,13 @@ import styles from "./index.module.scss";
 
 const Home = ({ announcements, alerts }) => (
   <>
-    {alerts.length > 0 && <Alerts alerts={alerts} />}
+    {!!alerts.length && <Alerts alerts={alerts} />}
     <section className={styles.introduction}>
       {indexIntro.map((line, index) => (
         <p key={index}>{line}</p>
       ))}
     </section>
-    {announcements.some((announcement) => announcement.visibility) && (
+    {announcements.some(({ visibility }) => visibility) && (
       <Announcements announcements={announcements} />
     )}
     <Slideshow slides={treeImages} />
