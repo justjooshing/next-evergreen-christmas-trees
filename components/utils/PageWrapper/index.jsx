@@ -46,7 +46,7 @@ const CustomHead = ({ pageName }) => {
           <meta property="og:url" content={page.currentURL} key="ogurl" />
           <meta property="og:locale" content="en_AU" key="oglocale" />
           <script type="application/ld+json">
-            {JSON.stringify(headerData)}
+            {JSON.stringify(headerData).replace(/&quot;/g, '"')}
           </script>
         </>
       )}
