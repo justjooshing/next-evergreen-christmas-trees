@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import EmailProvider from "next-auth/providers/email";
 
 import { connectToDatabase } from "../../../util/mongodb";
 
@@ -7,8 +8,9 @@ const dev = process.env.NODE_ENV !== "production";
 
 const options = {
   site: dev ? process.env.NEXTAUTH_URL_DEV : process.env.NEXTAUTH_URL,
+  adapter: MongoDBAdapter(connectToDatabase),
   providers: [
-    Providers.Email({
+    EmailProvider({
       server: {
         port: 465,
         host: "smtp.gmail.com",
@@ -34,10 +36,10 @@ const options = {
     verifyRequest: "/auth/verified",
   },
   callbacks: {
-    redirect: async (url, _) => {
+    redirect: async () => {
       return Promise.resolve("/admin");
     },
-    signIn: async (user) => {
+    signIn: async ({ user }) => {
       const { db } = await connectToDatabase();
       const getAdmins = await db.collection("admin_access").find({}).toArray();
       const admins = JSON.parse(JSON.stringify(getAdmins));

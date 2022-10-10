@@ -1,4 +1,4 @@
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -36,7 +36,7 @@ export async function getServerSideProps() {
 }
 
 const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
-  const [session, loading] = useSession();
+  const { data: session, status } = useSession();
   const dispatch = useDispatch();
 
   const pageName = "admin";
@@ -50,7 +50,7 @@ const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
     dispatch(setBasePrice(basePrice));
   }, [alerts, pricePerFoot, announcements, basePrice, dispatch]);
 
-  if (loading) {
+  if (status === "loading") {
     return <Loading />;
   }
 

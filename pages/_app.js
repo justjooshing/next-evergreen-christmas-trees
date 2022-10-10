@@ -1,5 +1,5 @@
-import { Provider as AuthProvider } from "next-auth/client";
-import Router from 'next/router';
+import { SessionProvider as AuthProvider } from "next-auth/react";
+import Router from "next/router";
 import NProgress from "nprogress";
 import { Provider } from "react-redux";
 

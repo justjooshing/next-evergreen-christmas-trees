@@ -1,4 +1,4 @@
-import { csrfToken } from "next-auth/client";
+import { getCsrfToken } from "next-auth/react";
 
 import PageWrapper from "../../components/utils/PageWrapper";
 import adminStyle from "../../styles/Admin.module.scss";
@@ -28,6 +28,6 @@ export default function SignIn({ csrfToken }) {
 
 SignIn.getInitialProps = async (context) => {
   return {
-    csrfToken: await csrfToken(context),
+    csrfToken: await getCsrfToken(context),
   };
 };
