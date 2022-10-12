@@ -20,7 +20,7 @@ if (!cached) {
   cached = global.mongo = { conn: null, promise: null };
 }
 
-export const connectToDatabase = async () => {
+export default connectToDatabase = async () => {
   if (cached.conn) {
     return cached.conn;
   }

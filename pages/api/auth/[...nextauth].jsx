@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import EmailProvider from "next-auth/providers/email";
 
-import { client, db } from "../../../util/mongodb";
+import client, { db } from "../../../util/mongodb";
 
 const options = {
   site: process.env.NEXTAUTH_URL,
