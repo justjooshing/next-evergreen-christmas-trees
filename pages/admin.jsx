@@ -12,7 +12,6 @@ import {
 } from "../redux/actions";
 import PageWrapper from "../components/utils/PageWrapper";
 import {
-  db,
   getAlerts,
   getAnnouncements,
   getPricePerFoot,
@@ -24,10 +23,10 @@ const Authorised = dynamic(() => import("../components/organism/Authorised"));
 
 export const getServerSideProps = async () => ({
   props: {
-    alerts: await getAlerts(db),
-    announcements: await getAnnouncements(db),
-    pricePerFoot: await getPricePerFoot(db),
-    basePrice: await getBasePrice(db),
+    alerts: await getAlerts(),
+    announcements: await getAnnouncements(),
+    pricePerFoot: await getPricePerFoot(),
+    basePrice: await getBasePrice(),
   },
 });
 

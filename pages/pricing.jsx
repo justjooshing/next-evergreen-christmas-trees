@@ -4,12 +4,12 @@ import { useDispatch } from "react-redux";
 import Prices from "../components/pages/Prices";
 import PageWrapper from "../components/utils/PageWrapper";
 import { setBasePrice, setPage, setPricePerFoot } from "../redux/actions";
-import { db, getBasePrice, getPricePerFoot } from "../util/mongodb";
+import { getBasePrice, getPricePerFoot } from "../util/mongodb";
 
 export const getServerSideProps = async () => ({
   props: {
-    pricePerFoot: await getPricePerFoot(db),
-    basePrice: await getBasePrice(db),
+    pricePerFoot: await getPricePerFoot(),
+    basePrice: await getBasePrice(),
   },
 });
 

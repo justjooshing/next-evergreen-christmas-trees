@@ -20,7 +20,7 @@ if (!cached) {
   cached = global.mongo = { conn: null, promise: null };
 }
 
-export default connectToDatabase = async () => {
+export const connectToDb = async () => {
   if (cached.conn) {
     return cached.conn;
   }
@@ -31,25 +31,33 @@ export default connectToDatabase = async () => {
       useUnifiedTopology: true,
     };
 
-    cached.promise = MongoClient.connect(uri, opts);
+    cached.promise = MongoClient.connect(uri, opts).then((client) => ({
+      client,
+      db: client.db(dbName),
+    }));
   }
 
   cached.conn = await cached.promise;
   return cached.conn;
 };
-export const db = cached.conn.db(dbName);
 
-export const getAnnouncements = async (db) => {
+export const getAnnouncements = async () => {
+  const { db } = await connectToDb();
+
   const announcements = await db.collection("announcements").find({}).toArray();
   return JSON.parse(JSON.stringify(announcements));
 };
 
-export const getAlerts = async (db) => {
+export const getAlerts = async () => {
+  const { db } = await connectToDb();
+
   const alerts = await db.collection("alerts").find({}).toArray();
   return JSON.parse(JSON.stringify(alerts));
 };
 
-export const getPricePerFoot = async (db) => {
+export const getPricePerFoot = async () => {
+  const { db } = await connectToDb();
+
   const pricePerFoot = await db
     .collection("pricePerFoot")
     .find({})
@@ -59,7 +67,9 @@ export const getPricePerFoot = async (db) => {
   return JSON.parse(JSON.stringify(pricePerFoot))[0];
 };
 
-export const getBasePrice = async (db) => {
+export const getBasePrice = async () => {
+  const { db } = await connectToDb();
+
   const basePrice = await db
     .collection("basePrice")
     .find({})

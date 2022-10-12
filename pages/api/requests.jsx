@@ -1,6 +1,8 @@
-import { db } from "../../util/mongodb";
+import { connectToDb } from "../../util/mongodb";
 
 const handler = async (req, res) => {
+  const { db } = await connectToDb();
+
   const { value, id, type } = req.body;
   const getItems = () => db.collection(type).find({}).toArray();
 

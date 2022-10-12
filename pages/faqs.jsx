@@ -5,7 +5,6 @@ import Faqs from "../components/pages/Faqs";
 import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
 
-
 const FaqPage = () => {
   const pageName = "FAQs";
   const dispatch = useDispatch();

@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import EmailProvider from "next-auth/providers/email";
 
-import client, { db } from "../../../util/mongodb";
+import { connectToDb } from "../../../util/mongodb";
 
 const options = {
   site: process.env.NEXTAUTH_URL,
-  adapter: MongoDBAdapter(client),
+  adapter: MongoDBAdapter(connectToDb),
   providers: [
     EmailProvider({
       server: process.env.EMAIL_SERVER,
@@ -27,7 +27,8 @@ const options = {
       return Promise.resolve("/admin");
     },
     signIn: async ({ user }) => {
-      const getAdmins = await db.collection("admin_access").find({}).toArray();
+      const { db } = await connectToDb();
+      const getAdmins = await db?.collection("admin_access").find({}).toArray();
       const admins = JSON.parse(JSON.stringify(getAdmins));
 
       const isAllowedToSignIn = admins.filter(
