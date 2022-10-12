@@ -2,27 +2,14 @@ import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import EmailProvider from "next-auth/providers/email";
 
-import { connectToDatabase } from "../../../util/mongodb";
-
-const dev = process.env.NODE_ENV !== "production";
+import { client, db } from "../../../util/mongodb";
 
 const options = {
-  site: dev ? process.env.NEXTAUTH_URL_DEV : process.env.NEXTAUTH_URL,
-  adapter: MongoDBAdapter(connectToDatabase),
+  site: process.env.NEXTAUTH_URL,
+  adapter: MongoDBAdapter(client),
   providers: [
     EmailProvider({
-      server: {
-        port: 465,
-        host: "smtp.gmail.com",
-        secure: true,
-        auth: {
-          user: process.env.EMAIL_USERNAME,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-        tls: {
-          rejectUnauthorized: false,
-        },
-      },
+      server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM,
     }),
   ],
@@ -40,19 +27,14 @@ const options = {
       return Promise.resolve("/admin");
     },
     signIn: async ({ user }) => {
-      const { db } = await connectToDatabase();
       const getAdmins = await db.collection("admin_access").find({}).toArray();
       const admins = JSON.parse(JSON.stringify(getAdmins));
 
       const isAllowedToSignIn = admins.filter(
-        (admin) => admin.email === user.email.trim().toLowerCase()
+        ({ email }) => email === user.email.trim().toLowerCase()
       );
-
-      if (isAllowedToSignIn.length > 0) {
-        return true;
-      } else {
-        return "/";
-      }
+      const emailPresent = admins.map(({ email }) => email);
+      return !!isAllowedToSignIn.length ? "/admin" : "/";
     },
   },
 };
