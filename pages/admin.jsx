@@ -12,7 +12,7 @@ import {
 } from "../redux/actions";
 import PageWrapper from "../components/utils/PageWrapper";
 import {
-  connectToDatabase,
+  db,
   getAlerts,
   getAnnouncements,
   getPricePerFoot,
@@ -22,21 +22,17 @@ import Loading from "../components/atom/Loading";
 
 const Authorised = dynamic(() => import("../components/organism/Authorised"));
 
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-
-  return {
-    props: {
-      alerts: await getAlerts(db),
-      announcements: await getAnnouncements(db),
-      pricePerFoot: await getPricePerFoot(db),
-      basePrice: await getBasePrice(db),
-    },
-  };
-}
+export const getServerSideProps = async () => ({
+  props: {
+    alerts: await getAlerts(db),
+    announcements: await getAnnouncements(db),
+    pricePerFoot: await getPricePerFoot(db),
+    basePrice: await getBasePrice(db),
+  },
+});
 
 const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const dispatch = useDispatch();
 
   const pageName = "admin";
@@ -50,18 +46,20 @@ const AdminPage = ({ alerts, announcements, pricePerFoot, basePrice }) => {
     dispatch(setBasePrice(basePrice));
   }, [alerts, pricePerFoot, announcements, basePrice, dispatch]);
 
+  useEffect(() => {
+    if (status === "unauthenticated" && !isDev) {
+      // calling signIn() redirects you to auth/email-signin
+      signIn();
+    }
+  }, [status, isDev]);
+
   if (status === "loading") {
     return <Loading />;
   }
 
-  if (!session && !isDev) {
-    // calling signIn() redirects you to auth/email-signin
-    signIn();
-  }
-
   return (
     <PageWrapper pageName={pageName}>
-      {(session || isDev) && <Authorised />}
+      {(status === "authenticated" || isDev) && <Authorised />}
     </PageWrapper>
   );
 };

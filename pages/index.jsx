@@ -4,22 +4,14 @@ import { useDispatch } from "react-redux";
 import Home from "../components/pages/Home";
 import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
-import {
-  connectToDatabase,
-  getAlerts,
-  getAnnouncements,
-} from "../util/mongodb";
+import { db, getAlerts, getAnnouncements } from "../util/mongodb";
 
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-
-  return {
-    props: {
-      announcements: await getAnnouncements(db),
-      alerts: await getAlerts(db),
-    },
-  };
-}
+export const getServerSideProps = async () => ({
+  props: {
+    announcements: await getAnnouncements(db),
+    alerts: await getAlerts(db),
+  },
+});
 
 const HomePage = ({ announcements, alerts }) => {
   const pageName = "Home";

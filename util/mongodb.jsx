@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
-let uri = process.env.MONGO_URI;
-let dbName = process.env.MONGO_DB;
+let uri = process.env.MONGODB_URI;
+let dbName = process.env.MONGODB_DB;
 
 if (!uri) {
   throw new Error(
@@ -20,7 +20,7 @@ if (!cached) {
   cached = global.mongo = { conn: null, promise: null };
 }
 
-export async function connectToDatabase() {
+export const connectToDatabase = async () => {
   if (cached.conn) {
     return cached.conn;
   }
@@ -31,16 +31,13 @@ export async function connectToDatabase() {
       useUnifiedTopology: true,
     };
 
-    cached.promise = MongoClient.connect(uri, opts).then((client) => {
-      return {
-        client,
-        db: client.db(dbName),
-      };
-    });
+    cached.promise = MongoClient.connect(uri, opts);
   }
+
   cached.conn = await cached.promise;
   return cached.conn;
-}
+};
+export const db = cached.conn.db(dbName);
 
 export const getAnnouncements = async (db) => {
   const announcements = await db.collection("announcements").find({}).toArray();
