@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0",
+    "eslint-config-next": "13.0.0",
     "eslint-plugin-import": "^2.24.2",
     "next-sitemap": "^3.1.22"
   }
