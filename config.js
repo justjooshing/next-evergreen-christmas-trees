@@ -1,5 +1,5 @@
-const dev = process.env.NODE_ENV !== "production";
+export const dev = process.env.NODE_ENV !== "production";
 
 export const server = dev
-  ? "http://localhost:3000"
-  : "https://www.evergreenchristmastrees.com";
+  ? process.env.NEXTAUTH_URL_DEV
+  : process.env.NEXTAUTH_URL;

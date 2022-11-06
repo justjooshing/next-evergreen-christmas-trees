@@ -1,4 +1,3 @@
-import { SessionProvider as AuthProvider } from "next-auth/react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { Provider } from "react-redux";
@@ -27,13 +26,11 @@ Router.events.on("routeChangeError", () => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider session={pageProps.session}>
-      <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Provider>
-    </AuthProvider>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 }
 
