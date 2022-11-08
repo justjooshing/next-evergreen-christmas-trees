@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
+import { useBasePrice, usePricePerFoot } from "../../../helpers/requests";
 
 import styles from "./PriceList.module.scss";
 
 const PriceList = ({ val, entryCount = undefined }) => {
-  const basePrice = useSelector((state) => state.basePrice);
-  const pricePerFoot = useSelector((state) => state.pricePerFoot);
+  const { data: basePrice } = useBasePrice();
+  const { data: pricePerFoot } = usePricePerFoot();
 
   // starting with 'Up to 3ft in already' because naming convention is different
   const setPrices = (n = 10) => {

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import Home from "../components/pages/Home";
 import PageWrapper from "../components/utils/PageWrapper";
 import { setPage } from "../redux/actions";
-import { getAlerts, getAnnouncements } from "../util/mongodb";
+import { getAlerts, getAnnouncements } from "../server/ssr";
 
 export const getServerSideProps = async () => ({
   props: {

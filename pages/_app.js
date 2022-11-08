@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 import { Provider } from "react-redux";
+import {
+  QueryClientProvider,
+  QueryClient,
+  Hydrate,
+} from "@tanstack/react-query";
 
 import Layout from "../components/utils/Layout";
 import store from "../redux/store";
@@ -25,12 +31,17 @@ Router.events.on("routeChangeError", () => {
 });
 
 function MyApp({ Component, pageProps }) {
+  const [queryClient] = useState(() => new QueryClient());
   return (
-    <Provider store={store}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
+      </Hydrate>
+    </QueryClientProvider>
   );
 }
 
