@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-import apiRoutes from "../constants/api";
+import { routes, keys } from "../constants/api";
 
 const getBasePrice = async () =>
-  axios.get(apiRoutes.basePrice).then(({ data }) => data.value);
+  axios.get(routes.basePrice).then(({ data }) => data.value);
 
 export const useInitialBasePrice = (initialData) =>
   useQuery([keys.basePrice], getBasePrice, {
@@ -18,7 +18,7 @@ export const useBasePrice = () =>
   });
 
 const getPricePerFoot = async () =>
-  axios.get(apiRoutes.pricePerFoot).then(({ data }) => data.value);
+  axios.get(routes.pricePerFoot).then(({ data }) => data.value);
 
 export const useInitialPricePerFoot = (initialData) =>
   useQuery([keys.pricePerFoot], getPricePerFoot, {
@@ -31,8 +31,7 @@ export const usePricePerFoot = () =>
     staleTime: 1000 * 60,
   });
 
-const getAlerts = async () =>
-  axios.get(apiRoutes.alerts).then(({ data }) => data);
+const getAlerts = async () => axios.get(routes.alerts).then(({ data }) => data);
 
 export const useInitialAlerts = (initialData) => {
   useQuery([keys.alerts], getAlerts, {
@@ -48,7 +47,7 @@ export const useAlerts = () => {
 };
 
 const getAnnouncements = async () =>
-  axios.get(apiRoutes.announcements).then(({ data }) => data);
+  axios.get(routes.announcements).then(({ data }) => data);
 
 export const useInitialAnnouncements = (initialData) => {
   useQuery([keys.announcements], getAnnouncements, {
