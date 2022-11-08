@@ -1,4 +1,4 @@
-import { SET_PAGE } from "../constants/action-types";
+import { SET_PAGE } from "../actions";
 
 export default function page(state = "Home", action) {
   switch (action.type) {
