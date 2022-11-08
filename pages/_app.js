@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
-import { Provider } from "react-redux";
 import {
   QueryClientProvider,
   QueryClient,
@@ -9,11 +8,10 @@ import {
 } from "@tanstack/react-query";
 
 import Layout from "../components/utils/Layout";
-import store from "../redux/store";
-
 /* eslint-disable import/no-unassigned-import */
 import "nprogress/nprogress.css";
 import "../styles/globals.scss";
+import AppProvider from "../context/app";
 /* eslint-enable import/no-unassigned-import */
 
 NProgress.configure({ showSpinner: false });
@@ -32,14 +30,15 @@ Router.events.on("routeChangeError", () => {
 
 function MyApp({ Component, pageProps }) {
   const [queryClient] = useState(() => new QueryClient());
+
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Provider store={store}>
+        <AppProvider pageName={pageProps.pageName}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </Provider>
+        </AppProvider>
       </Hydrate>
     </QueryClientProvider>
   );

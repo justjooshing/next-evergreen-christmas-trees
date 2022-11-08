@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useContext, useState } from "react";
 
 import { paths } from "../../../constants";
+import { AppContext } from "../../../context/app";
 
 import navStyles from "./Nav.module.scss";
 
@@ -30,9 +30,9 @@ const Hamburger = ({ navItems }) => {
 
 const Nav = () => {
   const NavLinks = ({ link }) => {
-    const page = useSelector((state) => state.page);
+    const { pageName } = useContext(AppContext);
     const [key, value] = link;
-    const selectedPage = page === key;
+    const selectedPage = pageName === key;
     return (
       <Link passHref href={value}>
         <li className={selectedPage ? navStyles.selected : null}>{key}</li>

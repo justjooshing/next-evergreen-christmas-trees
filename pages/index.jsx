@@ -1,31 +1,19 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
 import Home from "../components/pages/Home";
 import PageWrapper from "../components/utils/PageWrapper";
-import { setPage } from "../redux/actions";
 import { getAlerts, getAnnouncements } from "../server/ssr";
 
-export const getServerSideProps = async () => ({
+export const getStaticProps = async () => ({
   props: {
+    pageName: "Home",
     announcements: await getAnnouncements(),
     alerts: await getAlerts(),
   },
 });
 
-const HomePage = ({ announcements, alerts }) => {
-  const pageName = "Home";
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setPage(pageName));
-  }, [dispatch]);
-
-  return (
-    <PageWrapper pageName={pageName}>
-      <Home announcements={announcements} alerts={alerts} />
-    </PageWrapper>
-  );
-};
+const HomePage = ({ announcements, alerts }) => (
+  <PageWrapper>
+    <Home announcements={announcements} alerts={alerts} />
+  </PageWrapper>
+);
 
 export default HomePage;

@@ -1,12 +1,14 @@
 import NotFound from "../components/pages/NotFound";
 import PageWrapper from "../components/utils/PageWrapper";
 
-export default function custom404() {
-  const pageName = "404 - Not Found";
+export const getStaticProps = () => ({
+  props: { pageName: "404 - Not found" },
+});
 
-  return (
-    <PageWrapper pageName={pageName}>
-      <NotFound />
-    </PageWrapper>
-  );
-}
+const custom404 = ({ pageName }) => (
+  <PageWrapper pageName={pageName}>
+    <NotFound />
+  </PageWrapper>
+);
+
+export default custom404;

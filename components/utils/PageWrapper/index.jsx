@@ -1,9 +1,12 @@
 import Head from "next/head";
+import { useContext } from "react";
 
 import { metaTags } from "../../../constants";
 import headerData from "../../../constants/headerData.json";
+import { AppContext } from "../../../context/app";
 
-const CustomHead = ({ pageName }) => {
+const CustomHead = () => {
+  const { pageName } = useContext(AppContext);
   const page = metaTags[pageName];
   return (
     <Head>
@@ -54,9 +57,9 @@ const CustomHead = ({ pageName }) => {
   );
 };
 
-const PageWrapper = ({ pageName, children }) => (
+const PageWrapper = ({ children }) => (
   <>
-    <CustomHead pageName={pageName} />
+    <CustomHead />
     {children}
   </>
 );
