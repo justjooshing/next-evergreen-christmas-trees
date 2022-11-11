@@ -6,13 +6,17 @@ import {
   useInitialPricePerFoot,
 } from "../helpers/requests";
 
-export const getStaticProps = async () => ({
-  props: {
-    pageName: "Pricing",
-    pricePerFoot: await getPricePerFoot(),
-    basePrice: await getBasePrice(),
-  },
-});
+export const getStaticProps = async () => {
+  const pricePerFoot = await getPricePerFoot();
+  const basePrice = await getBasePrice();
+  return {
+    props: {
+      pageName: "Pricing",
+      pricePerFoot,
+      basePrice,
+    },
+  };
+};
 
 const PricingPage = ({ pricePerFoot, basePrice }) => {
   useInitialBasePrice(basePrice.value);

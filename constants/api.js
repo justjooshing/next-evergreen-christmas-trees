@@ -11,3 +11,7 @@ export const keys = {
   announcements: "announcements",
   alerts: "alerts",
 };
+
+export const staleTimes = {
+  DAYS_1: 1000 * 60 * 60 * 24,
+};

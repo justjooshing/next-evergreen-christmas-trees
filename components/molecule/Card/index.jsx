@@ -5,8 +5,7 @@ import { pageLinks } from "../../../constants";
 
 import styles from "./Card.module.scss";
 
-const Card = ({ card }) => {
-  const { link_src, fig_caption, img_src, img_alt } = card;
+const Card = ({ card: { link_src, fig_caption, img_src, img_alt } }) => {
   return (
     <Link href={link_src}>
       <a>
