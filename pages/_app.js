@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
+// eslint-disable-next-line import/no-unresolved
+import { Analytics } from "@vercel/analytics/react";
 import {
   QueryClientProvider,
   QueryClient,
@@ -37,6 +39,7 @@ function MyApp({ Component, pageProps }) {
         <AppProvider pageName={pageProps.pageName}>
           <Layout>
             <Component {...pageProps} />
+            <Analytics />
           </Layout>
         </AppProvider>
       </Hydrate>
