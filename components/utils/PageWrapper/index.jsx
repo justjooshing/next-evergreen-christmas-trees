@@ -7,7 +7,7 @@ import { AppContext } from "../../../context/app";
 
 const CustomHead = () => {
   const { pageName } = useContext(AppContext);
-  const page = metaTags[pageName];
+  const page = metaTags[pageName] || "";
   return (
     <Head>
       {pageName === "admin" || pageName === "404 - Not Found" ? (
@@ -25,10 +25,10 @@ const CustomHead = () => {
             content={`${pageName} - ${metaTags.Global.siteName}`}
             key="ogtitle"
           />
-          <meta name="description" content={page.description} />
+          <meta name="description" content={page?.description} />
           <meta
             property="og:description"
-            content={page.description}
+            content={page?.description}
             key="ogdesc"
           />
 
@@ -46,7 +46,7 @@ const CustomHead = () => {
             property="og:image:alt"
             content="Evergreen Christmas Trees Sign"
           />
-          <meta property="og:url" content={page.currentURL} key="ogurl" />
+          <meta property="og:url" content={page?.currentURL} key="ogurl" />
           <meta property="og:locale" content="en_AU" key="oglocale" />
           <script type="application/ld+json">
             {JSON.stringify(headerData).replace(/&quot;/g, '"')}

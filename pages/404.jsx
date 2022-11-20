@@ -5,8 +5,8 @@ export const getStaticProps = () => ({
   props: { pageName: "404 - Not found" },
 });
 
-const custom404 = ({ pageName }) => (
-  <PageWrapper pageName={pageName}>
+const custom404 = () => (
+  <PageWrapper>
     <NotFound />
   </PageWrapper>
 );
