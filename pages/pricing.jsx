@@ -6,7 +6,7 @@ import {
   useInitialPricePerFoot,
 } from "../helpers/requests";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const pricePerFoot = await getPricePerFoot();
   const basePrice = await getBasePrice();
   return {

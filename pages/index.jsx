@@ -3,7 +3,7 @@ import PageWrapper from "../components/utils/PageWrapper";
 import { useInitialAlerts, useInitialAnnouncements } from "../helpers/requests";
 import { getAlerts, getAnnouncements } from "../server/ssr";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const announcements = await getAnnouncements();
   const alerts = await getAlerts();
   return {
