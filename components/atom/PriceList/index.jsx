@@ -12,7 +12,7 @@ const PriceList = ({ val, entryCount = undefined }) => {
 for (let i = 4; i <= 13; i++) {
       prices.push({
         range: `${i - 1}ft up to ${i}ft`,
-        price: (i < 10 ? n : 15) * i + basePrice,
+        price: i < 10 ? n * i + basePrice : 15 * (i-10) + 105 ,
       });
      
     
