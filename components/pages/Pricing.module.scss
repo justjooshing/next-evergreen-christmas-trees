@@ -10,6 +10,16 @@
   }
 }
 
-.image {
-  border-radius: 15px;
+.pricingInfo {
+  font-size: small;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    border-radius: 15px;
+  }
 }
