@@ -9,9 +9,7 @@ const HeaderWrapper = () => {
   return (
     <div className={headerStyles.title_wrapper}>
       <h1 className={headerStyles.title}>
-        <Link href="/">
-          <a>Evergreen Christmas Trees</a>
-        </Link>
+        <Link href="/">Evergreen Christmas Trees</Link>
       </h1>
       {/* Need to wrap NextJS image component in div */}
       <div className={headerStyles.image}>
