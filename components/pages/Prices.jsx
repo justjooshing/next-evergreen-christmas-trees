@@ -14,7 +14,7 @@ const Prices = () => (
       </p>
       <p className={pricingStyle.pricingInfo}>Prices subject to change</p>
     </div>
-    <div>
+    <div className={pricingStyle.imageWrapper}>
       <Image
         src="/pricing_tree.jpg"
         alt="christmas tree"

@@ -14,6 +14,12 @@
   font-size: small;
 }
 
-.image {
-  border-radius: 15px;
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    border-radius: 15px;
+  }
 }
