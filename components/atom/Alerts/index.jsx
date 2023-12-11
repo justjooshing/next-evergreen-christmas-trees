@@ -12,13 +12,11 @@ const Alerts = ({ alerts }) => {
     setMounted(true);
   }, []);
 
-  const component = alerts
-    .filter((alert) => alert.visibility)
-    .map(({ value, id }) => (
-      <p className={styles.alert} key={id}>
-        {value}
-      </p>
-    ));
+  const component = alerts.map(({ fields: { alertText }, id }) => (
+    <p className={styles.alert} key={id}>
+      {alertText}
+    </p>
+  ));
 
   return mounted ? ReactDOM.createPortal(component, selectorRef.current) : null;
 };

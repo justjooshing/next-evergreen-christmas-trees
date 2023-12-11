@@ -14,9 +14,7 @@ const Home = ({ announcements, alerts }) => (
         <p key={index}>{line}</p>
       ))}
     </section>
-    {announcements.some(({ visibility }) => visibility) && (
-      <Announcements announcements={announcements} />
-    )}
+    {!!announcements.length && <Announcements announcements={announcements} />}
     <Slideshow slides={treeImages} />
     <Cards />
   </>
