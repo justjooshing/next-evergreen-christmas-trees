@@ -1,11 +1,6 @@
 import { createClient } from "contentful";
 
-import {
-  db_alerts,
-  db_announcements,
-  db_basePrice,
-  db_pricePerFoot,
-} from "../database/queries";
+import { db_basePrice, db_pricePerFoot } from "../database/queries";
 import { contentfulApi, dev } from "../config";
 
 const handleResult = async (callback) =>
@@ -13,9 +8,6 @@ const handleResult = async (callback) =>
 
 export const getPricePerFoot = async () => await handleResult(db_pricePerFoot);
 export const getBasePrice = async () => await handleResult(db_basePrice);
-export const getAlerts = async () => await handleResult(db_alerts);
-export const getAnnouncements = async () =>
-  await handleResult(db_announcements);
 
 export const getContentful = async () => {
   const client = createClient({

@@ -1,17 +1,5 @@
 import { connectToDb } from "../server/connection";
 
-export const db_announcements = async () => {
-  const { db } = await connectToDb();
-
-  return await db.collection("announcements").find({}).toArray();
-};
-
-export const db_alerts = async () => {
-  const { db } = await connectToDb();
-
-  return await db.collection("alerts").find({}).toArray();
-};
-
 export const db_pricePerFoot = async () => {
   const { db } = await connectToDb();
 

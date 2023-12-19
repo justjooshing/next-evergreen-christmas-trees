@@ -17,7 +17,7 @@ const HeaderWrapper = () => {
           src="/logos/logo.png"
           alt="Christmas Tree"
           height={70}
-          width={47.5}
+          width={47}
         />
       </div>
     </div>

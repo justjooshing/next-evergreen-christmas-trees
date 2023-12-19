@@ -30,34 +30,3 @@ export const usePricePerFoot = () =>
   useQuery([keys.pricePerFoot], getPricePerFoot, {
     staleTime: staleTimes.DAYS_1,
   });
-
-const getAlerts = async () => axios.get(routes.alerts).then(({ data }) => data);
-
-export const useInitialAlerts = (initialData) => {
-  useQuery([keys.alerts], getAlerts, {
-    staleTime: staleTimes.DAYS_1,
-    initialData,
-  });
-};
-
-export const useAlerts = () => {
-  useQuery([keys.alerts], getAlerts, {
-    staleTime: staleTimes.DAYS_1,
-  });
-};
-
-const getAnnouncements = async () =>
-  axios.get(routes.announcements).then(({ data }) => data);
-
-export const useInitialAnnouncements = (initialData) => {
-  useQuery([keys.announcements], getAnnouncements, {
-    staleTime: staleTimes.DAYS_1,
-    initialData,
-  });
-};
-
-export const useAnnouncements = () => {
-  useQuery([keys.announcements], getAnnouncements, {
-    staleTime: staleTimes.DAYS_1,
-  });
-};
