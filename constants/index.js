@@ -29,7 +29,7 @@ export const faqList = [
   {
     question: "Do I need to cut down my own tree?",
     answer:
-      "No, once you have chosen your tree, we will come and cut it down for you and take it to the point of sale for collection.",
+      "No, once you have chosen your tree, we will come and cut it down for you.",
   },
   {
     question: "Can I put my tree in direct sunlight?",
@@ -49,7 +49,7 @@ export const faqList = [
   {
     question: "What do I do with my Christmas tree after Christmas",
     answer:
-      " A lot of councils, such as Kingston, have a service where you are able to leave your tree on your nature strip and book a collection. Please contact your local council to see what is on offer.",
+      "A lot of councils, such as Kingston, have a service where you are able to leave your tree on your nature strip and book a collection. Please contact your local council to see what is on offer.",
   },
   {
     question: "How do I ensure there are no creepy crawlies in my tree?",
@@ -65,6 +65,11 @@ export const faqList = [
     question: "How do I stand my tree up?",
     answer:
       "The best way to stand up your Christmas tree is with a Christmas tree stand. We do sell a selection on site.",
+  },
+  {
+    question: "Are dogs allowed?",
+    answer:
+      "Yes, we are happy to welcome your furry friends, as long as they're kept on a leash at all times and you bring poop bags in case you need to pick up after them.",
   },
 ];
 
