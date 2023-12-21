@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useContext } from "react";
 
 import { metaTags } from "../../../constants";
-import headerData from "../../../constants/headerData.json";
+import { schema } from "../../../constants/headerData";
 import { AppContext } from "../../../context/app";
 
 const CustomHead = () => {
@@ -48,9 +48,7 @@ const CustomHead = () => {
           />
           <meta property="og:url" content={page?.currentURL} key="ogurl" />
           <meta property="og:locale" content="en_AU" key="oglocale" />
-          <script type="application/ld+json">
-            {JSON.stringify(headerData).replace(/&quot;/g, '"')}
-          </script>
+          <script type="application/ld+json">{JSON.stringify(schema)}</script>
         </>
       )}
     </Head>
