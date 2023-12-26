@@ -16,7 +16,7 @@ export const schema: LocalBusiness = {
     postalCode: "3175",
     addressCountry: "AU",
   },
-  priceRange: "$$",
+  priceRange: "$",
   geo: {
     "@type": "GeoCoordinates",
     latitude: -38.042306,
