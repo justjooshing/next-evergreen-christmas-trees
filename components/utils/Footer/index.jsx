@@ -1,18 +1,16 @@
-import { staleTimes } from "../../../constants/api";
-
 import footerStyles from "./Footer.module.scss";
 
 const Footer = () => {
   const christmasFooter = () => {
     const today = new Date();
     const christmas = new Date(today.getFullYear(), 11, 25);
-    const oneDay = staleTimes.DAYS_1; //ms*s*h*d
+    const oneDay = 1000 * 60 * 60 * 24; //ms*s*h*d
     if (today.getMonth === 11 && today.getDay > 25) {
       christmas.setFullYear(christmas.getFullYear() + 1);
     }
     const daysUntilChristmas = () => {
       const amount = Math.ceil(
-        (christmas.getTime() - today.getTime()) / oneDay
+        (christmas.getTime() - today.getTime()) / oneDay,
       );
       return amount < 0 ? Math.abs(amount) + 365 : amount; // will be off for leap years
     };

@@ -4,4 +4,4 @@
 
 A Next.js rebuild of the Evergreen Christmas Trees repo
 
-- Using Next.js (React/Micro), React Query, Next-Auth, and MongoDB
+- Using Next.js with SSR and Contentful

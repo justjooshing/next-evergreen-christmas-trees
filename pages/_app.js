@@ -1,13 +1,7 @@
-import { useState } from "react";
 import Router from "next/router";
 import NProgress from "nprogress";
 // eslint-disable-next-line import/no-unresolved
 import { Analytics } from "@vercel/analytics/react";
-import {
-  QueryClientProvider,
-  QueryClient,
-  Hydrate,
-} from "@tanstack/react-query";
 
 import Layout from "../components/utils/Layout";
 /* eslint-disable import/no-unassigned-import */
@@ -31,19 +25,13 @@ Router.events.on("routeChangeError", () => {
 });
 
 function MyApp({ Component, pageProps }) {
-  const [queryClient] = useState(() => new QueryClient());
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <AppProvider pageName={pageProps.pageName}>
-          <Layout>
-            <Component {...pageProps} />
-            <Analytics />
-          </Layout>
-        </AppProvider>
-      </Hydrate>
-    </QueryClientProvider>
+    <AppProvider pageName={pageProps.pageName}>
+      <Layout>
+        <Component {...pageProps} />
+        <Analytics />
+      </Layout>
+    </AppProvider>
   );
 }
 
