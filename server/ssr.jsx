@@ -1,13 +1,6 @@
 import { createClient } from "contentful";
 
-import { db_basePrice, db_pricePerFoot } from "../database/queries";
 import { contentfulApi, dev } from "../config";
-
-const handleResult = async (callback) =>
-  JSON.parse(JSON.stringify(await callback()));
-
-export const getPricePerFoot = async () => await handleResult(db_pricePerFoot);
-export const getBasePrice = async () => await handleResult(db_basePrice);
 
 export const getContentful = async () => {
   const client = createClient({
@@ -33,14 +26,16 @@ export const getContentful = async () => {
         fields,
         id,
         contentId,
-      })
-    )
+      }),
+    ),
   );
 
-  const content = { alerts: [], announcements: [] };
+  const content = { alerts: [], announcements: [], prices: [] };
   // separate into alerts/announcements
   items.forEach(({ contentId, fields, id }) => {
-    if (!!fields.visibility) {
+    if (contentId === "prices") {
+      content.prices.push({ fields, id });
+    } else if (!!fields.visibility) {
       content[contentId].push({ fields, id });
     }
   });

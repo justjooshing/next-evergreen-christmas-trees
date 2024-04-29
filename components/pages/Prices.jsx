@@ -4,11 +4,11 @@ import PriceList from "../atom/PriceList";
 
 import pricingStyle from "./Pricing.module.scss";
 
-const Prices = () => (
+const Prices = ({ prices }) => (
   <section className={pricingStyle.main}>
     <div>
       <h3>Pricing</h3>
-      <PriceList />
+      <PriceList prices={prices} />
       <p className={pricingStyle.pricingInfo}>
         Card purchases will incur a 2% surcharge
       </p>
