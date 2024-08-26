@@ -118,7 +118,7 @@ export const treeImages = [
     srcset: [200, 444, 622, 766, 914, 1044, 1158, 1284, 1352, 1400]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_5249/IMG_5249_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_5249/IMG_5249_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -130,7 +130,7 @@ export const treeImages = [
     srcset: [200, 841, 1261, 1616, 1982, 2292, 2391, 2555, 2772, 2800]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_0454/IMG_0454_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_0454/IMG_0454_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -142,7 +142,7 @@ export const treeImages = [
     srcset: [200, 465, 641, 813, 928, 1054, 1176, 1296, 1356, 1400]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_5253/IMG_5253_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_5253/IMG_5253_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -154,7 +154,7 @@ export const treeImages = [
     srcset: [200, 399, 545, 670, 720]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_5503/IMG_5503_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_5503/IMG_5503_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -166,7 +166,7 @@ export const treeImages = [
     srcset: [200, 495, 693, 865, 1002, 1146, 1233, 1342, 1373, 1400]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_5592/IMG_5592_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_5592/IMG_5592_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -178,7 +178,7 @@ export const treeImages = [
     srcset: [200, 387, 535, 657, 781, 890, 960]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_7235/IMG_7235_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_7235/IMG_7235_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -190,7 +190,7 @@ export const treeImages = [
     srcset: [200, 468, 611, 748, 873, 960]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_7241/IMG_7241_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_7241/IMG_7241_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -202,7 +202,7 @@ export const treeImages = [
     srcset: [200, 454, 647, 759, 887, 1031, 1144, 1255, 1373, 1400]
       .map(
         (size) =>
-          `/slideshow_images/index/IMG_7581/IMG_7581_${size}.jpg ${size}w`
+          `/slideshow_images/index/IMG_7581/IMG_7581_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -213,7 +213,8 @@ export const treeImages = [
     height: 1298,
     srcset: [200, 462, 620, 762, 889, 1006, 1146, 1264, 1299, 1400]
       .map(
-        (size) => `/slideshow_images/index/Rainbow/Rainbow_${size}.jpg ${size}w`
+        (size) =>
+          `/slideshow_images/index/Rainbow/Rainbow_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -227,7 +228,7 @@ export const schoolImages = [
     srcset: [200, 313, 408, 567, 624, 630, 769, 830, 850, 864]
       .map(
         (size) =>
-          `/slideshow_images/community/Cornish_college2020/Cornish_college2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Cornish_college2020/Cornish_college2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -238,7 +239,7 @@ export const schoolImages = [
     srcset: [200, 365, 490, 643, 752, 841, 922, 1021, 1124, 1200]
       .map(
         (size) =>
-          `/slideshow_images/community/Nepean_school2020/Nepean_school2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Nepean_school2020/Nepean_school2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -249,7 +250,7 @@ export const schoolImages = [
     srcset: [200, 335, 440, 526, 688, 707]
       .map(
         (size) =>
-          `/slideshow_images/community/Patterson_lakes_primary2020/Patterson_lakes_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Patterson_lakes_primary2020/Patterson_lakes_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -260,7 +261,7 @@ export const schoolImages = [
     srcset: [200, 406, 545, 657, 764, 863, 954, 1038, 1131, 1200]
       .map(
         (size) =>
-          `/slideshow_images/community/Chelsea_heights_primary2020/Chelsea_heights_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Chelsea_heights_primary2020/Chelsea_heights_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -271,7 +272,7 @@ export const schoolImages = [
     srcset: [200, 321, 426, 503, 568, 759, 765]
       .map(
         (size) =>
-          `/slideshow_images/community/Aspendale_gardens_primary2020/Aspendale_gardens_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Aspendale_gardens_primary2020/Aspendale_gardens_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -282,7 +283,7 @@ export const schoolImages = [
     srcset: [200, 406, 557, 690, 809, 940, 1052, 1176, 1200]
       .map(
         (size) =>
-          `/slideshow_images/community/Edithvale_primary2020/Edithvale_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/Edithvale_primary2020/Edithvale_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -293,7 +294,7 @@ export const schoolImages = [
     srcset: [200, 386, 519, 631, 745, 853, 956, 1061, 1125]
       .map(
         (size) =>
-          `/slideshow_images/community/StBrigids_primary2020/StBrigids_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/StBrigids_primary2020/StBrigids_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
@@ -304,25 +305,26 @@ export const schoolImages = [
     srcset: [200, 385, 534, 623, 782, 918, 1001, 1085, 1175, 1200]
       .map(
         (size) =>
-          `/slideshow_images/community/StJosephs_primary2020/StJosephs_primary2020_${size}.jpg ${size}w`
+          `/slideshow_images/community/StJosephs_primary2020/StJosephs_primary2020_${size}.jpg ${size}w`,
       )
       .join(", "),
   },
 ];
 
 export const schoolList = [
-  "Nepean School",
-  "Edithvale Primary School",
-  "Chelsea Primary School",
-  "Chelsea Heights Primary School",
-  "St Joseph's Primary School",
-  "Patterson Lakes Primary School",
   "Aspendale Gardens Primary School",
-  "St Brigid's Primary School",
-  "Cornish College",
-  "St Louis de Montfort Primary School",
-  "Pantry 5000",
+  "Chelsea Heights Primary School",
+  "Chelsea Primary School",
+  "Chelsea Rotary Club",
   "Community Christmas Lunch for the Underprivileged",
+  "Cornish College",
+  "Edithvale Primary School",
+  "Nepean School",
+  "Pantry 5000",
+  "Patterson Lakes Primary School",
+  "St Brigid's Primary School",
+  "St Joseph's Primary School",
+  "St Louis de Montfort Primary School",
 ];
 
 export const metaTags = {

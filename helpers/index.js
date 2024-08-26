@@ -1,13 +1,15 @@
 import { unit } from "mathjs";
 
 const lastFullWeekend = (year, month) => {
-  const date = new Date(year, month);
-  const weekday = date.getDay(); //gets first day of the month
-  date.setDate(date.getDate() - weekday - 1); //backtracks to the last Sunday -1 (so, saturday)
-  return date.getDate(); //returns day number
+  const date = new Date(year, month + 1, 0);
+
+  const lastDate = date.getDate(); // i.e. 30
+  const lastWeekday = date.getDay(); // i.e. 4 (for Thursday), 6 (for Saturday)
+
+  return lastDate - lastWeekday - 1;
 };
 
-export const lastSaturday = lastFullWeekend(new Date().getFullYear(), 11);
+export const lastSaturday = lastFullWeekend(new Date().getFullYear(), 10);
 
 export const convertToFeet = (meters) =>
   unit(meters, "m")
