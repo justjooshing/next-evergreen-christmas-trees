@@ -32,3 +32,10 @@ export const setPrices = ({ basePrice, pricePerFoot, count, prevSet }) => {
 
   return prices;
 };
+
+export const mapSrcSet = (baseUrl) => (sizes, imageName) => ({
+  src: `${baseUrl}/${imageName}/${imageName}_${sizes[0]}.jpg`,
+  srcset: sizes
+    .map((size) => `${baseUrl}/${imageName}/${imageName}_${size}.jpg ${size}w`)
+    .join(", "),
+});
