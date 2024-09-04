@@ -1,3 +1,5 @@
+import { mapSrcSet } from "../helpers";
+
 export const openingHours = [
   { days: "Monday to Friday", hours: "2pm - 6pm" },
   { days: "Saturday and Sunday", hours: "9am - 6pm" },
@@ -108,206 +110,143 @@ export const pageLinks = [
   },
 ];
 
+const mapTreeImagesSrcSet = mapSrcSet("/slideshow_images/index");
+
 export const treeImages = [
   // Width and height are here for the nextjs image component
   {
-    src: "/slideshow_images/index/IMG_5249/IMG_5249_200.jpg",
+    ...mapTreeImagesSrcSet(
+      [200, 444, 622, 766, 914, 1044, 1158, 1284, 1352, 1400],
+      "IMG_5249",
+    ),
     alt: "Evergreen trees fence and sign",
     width: 2457,
     height: 1755,
-    srcset: [200, 444, 622, 766, 914, 1044, 1158, 1284, 1352, 1400]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_5249/IMG_5249_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_0454/IMG_0454_200.jpg",
+    ...mapTreeImagesSrcSet(
+      [200, 841, 1261, 1616, 1982, 2292, 2391, 2555, 2772, 2800],
+      "IMG_0454",
+    ),
     alt: "Christmas tree image",
     width: 3024,
     height: 4032,
-    srcset: [200, 841, 1261, 1616, 1982, 2292, 2391, 2555, 2772, 2800]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_0454/IMG_0454_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5253/IMG_5253_200.JPG",
+    ...mapTreeImagesSrcSet(
+      [200, 465, 641, 813, 928, 1054, 1176, 1296, 1356, 1400],
+      "IMG_5253",
+    ),
     alt: "Three christmas trees",
     width: 2925,
     height: 4096,
-    srcset: [200, 465, 641, 813, 928, 1054, 1176, 1296, 1356, 1400]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_5253/IMG_5253_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5503/IMG_5503_200.JPG",
+    ...mapTreeImagesSrcSet([200, 399, 545, 670, 720], "IMG_5503"),
     alt: "Man with flag next to tree",
     width: 720,
     height: 960,
-    srcset: [200, 399, 545, 670, 720]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_5503/IMG_5503_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_5592/IMG_5592_200.JPG",
+    ...mapTreeImagesSrcSet(
+      [200, 495, 693, 865, 1002, 1146, 1233, 1342, 1373, 1400],
+      "IMG_5592",
+    ),
     alt: "Christmas tree in trailer",
     width: 4096,
     height: 2925,
-    srcset: [200, 495, 693, 865, 1002, 1146, 1233, 1342, 1373, 1400]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_5592/IMG_5592_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7235/IMG_7235_200.JPG",
+    ...mapTreeImagesSrcSet([200, 387, 535, 657, 781, 890, 960], "IMG_7235"),
     alt: "Christmas tree cluster",
     width: 960,
     height: 720,
-    srcset: [200, 387, 535, 657, 781, 890, 960]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_7235/IMG_7235_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7241/IMG_7241_200.JPG",
+    ...mapTreeImagesSrcSet([200, 468, 611, 748, 873, 960], "IMG_7241"),
     alt: "Netting christmas tree",
     width: 960,
     height: 720,
-    srcset: [200, 468, 611, 748, 873, 960]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_7241/IMG_7241_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/IMG_7581/IMG_7581_200.jpg",
+    ...mapTreeImagesSrcSet(
+      [200, 454, 647, 759, 887, 1031, 1144, 1255, 1373, 1400],
+      "IMG_7581",
+    ),
     alt: "Christmas tree sunrise fence",
     width: 3024,
     height: 4032,
-    srcset: [200, 454, 647, 759, 887, 1031, 1144, 1255, 1373, 1400]
-      .map(
-        (size) =>
-          `/slideshow_images/index/IMG_7581/IMG_7581_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
   {
-    src: "/slideshow_images/index/Rainbow/Rainbow_200.jpg",
+    ...mapTreeImagesSrcSet(
+      [200, 462, 620, 762, 889, 1006, 1146, 1264, 1299, 1400],
+      "Rainbow",
+    ),
     alt: "Christmas tree forest",
     width: 1440,
     height: 1298,
-    srcset: [200, 462, 620, 762, 889, 1006, 1146, 1264, 1299, 1400]
-      .map(
-        (size) =>
-          `/slideshow_images/index/Rainbow/Rainbow_${size}.jpg ${size}w`,
-      )
-      .join(", "),
   },
 ];
 
+const mapSchoolImagesSrcSet = mapSrcSet("/slideshow_images/community");
 export const schoolImages = [
   {
-    src: "/slideshow_images/community/Cornish_college2020/Cornish_college2020_200.jpg",
-    alt: "Photo of christmas tree at Cornish College, given by Evergreen Christmas Trees",
-    caption: "Cornish College - 2020 tree",
-    srcset: [200, 313, 408, 567, 624, 630, 769, 830, 850, 864]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Cornish_college2020/Cornish_college2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    alt: "Christmas tree at Cornish College, given by Evergreen Christmas Trees",
+    caption: "Cornish College - 2023 tree",
+    ...mapSchoolImagesSrcSet(
+      [200, 456, 632, 800, 935, 1056, 1170, 1281, 1385, 1400],
+      "Cornish_college_2023",
+    ),
   },
   {
-    src: "/slideshow_images/community/Nepean_school2020_200.jpg",
-    alt: "Photo of christmas tree at Nepean School, given by Evergreen Christmas Trees",
+    alt: "Christmas tree at Nepean School, given by Evergreen Christmas Trees",
     caption: "Nepean School - 2020 tree",
-    srcset: [200, 365, 490, 643, 752, 841, 922, 1021, 1124, 1200]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Nepean_school2020/Nepean_school2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    ...mapSchoolImagesSrcSet(
+      [200, 365, 490, 643, 752, 841, 922, 1021, 1124, 1200],
+      "Nepean_school2020",
+    ),
   },
   {
-    src: "/slideshow_images/community/Patterson_lakes_primary2020_200.jpg",
-    alt: "Photo of christmas tree at Patterson Lakes Primary School, given by Evergreen Christmas Trees",
-    caption: "Patterson Lakes Primary - 2020 tree",
-    srcset: [200, 335, 440, 526, 688, 707]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Patterson_lakes_primary2020/Patterson_lakes_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    alt: "Christmas tree at Patterson Lakes Primary School, given by Evergreen Christmas Trees",
+    caption: "Patterson Lakes Primary - 2023 tree",
+    ...mapSchoolImagesSrcSet([200, 348, 361], "Patterson_lakes_primary_2023"),
   },
   {
-    src: "/slideshow_images/community/Chelsea_heights_primary2020_200.jpg",
-    alt: "Photo of christmas tree at Chelsea Heights Primary School, given by Evergreen Christmas Trees",
+    alt: "Christmas tree at Chelsea Heights Primary School, given by Evergreen Christmas Trees",
     caption: "Chelsea Heights Primary - 2020 tree",
-    srcset: [200, 406, 545, 657, 764, 863, 954, 1038, 1131, 1200]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Chelsea_heights_primary2020/Chelsea_heights_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    ...mapSchoolImagesSrcSet(
+      [200, 406, 545, 657, 764, 863, 954, 1038, 1131, 1200],
+      "Chelsea_heights_primary2020",
+    ),
   },
   {
-    src: "/slideshow_images/community/Aspendale_gardens_primary2020_200.jpg",
-    alt: "Photo of christmas tree at Aspendale Gardens Primary School, given by Evergreen Christmas Trees",
+    alt: "Christmas tree at Aspendale Gardens Primary School, given by Evergreen Christmas Trees",
     caption: "Aspendale Gardens Primary - 2020 tree",
-    srcset: [200, 321, 426, 503, 568, 759, 765]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Aspendale_gardens_primary2020/Aspendale_gardens_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    ...mapSchoolImagesSrcSet(
+      [200, 321, 426, 503, 568, 759, 765],
+      "Aspendale_gardens_primary2020",
+    ),
   },
   {
-    src: "/slideshow_images/community/Edithvale_primary2020_200.jpg",
-    alt: "Photo of christmas tree at Edithvale Primary School, given by Evergreen Christmas Trees",
-    caption: "Edithvale Primary - 2020 tree",
-    srcset: [200, 406, 557, 690, 809, 940, 1052, 1176, 1200]
-      .map(
-        (size) =>
-          `/slideshow_images/community/Edithvale_primary2020/Edithvale_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    alt: "Christmas tree at Edithvale Primary School, given by Evergreen Christmas Trees",
+    caption: "Edithvale Primary - 2023 tree",
+    ...mapSchoolImagesSrcSet(
+      [200, 331, 439, 535, 632, 692, 750],
+      "Edithvale_primary_2023",
+    ),
   },
   {
-    src: "/slideshow_images/community/StBrigids_primary2020_200.jpg",
-    alt: "Photo of christmas tree at St Brigid's Primary School, given by Evergreen Christmas Trees",
-    caption: "St Brigid's Primary - 2020 tree",
-    srcset: [200, 386, 519, 631, 745, 853, 956, 1061, 1125]
-      .map(
-        (size) =>
-          `/slideshow_images/community/StBrigids_primary2020/StBrigids_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    alt: "Christmas tree at St Brigid's Primary School, given by Evergreen Christmas Trees",
+    caption: "St Brigid's Primary - 2023 tree",
+    ...mapSchoolImagesSrcSet(
+      [200, 448, 609, 776, 898, 995, 1123, 1225, 1350, 1400],
+      "St_Brigids_2023",
+    ),
   },
   {
-    src: "/slideshow_images/community/StJosephs_primary2020_200.jpg",
-    alt: "Photo of christmas tree at St Joseph's Primary School, given by Evergreen Christmas Trees",
-    caption: "St Joseph's Primary - 2020 tree",
-    srcset: [200, 385, 534, 623, 782, 918, 1001, 1085, 1175, 1200]
-      .map(
-        (size) =>
-          `/slideshow_images/community/StJosephs_primary2020/StJosephs_primary2020_${size}.jpg ${size}w`,
-      )
-      .join(", "),
+    alt: "Christmas tree at St Joseph's Primary School, given by Evergreen Christmas Trees",
+    caption: "St Joseph's Primary - 2023 tree",
+    ...mapSchoolImagesSrcSet([200, 369, 474, 480], "St_Josephs_2023"),
   },
 ];
 
