@@ -1,7 +1,8 @@
 import { LocalBusiness } from "schema-dts";
 
 export const schema: LocalBusiness = {
-  // "@context": "https://schema.org",
+  // @ts-expect-error complains that @context is not part of the schema
+  "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Evergreen Christmas Trees",
   image:
