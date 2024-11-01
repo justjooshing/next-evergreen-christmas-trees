@@ -10,7 +10,7 @@ const Prices = ({ prices }) => (
       <h3>Pricing</h3>
       <PriceList prices={prices} />
       <p className={pricingStyle.pricingInfo}>
-        Card purchases will incur a 2.2% surcharge
+        Card purchases will incur a 1.9% surcharge
       </p>
       <p className={pricingStyle.pricingInfo}>Prices subject to change</p>
     </div>
