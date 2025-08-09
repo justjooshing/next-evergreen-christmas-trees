@@ -1,8 +1,8 @@
 export const dev = process.env.NODE_ENV !== "production";
 
 export const server = dev
-  ? process.env.NEXTAUTH_URL_DEV
-  : process.env.NEXTAUTH_URL;
+  ? process.env.NEXT_PUBLIC_NEXTAUTH_URL_DEV
+  : process.env.NEXT_PUBLIC_NEXTAUTH_URL;
 
 export const contentfulApi = dev
   ? process.env.CONTENTFUL_PREVIEW_API
