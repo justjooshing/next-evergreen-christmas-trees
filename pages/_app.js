@@ -7,8 +7,9 @@ import Layout from "../components/utils/Layout";
 /* eslint-disable import/no-unassigned-import */
 import "nprogress/nprogress.css";
 import "../styles/globals.scss";
-import AppProvider from "../context/app";
 /* eslint-enable import/no-unassigned-import */
+import AppProvider from "../context/app";
+import { CustomHead } from "../components/utils/CustomHead";
 
 NProgress.configure({ showSpinner: false });
 
@@ -27,6 +28,7 @@ Router.events.on("routeChangeError", () => {
 function MyApp({ Component, pageProps }) {
   return (
     <AppProvider pageName={pageProps.pageName}>
+      <CustomHead />
       <Layout>
         <Component {...pageProps} />
         <Analytics />

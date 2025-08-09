@@ -1,5 +1,4 @@
 import Prices from "../components/pages/Prices";
-import PageWrapper from "../components/utils/PageWrapper";
 import { setPrices } from "../helpers";
 import { getContentful } from "../server/ssr";
 
@@ -31,12 +30,6 @@ export const getServerSideProps = async () => {
   };
 };
 
-const PricingPage = ({ priceList }) => {
-  return (
-    <PageWrapper>
-      <Prices prices={priceList} />
-    </PageWrapper>
-  );
-};
+const PricingPage = ({ priceList }) => <Prices prices={priceList} />;
 
 export default PricingPage;

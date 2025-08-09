@@ -1,13 +1,43 @@
-import { LocalBusiness } from "schema-dts";
+import { LocalBusiness, WithContext } from "schema-dts";
 
-export const schema: LocalBusiness = {
-  // @ts-expect-error complains that @context is not part of the schema
+const areaServed = [
+  // Local Government Areas
+  { "@type": "AdministrativeArea", name: "City of Kingston" },
+  { "@type": "AdministrativeArea", name: "City of Greater Dandenong" },
+  { "@type": "AdministrativeArea", name: "City of Frankston" },
+
+  // Immediate Local Area
+  { "@type": "Place", name: "Bangholme" },
+  { "@type": "Place", name: "Dingley Village" },
+  { "@type": "Place", name: "Bonbeach" },
+  { "@type": "Place", name: "Patterson Lakes" },
+  { "@type": "Place", name: "Chelsea" },
+  { "@type": "Place", name: "Chelsea Heights" },
+  { "@type": "Place", name: "Edithvale" },
+  { "@type": "Place", name: "Aspendale" },
+  { "@type": "Place", name: "Aspendale Gardens" },
+  { "@type": "Place", name: "Carrum" },
+  { "@type": "Place", name: "Braeside" },
+
+  // Slightly Wider Suburbs (for search catchment)
+  { "@type": "Place", name: "Carrum Downs" },
+  { "@type": "Place", name: "Seaford" },
+  { "@type": "Place", name: "Mordialloc" },
+  { "@type": "Place", name: "Mentone" },
+  { "@type": "Place", name: "Noble Park" },
+  { "@type": "Place", name: "Springvale" },
+  { "@type": "Place", name: "Keysborough" },
+  { "@type": "Place", name: "Dandenong South" },
+  { "@type": "Place", name: "Dandenong" },
+] as const;
+
+export const schema: WithContext<LocalBusiness> = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Evergreen Christmas Trees",
   image:
     "https://evergreenchristmastrees.com/slideshow_images/index/IMG_5249/IMG_5249_200.jpg",
-  "@id": "https://evergreenchristmastrees.com/",
+  "@id": "https://evergreenchristmastrees.com/#localbusiness",
   url: "https://evergreenchristmastrees.com/",
   telephone: "0400402932",
   address: {
@@ -18,12 +48,15 @@ export const schema: LocalBusiness = {
     postalCode: "3175",
     addressCountry: "AU",
   },
+  areaServed,
   priceRange: "$",
   geo: {
     "@type": "GeoCoordinates",
     latitude: -38.042306,
     longitude: 145.146012,
   },
+  hasMap: "https://www.google.com/maps?cid=16881230486655383436",
+  openingHours: ["Mo-Fr 14:00-18:00", "Sa-Su 09:00-18:00"],
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -41,6 +74,14 @@ export const schema: LocalBusiness = {
   sameAs: [
     "https://www.instagram.com/evergreen_christmas_trees/",
     "https://www.facebook.com/evergreenchrissytrees/",
+    "https://www.google.com/maps?cid=16881230486655383436",
+  ],
+  knowsAbout: [
+    "Christmas trees",
+    "Fresh cut Christmas trees",
+    "Pine tree farm",
+    "Family activities in Melbourne",
+    "Live Christmas trees for sale",
   ],
   aggregateRating: {
     "@type": "AggregateRating",

@@ -28,18 +28,18 @@ const Hamburger = ({ navItems }) => {
   );
 };
 
-const Nav = () => {
-  const NavLinks = ({ link }) => {
-    const { pageName } = useContext(AppContext);
-    const [key, value] = link;
-    const selectedPage = pageName === key;
-    return (
-      <Link passHref href={value}>
-        <li className={selectedPage ? navStyles.selected : null}>{key}</li>
-      </Link>
-    );
-  };
+const NavLinks = ({ link }) => {
+  const { pageName } = useContext(AppContext);
+  const [key, value] = link;
+  const selectedPage = pageName === key;
+  return (
+    <Link passHref href={value}>
+      <li className={selectedPage ? navStyles.selected : null}>{key}</li>
+    </Link>
+  );
+};
 
+const Nav = () => {
   const navItems = Object.entries(paths).map((link) => (
     <NavLinks link={link} key={link[0]} />
   ));
