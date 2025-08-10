@@ -1,6 +1,6 @@
-import React from "react";
+import { createContext } from "react";
 
-export const AppContext = React.createContext({ pageName: "Home" });
+export const AppContext = createContext({ pageName: "Home" });
 
 const AppProvider = ({ children, pageName }) => (
   <AppContext.Provider value={{ pageName }}>{children}</AppContext.Provider>
