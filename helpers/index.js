@@ -17,20 +17,20 @@ export const convertToFeet = (meters) =>
     .map((val) => val.format({ notation: "fixed", precision: 0 }))
     .join(" ");
 
-export const setPrices = ({ basePrice, pricePerFoot, count, prevSet }) => {
-  const prices = [];
+const createHeightCalculator = (prevCount) => (currentIndex) =>
+  1 + 0.25 * (currentIndex + prevCount);
 
-  const prevCount = prevSet?.fields.count || 0;
-  for (let i = 1; i <= count; i++) {
-    const price = basePrice + i * pricePerFoot;
-    const mIncrement = 1 + ((i + prevCount) * 0.25 - 0.25);
-    prices.push({
-      height: mIncrement,
-      price,
-    });
-  }
+const createPriceCalculator = (basePrice, pricePerFoot) => (currentIndex) =>
+  basePrice + (currentIndex + 1) * pricePerFoot;
 
-  return prices;
+export const setPrices = ({ basePrice, pricePerFoot, count, prevCount }) => {
+  const calcHeight = createHeightCalculator(prevCount);
+  const calcPrice = createPriceCalculator(basePrice, pricePerFoot);
+
+  return Array.from({ length: count }).map((_, i) => ({
+    height: calcHeight(i),
+    price: calcPrice(i),
+  }));
 };
 
 export const mapSrcSet = (baseUrl) => (sizes, imageName) => ({
