@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import { pageLinks } from "../../lib/constants";
+import styles from "./Card.module.scss";
+
+import pricingImg from '../../assets/thumbnails/pricing.jpg';
+import contactImg from '../../assets/thumbnails/contact.jpg';
+import communityImg from '../../assets/thumbnails/community.jpg';
+import faqsImg from '../../assets/thumbnails/faqs.jpg';
+
+const images = [pricingImg, contactImg, communityImg, faqsImg];
+---
+
+<section class={styles.card_grid_wrapper}>
+  {pageLinks.map(({ link_src, fig_caption, img_alt }, i) => (
+    <a href={link_src}>
+      <div class={styles.card}>
+        <Image
+          class={styles.image}
+          src={images[i]}
+          alt={img_alt}
+          width={400}
+          height={300}
+          format="webp"
+        />
+        <span class={styles.caption}>{fig_caption}</span>
+      </div>
+    </a>
+  ))}
+</section>

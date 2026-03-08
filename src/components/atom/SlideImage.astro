@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import style from './SlideImage.module.scss';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  isVisible?: boolean;
+  loading?: 'lazy' | 'eager';
+}
+
+const { src, alt, caption, isVisible = true, loading = 'lazy' } = Astro.props;
+---
+
+<div class={style.slide} data-visible={isVisible ? 'true' : 'false'}>
+  <Image
+    src={src}
+    alt={alt}
+    format="webp"
+    loading={loading}
+    class={style.image}
+  />
+  {caption && <span class={style.caption}>{caption}</span>}
+</div>

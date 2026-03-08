@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import PriceList from '../components/atom/PriceList.astro';
+import { getContentful } from '../lib/contentful';
+import { setPrices } from '../lib/helpers';
+import pricingTree from '../assets/pricing_tree.jpg';
+
+const { prices } = await getContentful();
+
+const priceSets = [...prices].sort((a, b) =>
+  a.fields.basePrice < b.fields.basePrice ? -1 : 1,
+);
+
+let prevCount = 0;
+const priceList = priceSets
+  .flatMap(({ fields: { basePrice, pricePerFoot, count } }) => {
+    const result = setPrices({ basePrice, pricePerFoot, count, prevCount });
+    prevCount += count;
+    return result;
+  })
+  .sort((a, b) => (a.price > b.price ? 1 : -1));
+---
+
+<Layout pageName="Pricing">
+  <section class="main">
+    <div>
+      <h3>Pricing</h3>
+      <PriceList prices={priceList} />
+      <p class="pricingInfo">Card purchases will incur a 1.9% surcharge</p>
+      <p class="pricingInfo">Prices subject to change</p>
+    </div>
+    <div class="imageWrapper">
+      <Image
+        src={pricingTree}
+        loading={'eager'}
+        alt="christmas tree"
+        format="webp"
+        width={333}
+        class="image"
+      />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .main {
+    display: flex;
+    flex-direction: column;
+    place-content: space-evenly;
+    text-align: center;
+    padding: 1em;
+  }
+
+  @media (min-width: 800px) {
+    .main {
+      flex-direction: row;
+    }
+  }
+
+  .pricingInfo {
+    font-size: small;
+  }
+
+  .imageWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image {
+    border-radius: 15px;
+  }
+</style>

@@ -1,0 +1,17 @@
+---
+import { openingHours } from '../../lib/constants';
+import { lastSaturday } from '../../lib/helpers';
+import style from './OpeningHours.module.scss';
+---
+
+<p>
+  This year we are open {lastSaturday}th Nov - 23rd Dec or until sold out
+</p>
+<h3>Opening Hours</h3>
+{openingHours.map((dayRange) => (
+  <div class={style.hours}>
+    <p>{dayRange.days}:</p>
+    <p>{dayRange.hours}</p>
+  </div>
+))}
+<p>Outside these times and dates please contact us for an appointment</p>

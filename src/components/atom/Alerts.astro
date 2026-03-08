@@ -1,0 +1,9 @@
+---
+import styles from "./Alerts.module.scss";
+
+const { alerts } = Astro.props;
+---
+
+{alerts.map(({ fields: { alertText }, id }) => (
+  <p class={styles.alert} key={id}>{alertText}</p>
+))}

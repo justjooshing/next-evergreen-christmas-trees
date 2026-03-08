@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { faqList } from '../lib/constants';
+---
+
+<Layout pageName="FAQs">
+  <div class="main">
+    <h3 class="main__FaqHeader">Frequenly Asked Questions</h3>
+    {faqList.map((faq) => (
+      <details>
+        <summary>
+          <h4>{faq.question}</h4>
+        </summary>
+        {faq.answer}
+      </details>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .main {
+    padding: 1em;
+    text-align: center;
+  }
+
+  .main__FaqHeader {
+    margin-top: 0em;
+  }
+
+  .main details {
+    padding: 1em 0em;
+    max-width: 60%;
+    margin: auto;
+  }
+
+  .main summary {
+    outline: none;
+  }
+
+  .main h4 {
+    display: inline;
+  }
+</style>

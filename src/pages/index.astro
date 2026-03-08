@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Announcements from '../components/atom/Announcements.astro';
+import Alerts from '../components/atom/Alerts.astro';
+import Slideshow from '../components/molecule/Slideshow.astro';
+import Cards from '../components/molecule/Card.astro';
+import { getContentful } from '../lib/contentful';
+import { indexIntro, treeImageAlts } from '../lib/constants';
+
+import img5249 from '../assets/slideshow_images/index/IMG_5249.jpg';
+import img0454 from '../assets/slideshow_images/index/IMG_0454.jpg';
+import img5253 from '../assets/slideshow_images/index/IMG_5253.jpg';
+import img5503 from '../assets/slideshow_images/index/IMG_5503.jpg';
+import img5592 from '../assets/slideshow_images/index/IMG_5592.jpg';
+import img7235 from '../assets/slideshow_images/index/IMG_7235.jpg';
+import img7241 from '../assets/slideshow_images/index/IMG_7241.jpg';
+import img7581 from '../assets/slideshow_images/index/IMG_7581.jpg';
+import imgRainbow from '../assets/slideshow_images/index/Rainbow.jpg';
+
+const { alerts, announcements } = await getContentful();
+
+const rawImages = [img5249, img0454, img5253, img5503, img5592, img7235, img7241, img7581, imgRainbow];
+const treeSlides = rawImages.map((src, i) => ({ src, alt: treeImageAlts[i] }));
+---
+
+<Layout pageName="Home">
+  {alerts.length > 0 && <Alerts alerts={alerts} />}
+  <section class="introduction">
+    {indexIntro.map((line) => (
+      <p>{line}</p>
+    ))}
+  </section>
+  {announcements.length > 0 && <Announcements announcements={announcements} />}
+  <Slideshow slides={treeSlides} />
+  <Cards />
+</Layout>
+
+<style>
+  .introduction {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 0 4em;
+  }
+
+  .introduction p {
+    margin: 0;
+    padding: 1em;
+  }
+</style>

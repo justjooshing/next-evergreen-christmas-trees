@@ -1,0 +1,38 @@
+---
+import SlideImage from '../atom/SlideImage.astro';
+import styles from './Slideshow.module.scss';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  slides: Array<{ src: ImageMetadata; alt: string; caption?: string }>;
+}
+
+const { slides } = Astro.props;
+---
+
+<section class={styles.slideshow} data-slideshow>
+  {slides.map((image, i) => (
+    <SlideImage {...image} isVisible={i === 0} loading={i === 0 ? 'eager' : 'lazy'} />
+  ))}
+</section>
+
+<script>
+  function initSlideshows() {
+    document.querySelectorAll<HTMLElement>('[data-slideshow]').forEach((slideshow) => {
+      if (slideshow.dataset.slideshowInit) return;
+      slideshow.dataset.slideshowInit = 'true';
+
+      const slides = slideshow.querySelectorAll<HTMLElement>('div[data-visible]');
+      let current = 0;
+
+      setInterval(() => {
+        slides[current].dataset.visible = 'false';
+        current = (current + 1) % slides.length;
+        slides[current].dataset.visible = 'true';
+      }, 5000);
+    });
+  }
+
+  initSlideshows();
+  document.addEventListener('astro:page-load', initSlideshows);
+</script>

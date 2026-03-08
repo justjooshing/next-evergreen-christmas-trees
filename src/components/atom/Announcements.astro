@@ -1,0 +1,16 @@
+---
+import { marked } from 'marked';
+import styles from './Announcements.module.scss';
+
+interface Props {
+  announcements: Array<{ fields: { announcement: string }; id: string }>;
+}
+
+const { announcements } = Astro.props;
+---
+
+<section class={`${styles.introduction} ${styles.dad_announcement}`}>
+  {announcements.map(({ fields: { announcement }, id }) => (
+    <div set:html={marked.parse(announcement)} />
+  ))}
+</section>

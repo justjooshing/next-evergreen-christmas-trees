@@ -1,0 +1,37 @@
+---
+import styles from './Footer.module.scss';
+
+const today = new Date();
+const christmas = new Date(today.getFullYear(), 11, 25);
+if (today.getMonth() === 11 && today.getDate() > 25) {
+  christmas.setFullYear(christmas.getFullYear() + 1);
+}
+const days = Math.ceil((christmas.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+const fallback = days === 0
+  ? '🦌🦌🦌🦌🦌🛷 Merry Christmas! Today is the day! 🦌🦌🦌🦌🦌🛷'
+  : `🎄It is only ${days} days until Christmas 🎄`;
+---
+
+<footer class={styles.main}>
+  <span id="christmas-countdown">{fallback}</span>
+</footer>
+
+<script>
+  function updateCountdown() {
+    const today = new Date();
+    const christmas = new Date(today.getFullYear(), 11, 25);
+    if (today.getMonth() === 11 && today.getDate() > 25) {
+      christmas.setFullYear(christmas.getFullYear() + 1);
+    }
+    const days = Math.ceil((christmas.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    const el = document.getElementById('christmas-countdown');
+    if (el) {
+      el.textContent = days === 0
+        ? '🦌🦌🦌🦌🦌🛷 Merry Christmas! Today is the day! 🦌🦌🦌🦌🦌🛷'
+        : `🎄It is only ${days} days until Christmas 🎄`;
+    }
+  }
+
+  updateCountdown();
+  document.addEventListener('astro:page-load', updateCountdown);
+</script>

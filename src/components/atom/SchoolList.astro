@@ -1,0 +1,13 @@
+---
+import { schoolList } from '../../lib/constants';
+import style from './SchoolsList.module.scss';
+---
+
+<section class={style.schools}>
+  <h3>Schools and organisations we support:</h3>
+  <ul>
+    {schoolList.map((name) => (
+      <li>{name}</li>
+    ))}
+  </ul>
+</section>

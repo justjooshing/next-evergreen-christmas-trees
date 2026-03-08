@@ -1,0 +1,81 @@
+---
+import styles from './Nav.module.scss';
+import { paths } from '../../lib/constants';
+
+interface Props {
+  pageName: string;
+}
+
+const { pageName } = Astro.props;
+
+const navEntries = Object.entries(paths) as [string, string][];
+---
+
+<!-- Desktop nav -->
+<nav class={styles.nav}>
+  <ul>
+    {navEntries.map(([key, value]) => (
+      <a href={value}>
+        <li class={pageName === key ? styles.selected : undefined}>{key}</li>
+      </a>
+    ))}
+  </ul>
+</nav>
+
+<!-- Hamburger (hidden on desktop via media query in SCSS) -->
+<nav class={styles.hamburger} id="hamburger-btn" role="button" aria-label="Open navigation menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</nav>
+
+<!-- Full-screen mobile menu -->
+<nav class={styles.fsMenu} id="fs-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <button class={styles.closeBtn} id="close-menu-btn" aria-label="Close navigation menu">✕</button>
+  <div class={styles.menuHeader} id="menu-header">Evergreen Christmas Trees</div>
+  <ul>
+    {navEntries.map(([key, value]) => (
+      <a href={value}>
+        <li class={pageName === key ? styles.mobileSelected : undefined}>{key}</li>
+      </a>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  function initNav() {
+    const hamburger = document.getElementById('hamburger-btn');
+    const fsMenu = document.getElementById('fs-menu');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const menuHeader = document.getElementById('menu-header');
+
+    function openMenu() {
+      fsMenu?.setAttribute('data-open', '');
+      hamburger?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      fsMenu?.removeAttribute('data-open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    fsMenu?.addEventListener('click', (e) => {
+      if (e.target === fsMenu || e.target === menuHeader) closeMenu();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+  }
+
+  initNav();
+  document.addEventListener('astro:page-load', () => {
+    document.getElementById('fs-menu')?.removeAttribute('data-open');
+    document.getElementById('hamburger-btn')?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    initNav();
+  });
+</script>

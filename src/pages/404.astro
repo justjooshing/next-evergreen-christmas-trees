@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout pageName="404 - Not Found">
+  <div class="introduction">
+    <h2>You're lost!</h2>
+    <h4>You've taken a wrong turn in the Enchanted Forest</h4>
+    <p>404 - Page not found</p>
+    <img
+      src="/404.jpg"
+      alt="Red flag amongst christmas trees"
+      height={760}
+      width={500}
+    />
+    <a href="/">
+      <button class="button">Go back home</button>
+    </a>
+  </div>
+</Layout>
+
+<style>
+  .introduction {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 0 4em;
+  }
+
+  .button {
+    display: block;
+    font-size: 1.2em;
+    left: 0;
+    right: 0;
+    margin: 1em auto;
+    color: white;
+    background-color: var(--header-text-color);
+    border-radius: 10px;
+    border-color: white;
+    outline: none;
+  }
+</style>

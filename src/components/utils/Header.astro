@@ -1,0 +1,28 @@
+---
+import styles from './Header.module.scss';
+import Nav from './Nav.astro';
+
+interface Props {
+  pageName: string;
+}
+
+const { pageName } = Astro.props;
+---
+
+<header class={styles.main}>
+  <!-- Logo and H1 -->
+  <div class={styles.title_wrapper}>
+    <h1 class={styles.title}>
+      <a href="/">Evergreen Christmas Trees</a>
+    </h1>
+    <div class={styles.image}>
+      <img
+        src="/logos/logo.png"
+        alt="Christmas Tree"
+        height={70}
+        width={47}
+      />
+    </div>
+  </div>
+  <Nav pageName={pageName} />
+</header>

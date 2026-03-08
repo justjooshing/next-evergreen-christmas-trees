@@ -1,0 +1,27 @@
+---
+import style from './SocialMediaIcons.module.scss';
+
+const icons = [
+  {
+    href: "https://www.instagram.com/evergreen_christmas_trees/",
+    src: "/logos/instalogo.png",
+    name: "Instagram",
+  },
+  {
+    href: "https://www.messenger.com/t/evergreenchrissytrees",
+    src: "/logos/messengerLogo.png",
+    name: "Messenger",
+  },
+  {
+    href: "https://www.facebook.com/evergreenchrissytrees/",
+    src: "/logos/fbLogo.png",
+    name: "Facebook",
+  },
+];
+---
+
+{icons.map(({ href, src, name }) => (
+  <a href={href} target="_blank" rel="noreferrer">
+    <img src={src} alt={`${name} logo`} class={style.logo} />
+  </a>
+))}

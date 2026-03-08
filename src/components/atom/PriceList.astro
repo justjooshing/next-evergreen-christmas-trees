@@ -1,0 +1,29 @@
+---
+import { convertToFeet } from '../../lib/helpers';
+import styles from './PriceList.module.scss';
+
+interface Props {
+  prices: Array<{ height: number; price: number }>;
+}
+
+const { prices } = Astro.props;
+
+const unitMap = (val: number, unit: string): string =>
+  unit === 'ft' ? convertToFeet(val) : `${val}m`;
+
+const heightRange = (height: number, unit: string, i: number): string =>
+  (i === 0 ? 'Up' : `${unitMap(height - 0.25, unit)}`) +
+  ` to ${unitMap(height, unit)}`;
+---
+
+<ol class={styles.list}>
+  {prices.map(({ height, price }, i) => (
+    <li class={styles.item}>
+      <div class={styles.heights}>
+        <span>{heightRange(height, 'm', i)}:</span>
+        <small class={styles.feet}>{heightRange(height, 'ft', i)}</small>
+      </div>
+      <span>${price}</span>
+    </li>
+  ))}
+</ol>
