@@ -7,6 +7,9 @@ const compat = new FlatCompat({
 });
 
 const config = [
+  {
+    ignores: [".next/**", "node_modules/**"],
+  },
   ...compat.config({
     extends: ["eslint:recommended", "next", "next/core-web-vitals"],
   }),
@@ -17,6 +20,7 @@ const config = [
       },
     },
     rules: {
+      "linebreak-style": ["error", "unix"],
       "react/display-name": 0,
       "@next/next/no-img-element": 0,
       "import/no-unresolved": 2,
@@ -31,7 +35,6 @@ const config = [
       "import/no-useless-path-segments": ["warn", { noUselessIndex: true }],
       "import/no-unassigned-import": 2,
     },
-    ignores: [".next/", "node_modules/"],
   },
 ];
 

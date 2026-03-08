@@ -1,11 +1,11 @@
 import Head from "next/head";
 import * as React from "react";
 import { useContext } from "react";
+import { useRouter } from "next/router";
 
 import { metaTags } from "../../../constants";
 import { schema } from "../../../constants/headerData";
 import { AppContext } from "../../../context/app";
-import { useRouter } from "next/router";
 import { server } from "../../../config";
 
 export const CustomHead = () => {
