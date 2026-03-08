@@ -8,16 +8,15 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
 # astro
 /dist/
 /.astro/
+
+# yarn
+.yarn/install-state.gz
+
+# next.js (leftover)
+/.next/
 
 # misc
 .DS_Store

@@ -22,5 +22,6 @@
     "eslint": "9.33.0",
     "schema-dts": "^1.1.2",
     "typescript": "4.8.4"
-  }
+  },
+  "packageManager": "yarn@4.13.0"
 }
