@@ -14,7 +14,7 @@
     "astro": "^5.0.0",
     "contentful": "^10.8.10",
     "marked": "^14.0.0",
-    "sass": "^1.75.0"
+    "sass": "^1.97.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
