@@ -20,7 +20,7 @@
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
     "eslint": "10.0.3",
-    "schema-dts": "^1.1.2",
+    "schema-dts": "^2.0.0",
     "typescript": "5.9.3"
   },
   "packageManager": "yarn@4.13.0"
