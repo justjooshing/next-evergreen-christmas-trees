@@ -3235,12 +3235,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^14.0.0":
-  version: 14.1.4
-  resolution: "marked@npm:14.1.4"
+"marked@npm:^17.0.5":
+  version: 17.0.5
+  resolution: "marked@npm:17.0.5"
   bin:
     marked: bin/marked.js
-  checksum: 10c0/7ccc4c9b58d430b68eb878133fc284235ef3022b1a465345d2464712bf7d47507203b54639826839b6cb8d8847cf46f2e382588b9e1fc1d98b657520e16bfa62
+  checksum: 10c0/a044c59cfa14662fefa37bc840200c1f0899214fb677da779112284d49cd5b277806f9a28398195b2031b1e2c80d8daef218e8ad588d7bfa9bc8041cac777ee6
   languageName: node
   linkType: hard
 
@@ -3929,7 +3929,7 @@ __metadata:
     astro: "npm:^6.1.1"
     contentful: "npm:^10.8.10"
     eslint: "npm:10.0.3"
-    marked: "npm:^14.0.0"
+    marked: "npm:^17.0.5"
     sass: "npm:^1.98.0"
     schema-dts: "npm:^1.1.2"
     typescript: "npm:5.9.3"
