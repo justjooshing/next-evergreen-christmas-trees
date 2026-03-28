@@ -5,7 +5,7 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@astrojs/compiler@npm:^3.0.0":
+"@astrojs/compiler@npm:^3.0.1":
   version: 3.0.1
   resolution: "@astrojs/compiler@npm:3.0.1"
   checksum: 10c0/f2ec194a6c0b18044cf77b9bc3ff48f972d3c017dbdd9f8d4512fe7b0c1abcd2996cb4b8378831f0432f7a4289248235a082b95f90a1d0c7ca7e6a5c24fe6779
@@ -21,9 +21,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:7.0.1":
-  version: 7.0.1
-  resolution: "@astrojs/markdown-remark@npm:7.0.1"
+"@astrojs/markdown-remark@npm:7.1.0":
+  version: 7.1.0
+  resolution: "@astrojs/markdown-remark@npm:7.1.0"
   dependencies:
     "@astrojs/internal-helpers": "npm:0.8.0"
     "@astrojs/prism": "npm:4.0.1"
@@ -38,6 +38,7 @@ __metadata:
     remark-parse: "npm:^11.0.0"
     remark-rehype: "npm:^11.1.2"
     remark-smartypants: "npm:^3.0.2"
+    retext-smartypants: "npm:^6.2.0"
     shiki: "npm:^4.0.0"
     smol-toml: "npm:^1.6.0"
     unified: "npm:^11.0.5"
@@ -45,7 +46,7 @@ __metadata:
     unist-util-visit: "npm:^5.1.0"
     unist-util-visit-parents: "npm:^6.0.2"
     vfile: "npm:^6.0.3"
-  checksum: 10c0/5e6c56e2f6f1d0efa51a1b86293d77d90d2ca987a23b643a2aec4974f70b9f4e8ea48ddb171f1b2af687d2fcc61641ea1e34ee3e9b3050d0409630e56f95f7dc
+  checksum: 10c0/8c27865a3d522326731d81a23d98fa714a73b81b384d482bfcb946e9fa07f80d04a9b22b210d2dfbcfc605a559d4fc9eb13522be6b8ffa077151a4c704d0516f
   languageName: node
   linkType: hard
 
@@ -137,7 +138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@clack/prompts@npm:^1.0.1":
+"@clack/prompts@npm:^1.1.0":
   version: 1.1.0
   resolution: "@clack/prompts@npm:1.1.0"
   dependencies:
@@ -1566,16 +1567,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^6.0.8":
-  version: 6.0.8
-  resolution: "astro@npm:6.0.8"
+"astro@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "astro@npm:6.1.1"
   dependencies:
-    "@astrojs/compiler": "npm:^3.0.0"
+    "@astrojs/compiler": "npm:^3.0.1"
     "@astrojs/internal-helpers": "npm:0.8.0"
-    "@astrojs/markdown-remark": "npm:7.0.1"
+    "@astrojs/markdown-remark": "npm:7.1.0"
     "@astrojs/telemetry": "npm:3.3.0"
     "@capsizecss/unpack": "npm:^4.0.0"
-    "@clack/prompts": "npm:^1.0.1"
+    "@clack/prompts": "npm:^1.1.0"
     "@oslojs/encoding": "npm:^1.1.0"
     "@rollup/pluginutils": "npm:^5.3.0"
     aria-query: "npm:^5.3.2"
@@ -1609,11 +1610,11 @@ __metadata:
     rehype: "npm:^13.0.2"
     semver: "npm:^7.7.4"
     sharp: "npm:^0.34.0"
-    shiki: "npm:^4.0.0"
+    shiki: "npm:^4.0.2"
     smol-toml: "npm:^1.6.0"
-    svgo: "npm:^4.0.0"
-    tinyclip: "npm:^0.1.6"
-    tinyexec: "npm:^1.0.2"
+    svgo: "npm:^4.0.1"
+    tinyclip: "npm:^0.1.12"
+    tinyexec: "npm:^1.0.4"
     tinyglobby: "npm:^0.2.15"
     tsconfck: "npm:^3.1.6"
     ultrahtml: "npm:^1.6.0"
@@ -1631,7 +1632,7 @@ __metadata:
       optional: true
   bin:
     astro: bin/astro.mjs
-  checksum: 10c0/f03844c0ac4dbf506a36fabd3211b81262a2d620ceb6f5150012bd1bc80202fe015b2ce55e1efc377ad6887e0a8dad22ebd019eb6d051a6c4955fdf11cfc7776
+  checksum: 10c0/7fe171f816face6fae1505486e443db73bb6c8932787c7c61cd6a7ccad30b01db63f457eb603daf0bb989a41a99bf3d4a9bcc4345f2cac5a4c94b0575eca6196
   languageName: node
   linkType: hard
 
@@ -3925,7 +3926,7 @@ __metadata:
     "@astrojs/sitemap": "npm:^3.7.1"
     "@eslint/eslintrc": "npm:^3.3.5"
     "@eslint/js": "npm:^10.0.1"
-    astro: "npm:^6.0.8"
+    astro: "npm:^6.1.1"
     contentful: "npm:^10.8.10"
     eslint: "npm:10.0.3"
     marked: "npm:^14.0.0"
@@ -4460,7 +4461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"retext-smartypants@npm:^6.0.0":
+"retext-smartypants@npm:^6.0.0, retext-smartypants@npm:^6.2.0":
   version: 6.2.0
   resolution: "retext-smartypants@npm:6.2.0"
   dependencies:
@@ -4750,7 +4751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^4.0.0":
+"shiki@npm:^4.0.0, shiki@npm:^4.0.2":
   version: 4.0.2
   resolution: "shiki@npm:4.0.2"
   dependencies:
@@ -4887,7 +4888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^4.0.0":
+"svgo@npm:^4.0.1":
   version: 4.0.1
   resolution: "svgo@npm:4.0.1"
   dependencies:
@@ -4924,17 +4925,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinyclip@npm:^0.1.6":
+"tinyclip@npm:^0.1.12":
   version: 0.1.12
   resolution: "tinyclip@npm:0.1.12"
   checksum: 10c0/5319ca4d430cc7cafe9624b86ba331467e0f6c718b2a961e3fc2a48bff932a319b1aaf8bd7f8edb70f4bef24e233e442e4fc9ffa77c994bace415324e0bc86cf
   languageName: node
   linkType: hard
 
-"tinyexec@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "tinyexec@npm:1.0.2"
-  checksum: 10c0/1261a8e34c9b539a9aae3b7f0bb5372045ff28ee1eba035a2a059e532198fe1a182ec61ac60fa0b4a4129f0c4c4b1d2d57355b5cb9aa2d17ac9454ecace502ee
+"tinyexec@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "tinyexec@npm:1.0.4"
+  checksum: 10c0/d4a5bbcf6bdb23527a4b74c4aa566f41432167112fe76f420ec7e3a90a3ecfd3a7d944383e2719fc3987b69400f7b928daf08700d145fb527c2e80ec01e198bd
   languageName: node
   linkType: hard
 
