@@ -1,5 +1,4 @@
-import contentful from "contentful";
-const { createClient } = contentful;
+import { createClient } from "contentful";
 
 export const getContentful = async () => {
   const accessToken = import.meta.env.DEV
