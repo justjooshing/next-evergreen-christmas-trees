@@ -13,7 +13,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.4.2",
     "contentful": "^10.15.1",
-    "marked": "^17.0.5",
+    "marked": "^18.1.1",
     "sass": "^1.106.1"
   },
   "devDependencies": {
