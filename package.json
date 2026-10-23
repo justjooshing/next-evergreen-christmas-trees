@@ -10,9 +10,9 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.1.5",
-    "contentful": "^10.8.10",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.2",
+    "contentful": "^10.15.1",
     "marked": "^17.0.5",
     "sass": "^1.99.0"
   },
@@ -22,6 +22,9 @@
     "eslint": "10.2.0",
     "schema-dts": "^2.0.0",
     "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "packageManager": "yarn@4.13.0"
 }
